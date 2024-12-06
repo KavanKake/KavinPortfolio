@@ -14,19 +14,19 @@
         <div class="btns">
         
             <a class="button" href="https://github.com/KavanKake">
-                <img class="logo" src=/assets/github_black.png alt="button" />
+                <img class="logo" src=/assets/githubblack.png alt="button" />
             </a>
         
             <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
-                <img class="logo" src=/assets/instagram_logo.png alt="button" />
+                <img class="logo" src=/assets/instablack.png alt="button" />
             </a>
         
             <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
-                <img class="logo" src=/assets/facebook_logo.png alt="button" />
+                <img class="logo" src=/assets/faceblack.png alt="button" />
             </a>
         
             <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
-                <img class="logo" src=/assets/linkedin_black.png alt="button" />
+                <img class="logo" src=/assets/linkedinblack.png alt="button" />
             </a>
         
         </div>
@@ -34,7 +34,7 @@
     
     
     <div class="section_2">
-        <img class="frontpage_picture" src=/assets/Homepage_farge_transparent.png alt="">
+        <img class="frontpage_picture" src=/assets/homepagebilde.png alt="">
     </div>
     
     

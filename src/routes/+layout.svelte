@@ -10,7 +10,7 @@
 <nav>
 
     
-    <img class= "logo-navbar" src=/assets/Logo_portfolio.png alt="logo"/>
+    <img class= "logo-navbar" src=/assets/logo.png alt="logo"/>
     <ul class="links">
         <li class="knapper">
             <a href="/">Home</a>
