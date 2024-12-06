@@ -16,19 +16,19 @@
         <div class="btns">
         
             <a class="button" href="https://github.com/KavanKake">
-                <img class="logo" src=/assets/github_white.png alt="button" />
+                <img class="logo" src=/assets/githubwhite.png alt="button" />
             </a>
         
             <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
-                <img class="logo" src=/assets/instagram_white.png alt="button" />
+                <img class="logo" src=/assets/instawhite.png alt="button" />
             </a>
         
             <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
-                <img class="logo" src=/assets/face_white.png alt="button" />
+                <img class="logo" src=/assets/facewhite.png alt="button" />
             </a>
         
             <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
-                <img class="logo" src=/assets/Linkedin_white.png alt="button" />
+                <img class="logo" src=/assets/linkedinwhite.png alt="button" />
             </a>
         
         </div>
