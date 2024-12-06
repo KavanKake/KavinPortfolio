@@ -1,6 +1,5 @@
 <script>
 
-    import email from "$lib/assets/mail.png";
     import Footer from "$lib/Components/Footer.svelte";
     </script>
     
@@ -15,7 +14,7 @@
             <h3>Or send a mail to the e-mail down below</h3>
     
             <div class="email">
-                <img class="mail_logo"src="{email}" alt="E-mail">
+                <img class="mail_logo"src="/assets/mail.png" alt="E-mail">
                 <h3>contact@kavinlokeswaran.no</h3>
             </div>
     

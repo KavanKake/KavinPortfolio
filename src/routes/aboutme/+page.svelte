@@ -1,6 +1,5 @@
 <script>
     import Footer from "../../lib/Components/Footer.svelte"
-    import picture from "$lib/assets/aboutme.jpg"
 </script>
 
 
@@ -10,7 +9,7 @@
 <div class="aboutme">
     <div class="section_1">
         <div class="conteiner">
-            <img src="{picture}" alt="Kavin Lokeswaran">
+            <img src="assets/aboutme.jpg" alt="Kavin Lokeswaran">
         </div>
 
     </div>

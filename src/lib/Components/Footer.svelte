@@ -1,13 +1,4 @@
 <script>
-    import github_white from "$lib/assets/github_white.png";
-    import github_black from "$lib/assets/github_black.png";
-    import insta_black from "$lib/assets/instagram_logo.png";
-    import insta_white from "$lib/assets/instagram_white.png";
-    import face from "$lib/assets/facebook_logo.png";  
-    import linkedin_black from "$lib/assets/linkedin_black.png"; 
-    import homepage_picture from "$lib/assets/Homepage_farge_transparent.png";
-    import face_white from "$lib/assets/face_white.png";
-    import linkedin_white from "$lib/assets/Linkedin_white.png";
 </script>
 
 
@@ -25,19 +16,19 @@
         <div class="btns">
         
             <a class="button" href="https://github.com/KavanKake">
-                <img class="logo" src={github_white} alt="button" />
+                <img class="logo" src=/assets/github_white.png alt="button" />
             </a>
         
             <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
-                <img class="logo" src={insta_white} alt="button" />
+                <img class="logo" src=/assets/instagram_white.png alt="button" />
             </a>
         
             <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
-                <img class="logo" src={face_white} alt="button" />
+                <img class="logo" src=/assets/face_white.png alt="button" />
             </a>
         
             <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
-                <img class="logo" src={linkedin_white} alt="button" />
+                <img class="logo" src=/assets/Linkedin_white.png alt="button" />
             </a>
         
         </div>

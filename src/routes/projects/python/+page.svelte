@@ -1,7 +1,6 @@
 <script>
     import Footer from "$lib/Components/Footer.svelte";
 
-    import goback from "$lib/assets/Goback.png";
 </script>
 
 
@@ -13,7 +12,7 @@
             <h1>Python</h1>
         </div>
         <div class="backbutton">
-                <img src="{goback}" class="goback_logo" alt="Go back">
+                <img src="/assets/Goback.png" class="goback_logo" alt="Go back">
                 <a class="goback" href="/projects"> Go Back</a>
         </div>
     </div>

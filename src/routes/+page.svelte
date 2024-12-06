@@ -1,11 +1,4 @@
 <script>
-    import github_white from "$lib/assets/github_white.png";
-    import github_black from "$lib/assets/github_black.png";
-    import insta_black from "$lib/assets/instagram_logo.png";
-    import insta_white from "$lib/assets/instagram_white.png";
-    import face from "$lib/assets/facebook_logo.png";  
-    import linkedin_black from "$lib/assets/linkedin_black.png"; 
-    import homepage_picture from "$lib/assets/Homepage_farge_transparent.png";
     import Footer from "$lib/Components/Footer.svelte";
 </script>
 
@@ -21,19 +14,19 @@
         <div class="btns">
         
             <a class="button" href="https://github.com/KavanKake">
-                <img class="logo" src={github_black} alt="button" />
+                <img class="logo" src=/assets/github_black.png alt="button" />
             </a>
         
             <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
-                <img class="logo" src={insta_black} alt="button" />
+                <img class="logo" src=/assets/instagram_logo.png alt="button" />
             </a>
         
             <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
-                <img class="logo" src={face} alt="button" />
+                <img class="logo" src=/assets/facebook_logo.png alt="button" />
             </a>
         
             <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
-                <img class="logo" src={linkedin_black} alt="button" />
+                <img class="logo" src=/assets/linkedin_black.png alt="button" />
             </a>
         
         </div>
@@ -41,7 +34,7 @@
     
     
     <div class="section_2">
-        <img class="frontpage_picture" src={homepage_picture} alt="">
+        <img class="frontpage_picture" src=/assets/Homepage_farge_transparent.png alt="">
     </div>
     
     

@@ -1,5 +1,5 @@
 <script>
-    import img from "$lib/assets/Logo_portfolio.png";
+
 
     import { Hamburger } from 'svelte-hamburgers';
     import { fly } from 'svelte/transition';
@@ -11,7 +11,7 @@
 <nav>
 
     
-    <img class= "logo-navbar" src={img} alt="logo"/>
+    <img class= "logo-navbar" src=/assets/Logo_portfolio.png alt="logo"/>
     <ul class="links">
         <li class="knapper">
             <a href="/">Home</a>
