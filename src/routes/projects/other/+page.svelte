@@ -100,7 +100,7 @@
     height: fit-content;
 } */
 
-button{
+/* button{
     text-decoration: none;
     list-style: none;
     background: transparent;
@@ -112,7 +112,7 @@ button{
 button:hover{
     transform: scale(1.1);
     transition: 0.5s;
-}
+} */
 
 .projects{
     display: flex;
