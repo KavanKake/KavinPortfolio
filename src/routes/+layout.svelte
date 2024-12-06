@@ -39,8 +39,8 @@
         <ul id="nav" class="menu" transition:fly={{y: -15 }}>
             <li><a href="/">Home</a></li>
             <li><a href="/projects">projects</a></li>
-            <!-- <li><a href="/extrapages">Extra pages</a></li> -->
-            <li><a class = "contactme" href="/contactme">Contactme</a></li>
+            <li><a href="/Aboutme">About me</a></li>
+            <li><a class = "contactme" href="/Contactme">Contactme</a></li>
         </ul>
     {/if}
     </div>
