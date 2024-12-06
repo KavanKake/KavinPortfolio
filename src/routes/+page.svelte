@@ -55,7 +55,7 @@
     }
 
     .space {
-        height: 7.5em;
+        height: 1em;
     }
 
     .section_1{
