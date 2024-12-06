@@ -65,6 +65,7 @@
         border-bottom: 2px solid #024D98; 
         box-shadow: 0px 0px 10px #024D98;
         background-color: white;
+        z-index: 100;
 
     }
 

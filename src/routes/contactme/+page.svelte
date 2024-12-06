@@ -99,7 +99,7 @@
             margin-top: 2em;
             margin-right: 5em;
             margin-bottom: 2em;
-            z-index: -1;
+            z-index: 0;
             height: fit-content;
             width: 35em;
             scale: 0.9;
