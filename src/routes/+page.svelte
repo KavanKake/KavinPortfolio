@@ -5,7 +5,7 @@
     import insta_white from "$lib/assets/instagram_white.png";
     import face from "$lib/assets/facebook_logo.png";  
     import linkedin_black from "$lib/assets/linkedin_black.png"; 
-    import homepage_picture from "$lib/assets/homepage_farge_transparent.png";
+    import homepage_picture from "$lib/assets/Homepage_farge_transparent.png";
     import Footer from "$lib/Components/Footer.svelte";
 </script>
 
