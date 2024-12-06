@@ -1,6 +1,5 @@
 <script>
 
-
     import { Hamburger } from 'svelte-hamburgers';
     import { fly } from 'svelte/transition';
 
