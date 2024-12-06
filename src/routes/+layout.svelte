@@ -19,10 +19,10 @@
             <a href="/projects">Projects</a>
         </li>
         <li class="knapper">
-            <a href="/aboutme">About me</a>
+            <a href="/Aboutme">About me</a>
         </li>
         <li class="blå_knapp">
-            <a class = "contactme" href="/contactme">Contact me</a>
+            <a class = "contactme" href="/Contactme">Contact me</a>
         </li>
     </ul>  
 
