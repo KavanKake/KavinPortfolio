@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: '/KavinPortfolio'
+          BASE_PATH: '/KAVINPORTFOLIO'
         run: |
           npm run build
           touch build/.nojekyll
