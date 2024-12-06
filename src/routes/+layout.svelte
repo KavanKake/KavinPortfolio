@@ -1,5 +1,5 @@
 <script>
-    import img from "$lib/assets/logo_portfolio.png";
+    import img from "$lib/assets/Logo_portfolio.png";
 
     import { Hamburger } from 'svelte-hamburgers';
     import { fly } from 'svelte/transition';
