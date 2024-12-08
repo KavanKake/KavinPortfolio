@@ -22,7 +22,7 @@
     
         <div class="section_2">
             <h1 class="contactform">Contact form</h1>
-            <form method="POST" action="https://formsubmit.co/Kavin_Lokeswaran1407@outlook.com">
+            <form method="POST" action="https://formsubmit.co/contact@kavinlokeswaran.no">
                 <h3 class="name">Your name</h3>
                 <input name="Name" type="text" class="placeholder" placeholder="Enter your name" required>
                 <h3 class="name">Your e-mail</h3>
