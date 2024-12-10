@@ -51,5 +51,5 @@ Reach out via the contact form for inquiries or collaborations.
 
 ## Contact
 Feel free to reach out to me through:
-Email: contact@kavinlokeswaran.no
-Github: github.com/kavankake
+- **Email**: contact@kavinlokeswaran.no
+- **Github**: github.com/kavankake
