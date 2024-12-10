@@ -1,58 +1,55 @@
-# create-svelte
+# Portfolio Website
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Welcome to my portfolio website! This project is designed to showcase my skills, experience, and projects. It serves as a personal space to demonstrate my passion and contributions.
 
-Read more about creating a library [in the docs](https://svelte.dev/docs/kit/packaging).
+## Table of Contents
 
-## Creating a project
+- [Features](#features)  
+- [Installation](#installation)  
+- [Technologies](#technologies)  
+- [Usage](#usage)  
+- [Contact](#contact)  
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features  
 
-```bash
-# create a new project in the current directory
-npx sv create
+- **Responsive Design**: Optimized for both desktop and mobile devices.  
+- **Portfolio**: A curated selection of my past projects with descriptions and links.  
+- **About Me**: Learn more about my background, skills, and interests.  
+- **Contact Form**: Easily get in touch with me.  
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Installation  
 
-## Developing
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/username/portfolio-website.git
+    ````
+2. Navigate to the project directory: 
+    ```bash
+    cd portfolio-website
+    ````
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+3. Install dependencies:
+    ```bash
+    npm install
+    ````
 
-```bash
-npm run dev
+4. Start the development server:
+    ```bash
+    npm run start
+    ````
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## Technologies  
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+- **HTML5 & CSS3**: For structure and styling.
+- **JavaScript**: To add interactivity.
+- **Node.js**: For backend functionality.
 
-## Building
+## Usage
+Visit the live website at kavinlokeswaran.no.
+Browse through my projects and explore my skills.
+Reach out via the contact form for inquiries or collaborations.
 
-To build your library:
-
-```bash
-npm run package
-```
-
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+## Contact
+Feel free to reach out to me through:
+Email: contact@kavinlokeswaran.no
+Github: github.com/kavankake
