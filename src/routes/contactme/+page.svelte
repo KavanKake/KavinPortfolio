@@ -35,24 +35,8 @@
             </form>
         </div>
     
-            
-    
-    
-    
-    
-    
-    
     </div>
     <Footer/>
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     <style>
@@ -63,16 +47,22 @@
         .spacer{
             height: 7.5em;
         }
+
+        :global(body.dark-mode) .spacer {
+            background-color: black;
+        }
     
         .frontpage {
             display: flex;
             flex-direction: row;
             gap: 10em;
-            margin-left: 2em;
             overflow-x: hidden;
             overflow-y: none;
             font-family: coolvetica;
-    
+        }
+
+        :global(body.dark-mode) .frontpage {
+            background-color: black;
         }
     
         .section_1 {
@@ -176,12 +166,25 @@
             height: auto;
             margin-right: 0.5em;
         }
+
+        :global(body.dark-mode) .mail_logo {
+            filter: invert(1);
+        }
     
         h3 {
             color: black;
-            
-    
         } 
+
+        :global(body.dark-mode) h3 {
+            color: white;
+        }
+
+        h1 {
+            color: black;
+        }
+        :global(body.dark-mode) h1 {
+            color: white;
+        }
     
         .email {
             display: flex;

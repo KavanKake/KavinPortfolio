@@ -3,13 +3,14 @@
 </script>
 
 
+
 <div class="spacer"></div>
 
 <div class="projectspage">
     <div class="overskrift">
         <h1>My projects</h1>
     </div>
-    <div class="mini_spacer"></div>
+    <div class="mini_spacer1"></div>
     <div class="projects">
         <div class="Python">
             <button>
@@ -30,8 +31,8 @@
         </div>
     </div>
 
+    <div class="mini_spacer"></div>
 </div>
-
 
 
 
@@ -39,22 +40,38 @@
 
 <Footer/>
 <style>
+
 .spacer{
+    height: 10em;
+}
+
+:global(body.dark-mode) .spacer {
+    background-color: black;
+}
+
+
+.mini_spacer{
     height: 5em;
 }
 
-.mini_spacer{
-    height: 2.5em;
+.mini_spacer1{
+    height: 2em;
+}
+
+:global(body.dark-mode) .mini_spacer {
+    background-color: black;
 }
 
 .projectspage{
     display: flex;
-    flex-direction: column;
-    margin-left: 2em;
+    flex-direction: column; 
     font-family: coolvetica;
-    margin-top: 5em;
-    margin-bottom: 5em;
+    padding-left: 2.5em; 
+    margin: 0;
+}
 
+:global(body.dark-mode) .projectspage {
+    background-color: black;
 }
 
 .overskrift{
@@ -62,6 +79,10 @@
     flex-direction: column;
     font-size: 2.5em;
     font-family: "industry-inc-stencil", sans-serif;
+}
+
+:global(body.dark-mode) .overskrift {
+    color: white;
 }
 
 
@@ -72,6 +93,10 @@ button{
     border: #024D98 3px solid;
     border-radius: 10px;  
     padding: 0.5em;  
+}
+
+:global(body.dark-mode) button {
+    border: white 3px solid;
 }
 
 button:hover{
@@ -98,6 +123,10 @@ a{
     padding: 20px;
     letter-spacing: 0.1em;
     width: fit-content;
+}
+
+:global(body.dark-mode) a {
+    color: white;
 }
 
 a:hover{

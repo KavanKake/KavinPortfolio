@@ -34,8 +34,6 @@
         </div>
 
 
-
-
         <div class="copyright">
             <h1>Copyright © Kavin Lokeswaran</h1>
             <h1>2024</h1>
@@ -65,6 +63,12 @@
         font-family: coolvetica;
         position: relative;
         width: 100%;
+    }
+
+    :global(body.dark-mode) .footer {
+        background-color: black;
+        border-bottom: white;
+        box-shadow: 0px 0px 10px white;
     }
 
     .section1{

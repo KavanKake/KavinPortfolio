@@ -43,14 +43,26 @@
         height: 10em;
     }
 
+    :global(body.dark-mode) .spacer {
+        background-color: black;
+    }
+
     .mini_spacer{
         height: 5.5em;
+    }
+
+    :global(body.dark-mode) .mini_spacer {
+        background-color: black;
     }
 
     .aboutme{
         display: flex;
         flex-direction: row;
         gap: 7.5em;
+    }
+
+    :global(body.dark-mode) .aboutme {
+        background-color: black;
     }
 
     .section_1{
@@ -64,7 +76,7 @@
         width: auto;
         height:35em;
         border: 3px solid #024D98;
-        z-index: -1;
+        z-index: 0;
     }
 
     .overskrift{
@@ -73,6 +85,10 @@
         text-align: left;
         font-size: 2.5em;
         font-family: "industry-inc-stencil", sans-serif;
+    }
+
+    :global(body.dark-mode) .overskrift {
+        color: white;
     }
 
     .underoverskrift{
@@ -91,6 +107,10 @@
         font-size: 1.5em;
         width: 30em;
         font-family: coolvetica;
+    }
+
+    :global(body.dark-mode) .tekst {
+        color: white;
     }
 
     h1{

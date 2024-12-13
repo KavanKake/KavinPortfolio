@@ -48,22 +48,38 @@
     height: 5em;
 }
 
+:global(body.dark-mode) .spacer {
+    background-color: black;
+}
+
 .mini_spacer{
     height: 2em;
+}
+
+:global(body.dark-mode) .mini_spacer {
+    background-color: black;
 }
 
 .mini_spacer1{
     height: 4.5em;
 }
 
+:global(body.dark-mode) .mini_spacer1 {
+    background-color: black;
+}
+
 .projectspage{
     display: flex;
     flex-direction: column;
-    margin-left: 2em;
+    padding-left: 1em;
+    padding-right: 1em;
     font-family: coolvetica;
-    margin-top: 5em;
-    margin-bottom: 5em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
 
+:global(body.dark-mode) .projectspage {
+    background-color: black;
 }
 
 .overskrift{
@@ -75,6 +91,10 @@
     gap: 1em;
 }
 
+:global(body.dark-mode) .overskrift {
+    color: white;
+}
+
 .tekst{
     display: flex;
     flex-direction: row;
@@ -83,10 +103,17 @@
     align-items: center;
     gap: 1em;
 }
+:global(body.dark-mode) .tekst {
+    color: white;
+}
 
 .goback{
     height: 2em;
     width: auto;
+}
+
+:global(body.dark-mode) .goback {
+    filter: invert(1);
 }
 
 .backbutton{
@@ -97,6 +124,10 @@
 
 .undertext{
     height: fit-content;
+}
+
+:global(body.dark-mode) .undertext {
+    color: white;
 }
 
 button{
@@ -148,6 +179,10 @@ a{
     width: fit-content;
 }
 
+:global(body.dark-mode) a {
+    color: white;
+}
+
 a:hover{
     color: #024D98;
     text-decoration: underline;
@@ -173,9 +208,6 @@ h1{
         gap: 0.5em;
     }
 
-    .projectspage{
-        margin-left: 0.5em;
-    }
 
 }
 </style>

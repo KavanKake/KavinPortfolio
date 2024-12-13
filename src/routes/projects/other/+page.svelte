@@ -41,12 +41,17 @@
 
 
 <div class="mini_spacer1"></div>
+<div class="mini_spacer1"></div>
 
 
 <Footer/>
 <style>
 .spacer{
     height: 5em;
+}
+
+:global(body.dark-mode) .spacer {
+    background-color: black;
 }
 
 .mini_spacer{
@@ -57,14 +62,20 @@
     height: 4.5em;
 }
 
+:global(body.dark-mode) .mini_spacer1 {
+    background-color: black;
+}
 .projectspage{
     display: flex;
     flex-direction: column;
-    margin-left: 2em;
+    padding-left: 2em;
     font-family: coolvetica;
-    margin-top: 5em;
-    margin-bottom: 5em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
 
+:global(body.dark-mode) .projectspage {
+    background-color: black;
 }
 
 .overskrift{
@@ -74,6 +85,10 @@
     font-family: "industry-inc-stencil", sans-serif;
     align-items: center;
     gap: 1em;
+}
+
+:global(body.dark-mode) .overskrift {
+    color: white;
 }
 
 .tekst{
@@ -88,6 +103,10 @@
 .goback{
     height: 2em;
     width: auto;
+}
+
+:global(body.dark-mode) .goback {
+    filter: invert(1);
 }
 
 .backbutton{
@@ -149,6 +168,10 @@ a{
     width: fit-content;
 }
 
+:global(body.dark-mode) a {
+    color: white;
+}
+
 a:hover{
     color: #024D98;
     text-decoration: underline;
@@ -156,7 +179,15 @@ a:hover{
 
 h1{
     margin: 0;
-}    
+}   
+
+h2{
+    margin: 0;
+}
+
+:global(body.dark-mode) h2 {
+    color: white;
+}
 
 @media (max-width: 480px) {
     .tekst{
@@ -172,10 +203,6 @@ h1{
     .projects{
         flex-direction: column;
         gap: 0.5em;
-    }
-
-    .projectspage{
-        margin-left: 0.5em;
     }
 
 }

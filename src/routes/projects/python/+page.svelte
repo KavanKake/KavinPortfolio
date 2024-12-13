@@ -12,7 +12,7 @@
             <h1>Python</h1>
         </div>
         <div class="backbutton">
-                <img src="/assets/Goback.png" class="goback_logo" alt="Go back">
+                <img  src="/assets/Goback.png" class="goback_logo" alt="Go back">
                 <a class="goback" href="/projects"> Go Back</a>
         </div>
     </div>
@@ -42,23 +42,36 @@
 <Footer/>
 <style>
 .spacer{
-    height: 5em;
+    height: 10em;
+}
+
+:global(body.dark-mode) .spacer {
+    background-color: black;
 }
 
 .mini_spacer{
     height: 2.5em;
+    width: 100%;
+}
+
+:global(body.dark-mode) .mini_spacer {
+    background-color: black;
 }
 
 .projectspage{
     display: flex;
     flex-direction: column;
-    margin-left: 2em;
+    padding-left: 2em;
     font-family: coolvetica;
-    margin-top: 5em;
-    margin-bottom: 5em;
-    width: 100%;
+    padding-bottom: 5em;
 
 }
+
+:global(body.dark-mode) .projectspage {
+    background-color: black;
+}
+
+
 
 .overskrift{
     display: flex;
@@ -66,6 +79,7 @@
     font-size: 2.5em;
     font-family: "industry-inc-stencil", sans-serif;
     gap: 1em;
+    width: fit-content;
 }
 
 
@@ -76,6 +90,13 @@ button{
     border: #024D98 3px solid;
     border-radius: 10px;  
     padding: 0.5em;  
+    width: fit-content;
+}
+
+
+
+:global(body.dark-mode) button {
+    border: white 3px solid;
 }
 
 button:hover{
@@ -92,11 +113,16 @@ button:hover{
     font-size: 1.25em;
     font-family: "coolvetica";
     justify-content: space-evenly;
+    width: fit-content;
 }
 
 .goback_logo{
     height: 1em;
     width: auto;
+}
+
+:global(body.dark-mode) .goback_logo {
+    filter: invert(1);
 }
 
 a{
@@ -107,6 +133,10 @@ a{
     padding: 20px;
     letter-spacing: 0.1em;
     width: fit-content;
+}
+
+:global(body.dark-mode) a {
+    color: white;
 }
 
 a:hover{
@@ -123,6 +153,10 @@ a:hover{
     width: fit-content;
 }
 
+:global(body.dark-mode) .goback {
+    color: white;
+}
+
 
 .goback:hover{
     color: #024D98;
@@ -137,18 +171,23 @@ a:hover{
 }
 
 
+
 h1{
     margin: 0;
-}       
+}  
+
+:global(body.dark-mode) h1 {
+    color: white;
+}
 
 @media (max-width: 480px) {
     .overskrift{
         display: flex;
         flex-direction: column;
         gap: 0;
+        padding-top: 2em;
     }
     .projectspage{
-        margin-left: 0.5em;
         overflow-x: hidden;
     }
 }

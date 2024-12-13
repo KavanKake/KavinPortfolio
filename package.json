@@ -45,6 +45,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"svelte-preprocess": "^6.0.3"
+		"svelte-preprocess": "^6.0.3",
+		"svelte-toggles": "^2.1.7"
 	}
 }

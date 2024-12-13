@@ -28,7 +28,6 @@
             <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
                 <img class="logo" src=/assets/linkedinblack.png alt="button" />
             </a>
-        
         </div>
     </div>
     
@@ -48,10 +47,13 @@
     .frontpage {
         display: flex;
         flex-direction: row;
-        gap: 10em;
-        margin-left: 2em;
+        gap: 12em;
         overflow-x: hidden;
         overflow-y: none;
+    }
+
+    :global(body.dark-mode) .frontpage {
+        background-color: black;
     }
 
     .space {
@@ -76,7 +78,10 @@
         margin-bottom: 0.25em;
         margin-top: 0em;
         width: fit-content;
+    }
 
+    :global(body.dark-mode) .hello {
+        color: white;
     }
 
     .myname{
@@ -121,10 +126,22 @@
         }
     }
 
+
+
+
     .logo{
         width: 3em;
         height: auto;
     }
+
+    :global(body.dark-mode) .logo {
+        filter: invert(1);
+    }
+
+    :global(body.dark-mode) .button {
+        border: 3px solid white;
+    }
+
 
     .frontpage_picture{
         height: 45em;

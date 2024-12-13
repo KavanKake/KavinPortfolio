@@ -1,14 +1,21 @@
 <script>
-
+    import Button from "$lib/Components/button.svelte"
+    import Switch from "$lib/Components/switch.svelte"
     import { Hamburger } from 'svelte-hamburgers';
     import { fly } from 'svelte/transition';
 
+    
+
     let open = $state(false);
-</script>
+
+    let acceptTerms = $state(false);
+
+
+
+</script>   
 
 
 <nav>
-
     
     <img class= "logo-navbar" src=/assets/logo.png alt="logo"/>
     <ul class="links">
@@ -24,6 +31,11 @@
         <li class="blå_knapp">
             <a class = "contactme" href="/contactme">Contact me</a>
         </li>
+        <li class="switch">
+            <p>Dark mode:</p>
+            <Switch  bind:checked={acceptTerms}></Switch>
+        
+        </li>
     </ul>  
 
     <div class="hamburger">
@@ -36,11 +48,16 @@
     />
 
     {#if open}
-        <ul id="nav" class="menu" transition:fly={{y: -15 }}>
+        <ul id="nav" class="menu" transition:fly={{x: 50 }}>
             <li><a href="/">Home</a></li>
             <li><a href="/projects">projects</a></li>
             <li><a href="/aboutme">About me</a></li>
             <li><a class = "contactme" href="/contactme">Contactme</a></li>
+            <li class="switch">
+                <p>Dark mode:</p>
+                <Switch  bind:checked={acceptTerms}></Switch>
+            
+            </li>
         </ul>
     {/if}
     </div>
@@ -65,9 +82,17 @@
         box-shadow: 0px 0px 10px #024D98;
         background-color: white;
         z-index: 100;
-
     }
 
+    :global(body.dark-mode) nav {
+        background-color: black;
+        border-bottom: white;
+        box-shadow: 0px 0px 10px white;
+    }
+
+    :global(body.dark-mode) nav a {
+        color: white;
+    }
 
     .links {
         display: flex;
@@ -95,6 +120,10 @@
     padding-bottom: 5px;
     }   
 
+    :global(body.dark-mode) .links .knapper a:hover {
+        color: white;
+    }
+
 
     .logo-navbar {
         width: 80px;
@@ -113,7 +142,6 @@
     }
 
     .contactme {
-        margin-right: 20px;
         color: white;
         background-color: #024D98;
         border-radius: 10px;
@@ -127,7 +155,7 @@
     nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     padding: 0;
     margin: 0;
     }
@@ -154,6 +182,10 @@
     transition: width 0.3s ease;
     }
 
+    :global(body.dark-mode) nav .knapper a::after {
+        background-color: white;
+    }
+
     nav a:hover::after {
     width: 100%;
     }
@@ -171,6 +203,21 @@
         
     }
 
+    p {
+        margin: 0;
+        font-size: 1.2em;
+        font-family: coolvetica;
+    }
+
+    :global(body.dark-mode) p {
+        color: white;
+    }
+
+    .switch {
+        margin-right: 2em;
+        scale: 0.75;
+    }
+
     @media (max-width: 1040px) {
         .logo-navbar {
             margin-left: 2em;
@@ -186,9 +233,15 @@
 
         }
     }
-    @media (max-width: 655px) {
+    @media (max-width: 750px) {
         .hamburger {
             display: flex;
+        }
+
+        .contactme:hover {
+            border: 0;
+            transition: 0;
+            padding: 0;
         }
         .links {
             display: none;
