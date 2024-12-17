@@ -44,10 +44,10 @@ Welcome to my portfolio website! This project is designed to showcase my skills,
 - **JavaScript**: To add interactivity.
 - **Node.js**: For backend functionality.
 
-## Usage
-Visit the live website at kavinlokeswaran.no.
-Browse through my projects and explore my skills.
-Reach out via the contact form for inquiries or collaborations.
+## Usage of website
+To use the website, feel free to visit kavinlokeswaran.no
+The website has an easy design with a simple navbar. The navbar explains the diffrent pages, for example the projoct page.
+All of the buttons have a easy usage and you could easly see whats a button or not. 
 
 ## Contact
 Feel free to reach out to me through:

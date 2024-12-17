@@ -1,6 +1,6 @@
 <script>
     export let checked = false;
-    export let color = "#2196F3";
+
 
     function darkmode() {
         window.document.body.classList.toggle('dark-mode')

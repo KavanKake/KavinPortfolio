@@ -31,7 +31,7 @@
         <li class="blå_knapp">
             <a class = "contactme" href="/contactme">Contact me</a>
         </li>
-        <li class="switch">
+        <li class="switchtext">
             <p>Dark mode:</p>
             <Switch  bind:checked={acceptTerms}></Switch>
         
@@ -53,9 +53,9 @@
             <li><a href="/projects">projects</a></li>
             <li><a href="/aboutme">About me</a></li>
             <li><a class = "contactme" href="/contactme">Contactme</a></li>
-            <li class="switch">
+            <li class="switchtext">
                 <p>Dark mode:</p>
-                <Switch  bind:checked={acceptTerms}></Switch>
+                <Switch class="switch" bind:checked={acceptTerms}></Switch>
             
             </li>
         </ul>
@@ -213,7 +213,7 @@
         color: white;
     }
 
-    .switch {
+    .switchtext {
         margin-right: 2em;
         scale: 0.75;
     }
