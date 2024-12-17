@@ -17,7 +17,7 @@ Welcome to my portfolio website! This project is designed to showcase my skills,
 - **About Me**: Learn more about my background, skills, and interests.  
 - **Contact Form**: Easily get in touch with me.  
 
-## Installation  
+## Installation of the code
 
 1. Clone this repository:  
    ```bash
