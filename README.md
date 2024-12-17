@@ -5,9 +5,9 @@ Welcome to my portfolio website! This project is designed to showcase my skills,
 ## Table of Contents
 
 - [Features](#features)  
-- [Installation](#installation)  
+- [Installation](#installation of code)  
 - [Technologies](#technologies)  
-- [Usage](#usage)  
+- [Usage](#usage of website)  
 - [Contact](#contact)  
 
 ## Features  
@@ -17,7 +17,7 @@ Welcome to my portfolio website! This project is designed to showcase my skills,
 - **About Me**: Learn more about my background, skills, and interests.  
 - **Contact Form**: Easily get in touch with me.  
 
-## Installation of the code
+## Installation of code
 
 1. Clone this repository:  
    ```bash
@@ -48,6 +48,8 @@ Welcome to my portfolio website! This project is designed to showcase my skills,
 To use the website, feel free to visit kavinlokeswaran.no
 The website has an easy design with a simple navbar. The navbar explains the diffrent pages, for example the projoct page.
 All of the buttons have a easy usage and you could easly see whats a button or not. 
+
+The website has some of the projects I have made, and its possible to download the projects. You also have a contact page, where you could contact me. You also have a list of my sosial media listed on the website
 
 ## Contact
 Feel free to reach out to me through:
