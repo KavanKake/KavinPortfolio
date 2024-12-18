@@ -118,8 +118,7 @@
 
     .btns:has(.button:hover) .button:not(:hover){
         opacity: 0.8;
-        scale: 0.8;
-        filter: blur(4px);
+        scale: 0.9;
         
     }
 

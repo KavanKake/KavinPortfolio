@@ -1,6 +1,9 @@
 <script>
     import Footer from "$lib/Components/Footer.svelte";
+    
+
 </script>
+
 
 <div class="space"></div>
 <div class="frontpage">

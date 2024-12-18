@@ -11,7 +11,6 @@
         <div class="conteiner">
             <img src="assets/aboutme.jpg" alt="Kavin Lokeswaran">
         </div>
-
     </div>
 
     <div class="section_2">
@@ -25,9 +24,46 @@
         <div class="tekst">
             <p>Hello, my name is Kavin Lokeswaran. I am a passionate IT student with a strong interest in technology, programming, at Elvebakken VGS in Oslo, Norway. I am currently studying IT, because I enjoy understanding how technology work and how it could improve our daily lives. I have worked with many projects, for example this website. When I’m not working on IT related projects, I enjoy playing games or play football. My dream is to became an IT engineer. </p>
         </div>
+
+        <div class="skole">
+            <div class="barneskole">
+                <div class="barneskole-icon">
+                    <img class="icon" src="assets/skoleicon.png" alt="icon">
+                </div>
+                <div class="barneskole-tekst">
+                    <h4>Mortensrud skole</h4>
+                    <p>2013-2020</p>
+                </div>
+            </div>
+
+            <i class="arrow"></i>
+
+            <div class="ungdomskole">
+                <div class="ungdomskole-icon">
+                    <img class="icon" src="assets/skoleicon.png" alt="icon">
+                </div>
+                <div class="ungdomskole-tekst">
+                    <h4>Lofsrud skole</h4>
+                    <p>2020-2023</p>
+                </div>
+            </div>
+
+            <i class="arrow"></i>
+
+            <div class="vgs">
+                <div class="vgs-icon">
+                    <img class="icon" src="assets/skoleicon.png" alt="icon">
+                </div>
+                <div class="vgs-tekst">
+                    <h4>Elvebakken VGS</h4>
+                    <p>2023 - present</p>
+                </div>
+            </div>
+        </div>
     </div>
     
 </div>
+
 
 <div class="mini_spacer"></div>
 
@@ -121,6 +157,81 @@
         margin: 0;
     }
 
+    h4{
+        margin: 0;
+    }
+
+    .icon{
+        width: 4em;
+        height: auto;
+        margin-right: 0.5em;
+        scale: 0.9;
+        border: #024D98 3px solid;
+        padding: 5px;
+        border-radius: 50%;
+    }
+
+    :global(body.dark-mode) .icon {
+        filter: invert(1);
+        border: white 3px solid;
+    }
+
+    .barneskole{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.25em;
+        font-family: coolvetica;
+    }
+
+    :global(body.dark-mode) .barneskole {
+        color: white;
+    }
+
+    .ungdomskole{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.25em;
+        font-family: coolvetica;
+    }
+
+    :global(body.dark-mode) .ungdomskole {
+        color: white;
+    }
+
+    .vgs{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.25em;
+        font-family: coolvetica;
+        width: fit-content;
+    }
+
+    :global(body.dark-mode) .vgs {
+        color: white;
+    }
+
+    .arrow{
+        border: solid #024D98;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        margin-left: 1em;
+        margin-right: 1em;
+        scale: 1.5;
+    }
+
+    .skole{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin-right: 10em;
+    }
+    
+
     @media (max-width: 1280px) {
         .aboutme{
             flex-direction: column;
@@ -142,6 +253,10 @@
 
         .tekst{
             width: 100%;
+        }
+
+        .skole{
+            scale: 0.8;
         }
     }
 </style>
