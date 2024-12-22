@@ -1,80 +1,96 @@
 <script>
     import Footer from "$lib/Components/Footer.svelte";
+    import LoadingScreen from "$lib/Components/LoadingScreen.svelte";
+
+    let isLoading = true;
+
+// Simulate a delay (e.g., fetching data)
+setTimeout(() => {
+    isLoading = false;
+}, 750);
+
 </script>
 
 
+{#if isLoading}
+    <LoadingScreen class="loading-screen" message="Please wait while we load the app..." />
+{:else}
 
-<div class="spacer"></div>
-
-<div class="aboutme">
-    <div class="section_1">
-        <div class="conteiner">
-            <img src="assets/aboutme.jpg" alt="Kavin Lokeswaran">
-        </div>
-    </div>
-
-    <div class="section_2">
-        <div class="overskrift">
-            <h1>About me</h1>
-        </div>
-        <div class="underoverskrift">
-            <h3>Kavin Lokeswaran - IT student</h3>
-        </div>
-
-        <div class="tekst">
-            <p>Hello, my name is Kavin Lokeswaran. I am a passionate IT student with a strong interest in technology, programming, at Elvebakken VGS in Oslo, Norway. I am currently studying IT, because I enjoy understanding how technology work and how it could improve our daily lives. I have worked with many projects, for example this website. When I’m not working on IT related projects, I enjoy playing games or play football. My dream is to became an IT engineer. </p>
-        </div>
-
-        <div class="skole">
-            <div class="barneskole">
-                <div class="barneskole-icon">
-                    <img class="icon" src="assets/skoleicon.png" alt="icon">
-                </div>
-                <div class="barneskole-tekst">
-                    <h4>Mortensrud skole</h4>
-                    <p>2013-2020</p>
-                </div>
-            </div>
-
-            <i class="arrow"></i>
-
-            <div class="ungdomskole">
-                <div class="ungdomskole-icon">
-                    <img class="icon" src="assets/skoleicon.png" alt="icon">
-                </div>
-                <div class="ungdomskole-tekst">
-                    <h4>Lofsrud skole</h4>
-                    <p>2020-2023</p>
-                </div>
-            </div>
-
-            <i class="arrow"></i>
-
-            <div class="vgs">
-                <div class="vgs-icon">
-                    <img class="icon" src="assets/skoleicon.png" alt="icon">
-                </div>
-                <div class="vgs-tekst">
-                    <h4>Elvebakken VGS</h4>
-                    <p>2023 - present</p>
-                </div>
+<main>
+    <div class="spacer"></div>
+    
+    <div class="aboutme">
+        <div class="section_1">
+            <div class="conteiner">
+                <img src="assets/aboutme.jpg" alt="Kavin Lokeswaran">
             </div>
         </div>
+    
+        <div class="section_2">
+            <div class="overskrift">
+                <h1>About me</h1>
+            </div>
+            <div class="underoverskrift">
+                <h3>Kavin Lokeswaran - IT student</h3>
+            </div>
+    
+            <div class="tekst">
+                <p>Hello, my name is Kavin Lokeswaran. I am a passionate IT student with a strong interest in technology, programming, at Elvebakken VGS in Oslo, Norway. I am currently studying IT, because I enjoy understanding how technology work and how it could improve our daily lives. I have worked with many projects, for example this website. When I’m not working on IT related projects, I enjoy playing games or play football. My dream is to became an IT engineer. </p>
+            </div>
+    
+            <div class="skole">
+                <div class="barneskole">
+                    <div class="barneskole-icon">
+                        <img class="icon" src="assets/skoleicon.png" alt="icon">
+                    </div>
+                    <div class="barneskole-tekst">
+                        <h4>Mortensrud skole</h4>
+                        <p>2013-2020</p>
+                    </div>
+                </div>
+    
+                <i class="arrow"></i>
+    
+                <div class="ungdomskole">
+                    <div class="ungdomskole-icon">
+                        <img class="icon" src="assets/skoleicon.png" alt="icon">
+                    </div>
+                    <div class="ungdomskole-tekst">
+                        <h4>Lofsrud skole</h4>
+                        <p>2020-2023</p>
+                    </div>
+                </div>
+    
+                <i class="arrow"></i>
+    
+                <div class="vgs">
+                    <div class="vgs-icon">
+                        <img class="icon" src="assets/skoleicon.png" alt="icon">
+                    </div>
+                    <div class="vgs-tekst">
+                        <h4>Elvebakken VGS</h4>
+                        <p>2023 - present</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
     
-</div>
+    
+    <div class="mini_spacer"></div>
+    
+    <Footer/>
+</main>
 
-
-<div class="mini_spacer"></div>
-
-<Footer/>
-
-
+{/if}
 
 
 
 
 <style>
+
+
     .spacer{
         height: 10em;
     }
@@ -230,6 +246,7 @@
         width: 100%;
         margin-right: 10em;
     }
+
     
 
     @media (max-width: 1280px) {

@@ -1,49 +1,64 @@
 <script>
     import Footer from "$lib/Components/Footer.svelte";
-    
 
+    import LoadingScreen from "$lib/Components/LoadingScreen.svelte";
+
+let isLoading = true;
+
+// Simulate a delay (e.g., fetching data)
+setTimeout(() => {
+isLoading = false;
+}, 2500);
+    
 </script>
 
+{#if isLoading}
+    <LoadingScreen class="loading-screen" message="Please wait while we load the app..." />
+{:else}
 
-<div class="space"></div>
-<div class="frontpage">
-    <div class="section_1">
-        <h6 class="hello">Hello, my name is</h6>
-        <h1 class="myname">Kavin</h1>
-        <h1 class="myname">Lokeswaran</h1>
-        
-        
-        
-        <div class="btns">
-        
-            <a class="button" href="https://github.com/KavanKake">
-                <img class="logo" src=/assets/githubblack.png alt="button" />
-            </a>
-        
-            <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
-                <img class="logo" src=/assets/instablack.png alt="button" />
-            </a>
-        
-            <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
-                <img class="logo" src=/assets/faceblack.png alt="button" />
-            </a>
-        
-            <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
-                <img class="logo" src=/assets/linkedinblack.png alt="button" />
-            </a>
+<main>
+    <div class="space"></div>
+    <div class="frontpage">
+        <div class="section_1">
+            <h6 class="hello">Hello, my name is</h6>
+            <h1 class="myname">Kavin</h1>
+            <h1 class="myname">Lokeswaran</h1>
+            
+            
+            
+            <div class="btns">
+            
+                <a class="button" href="https://github.com/KavanKake">
+                    <img class="logo" src=/assets/githubblack.png alt="button" />
+                </a>
+            
+                <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
+                    <img class="logo" src=/assets/instablack.png alt="button" />
+                </a>
+            
+                <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
+                    <img class="logo" src=/assets/faceblack.png alt="button" />
+                </a>
+            
+                <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
+                    <img class="logo" src=/assets/linkedinblack.png alt="button" />
+                </a>
+            </div>
         </div>
+        
+        
+        <div class="section_2">
+            <img class="frontpage_picture" src=/assets/homepagebilde.png alt="">
+        </div>
+        
+        
+        
     </div>
     
-    
-    <div class="section_2">
-        <img class="frontpage_picture" src=/assets/homepagebilde.png alt="">
-    </div>
-    
-    
-    
-</div>
+    <Footer/>
+</main>
 
-<Footer/>
+{/if}
 
 <style>
 

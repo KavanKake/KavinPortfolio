@@ -1,89 +1,100 @@
 <script>
     import Footer from "$lib/Components/Footer.svelte";
+    import LoadingScreen from "$lib/Components/LoadingScreen.svelte";
+
+let isLoading = true;
+
+// Simulate a delay (e.g., fetching data)
+setTimeout(() => {
+isLoading = false;
+}, 750);
 </script>
 
 
-<div class="spacer"></div>
+{#if isLoading}
+    <LoadingScreen class="loading-screen" message="Please wait while we load the app..." />
+{:else}
 
-<div class="page">
-    <div class="header">
-    <div class="overskrift">
-        <div class="tekst">
-            <h1>Vikingtokt</h1>
-        </div>
-        <div class="backbutton">
-            <img class="goback" src="/assets/Goback.png" alt="Go Back">
-            <a class="goback_tekst" href="/projects/HTML,CSS,JS"> Go Back</a>
-        </div>
-    </div>
+<main>
 
-    <div class="partner">
-        <h1>Partners:</h1>
-        <a href="https://github.com/HenrikPaaGithub">Henrik Luan</a>
-    </div>
-
-    </div>
-
-    <div class="mini-spacer"></div>
-
-    <div class="innhold">
-
-        <div class="section">
-            <div class="container">
-                <img class="img" src="/assets/vikingtokthome.png" alt="Vikingtokt">
-            </div>
-            <div class="tekst-right">
-                <p>This web page, titled "Wolfheart Tribe," is a project I designed and coded to capture a Viking-inspired theme. The centerpiece of the design is a detailed 3D model of a Viking longship, adding depth and interactivity to the layout. The background, styled to resemble aged parchment, enhances the historical aesthetic, while the navigation links for "Shop," "About Us," and "Join Us" provide a clean and functional user experience. This project showcases my ability to blend creative design with 3D model integration and functional web development.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="tekst-left">
-                <p>This web page delves into the tribe's fictional lore and cultural heritage. It features a striking visual design, including images of Viking warriors, which enhance the immersive storytelling. The page layout combines a bold header, textured parchment background, and clean typography to emphasize the tribe's legendary bravery and connection to nature. The content explores their traditions, alliances, and spiritual practices, providing a rich narrative experience. This project highlights my ability to create visually engaging and thematic web pages that combine historical inspiration with modern design principles.</p>
-            </div>
-            <div class="container">
-                <img class="img" src="/assets/vikingtoktomoss.png" alt="Vikingtokt">
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="container">
-                <img class="img" src="/assets/vikingtoktshop.png" alt="Vikingtokt">
-            </div>
-            <div class="tekst-right">
-                <p>
-                    This web page, part of the "Wolfheart Tribe" project, showcases a Viking-themed shop section. It features a clean layout with categories for "Weapons" and "Shields," highlighting detailed visual representations of items like axes, along with their prices listed in "gold coins" to enhance the immersive historical feel. The parchment-style background and simple typography align with the overall Viking aesthetic of the project.</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="tekst-left">
-                <p>This page from the "Wolfheart Tribe" project features a registration form inviting users to join a Viking-inspired community. With a dramatic backdrop of a Viking ship at sea, it combines immersive visuals with functional elements, such as input fields for personal details. The design emphasizes a sense of adventure and camaraderie, showcasing my ability to create engaging and thematic user interfaces.</p>
-            </div>
-            <div class="container">
-                <img class="img" src="/assets/vikingtoktjoin.png" alt="Vikingtokt">
-            </div>
-        </div>
-
-        <div class="download">
-            <button>
-                <a href="/My_projects/Ecopant - game/Ecopant.zip" download="EcoPant">Click here to download zip-file</a>
-            </button>
-        </div>
-
-        
-
-    </div>
-
+    <div class="spacer"></div>
     
+    <div class="page">
+        <div class="header">
+        <div class="overskrift">
+            <div class="tekst">
+                <h1>Vikingtokt</h1>
+            </div>
+            <div class="backbutton">
+                <img class="goback" src="/assets/Goback.png" alt="Go Back">
+                <a class="goback_tekst" href="/projects/HTML,CSS,JS"> Go Back</a>
+            </div>
+        </div>
+    
+        <div class="partner">
+            <h1>Co-workers:</h1>
+            <a href="https://github.com/HenrikPaaGithub">Henrik Luan</a>
+        </div>
+    
+        </div>
+    
+        <div class="mini-spacer"></div>
+    
+        <div class="innhold">
+    
+            <div class="section">
+                <div class="container">
+                    <img class="img" src="/assets/vikingtokthome.png" alt="Vikingtokt">
+                </div>
+                <div class="tekst-right">
+                    <p>This web page, titled "Wolfheart Tribe," is a project I designed and coded to capture a Viking-inspired theme. The centerpiece of the design is a detailed 3D model of a Viking longship, adding depth and interactivity to the layout. The background, styled to resemble aged parchment, enhances the historical aesthetic, while the navigation links for "Shop," "About Us," and "Join Us" provide a clean and functional user experience. This project showcases my ability to blend creative design with 3D model integration and functional web development.</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <div class="tekst-left">
+                    <p>This web page delves into the tribe's fictional lore and cultural heritage. It features a striking visual design, including images of Viking warriors, which enhance the immersive storytelling. The page layout combines a bold header, textured parchment background, and clean typography to emphasize the tribe's legendary bravery and connection to nature. The content explores their traditions, alliances, and spiritual practices, providing a rich narrative experience. This project highlights my ability to create visually engaging and thematic web pages that combine historical inspiration with modern design principles.</p>
+                </div>
+                <div class="container">
+                    <img class="img" src="/assets/vikingtoktomoss.png" alt="Vikingtokt">
+                </div>
+            </div>
+    
+            <div class="section">
+                <div class="container">
+                    <img class="img" src="/assets/vikingtoktshop.png" alt="Vikingtokt">
+                </div>
+                <div class="tekst-right">
+                    <p>
+                        This web page, part of the "Wolfheart Tribe" project, showcases a Viking-themed shop section. It features a clean layout with categories for "Weapons" and "Shields," highlighting detailed visual representations of items like axes, along with their prices listed in "gold coins" to enhance the immersive historical feel. The parchment-style background and simple typography align with the overall Viking aesthetic of the project.</p>
+                </div>
+            </div>
+    
+            <div class="section">
+                <div class="tekst-left">
+                    <p>This page from the "Wolfheart Tribe" project features a registration form inviting users to join a Viking-inspired community. With a dramatic backdrop of a Viking ship at sea, it combines immersive visuals with functional elements, such as input fields for personal details. The design emphasizes a sense of adventure and camaraderie, showcasing my ability to create engaging and thematic user interfaces.</p>
+                </div>
+                <div class="container">
+                    <img class="img" src="/assets/vikingtoktjoin.png" alt="Vikingtokt">
+                </div>
+            </div>
+    
+            <div class="download">
+                <button>
+                    <a href="/My_projects/Ecopant - game/Ecopant.zip" download="EcoPant">Click here to download zip-file</a>
+                </button>
+            </div>
+
+        </div>
+    
+    </div>
+
+    <Footer/>
+</main>
+
+{/if}
 
 
-
-
-
-</div>
-
-<Footer/>
 
 
 <style>
@@ -161,7 +172,7 @@
     color: black;
     font-size: 2em;
     letter-spacing: 0.1em;
-    font-family: coolvetica;
+    font-family: coolvetica;    
 }
 
 :global(body.dark-mode) .goback_tekst {
