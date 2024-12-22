@@ -16,9 +16,7 @@
             <img class="goback" src="/assets/Goback.png" alt="Go Back">
             <a href="/projects"> Go Back</a>
         </div>
-    </div>
-        <div class="undertext">
-        <h3>Click on file to download</h3>
+
     </div>
 
     <div class="mini_spacer"></div>
@@ -26,7 +24,7 @@
     <div class="projects">
         <div class="section_1">
             <button>
-                <a href="/My_projects/html,css,js/Vikingtokt.zip" download="Vikingtokt">Vikingtokt</a>
+                <a href="/projects/HTML,CSS,JS/vikingtokt">Vikingtokt</a>
             </button>
         </div>
         <!-- <div class="section_2">
@@ -53,7 +51,7 @@
 }
 
 .mini_spacer{
-    height: 2em;
+    height: 5em;
 }
 
 :global(body.dark-mode) .mini_spacer {
@@ -119,16 +117,11 @@
 .backbutton{
     display: flex;
     flex-direction: row;
+    align-items: center;
     font-size: 0.25em;
+    gap: 10px;
 }
 
-.undertext{
-    height: fit-content;
-}
-
-:global(body.dark-mode) .undertext {
-    color: white;
-}
 
 button{
     text-decoration: none;

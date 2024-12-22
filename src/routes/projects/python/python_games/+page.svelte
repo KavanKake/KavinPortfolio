@@ -113,6 +113,8 @@
     display: flex;
     flex-direction: row;
     font-size: 0.25em;
+    align-items: center;
+    gap: 10px;
 }
 
 :global(body.dark-mode) .backbutton {

@@ -116,7 +116,7 @@
 
     .links .knapper a:hover {
 	color: #024D98;
-	transition: 0.3s;
+	transition: 0.5s;
     padding-bottom: 5px;
     }   
 
