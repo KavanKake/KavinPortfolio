@@ -27,11 +27,11 @@
                 <a href="/projects/HTML,CSS,JS/vikingtokt">Vikingtokt</a>
             </button>
         </div>
-        <!-- <div class="section_2">
+        <div class="section_2">
             <button>
-                <a href="/My_projects/Quizgame/WhoWantsToBeAMillionaire.zip" download="Who wants to be a millionaire?">Who wants to be a millionaire?</a>
+                <a href="/projects/HTML,CSS,JS/bakkasmak" >Bakkasmak</a>
             </button>
-        </div> -->
+        </div>
     </div>
 </div>
 

@@ -81,7 +81,7 @@ isLoading = false;
     
             <div class="download">
                 <button>
-                    <a href="/My_projects/Ecopant - game/Ecopant.zip" download="EcoPant">Click here to download zip-file</a>
+                    <a href="/My_projects/vikingtokt.zip" download="Vikingtokt">Click here to download zip-file</a>
                 </button>
             </div>
 
