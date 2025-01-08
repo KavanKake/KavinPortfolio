@@ -12,17 +12,19 @@ isLoading = false;
     
 </script>
 
-{#if isLoading}
+<!-- {#if isLoading}
     <LoadingScreen class="loading-screen" message="Please wait while we load the app..." />
-{:else}
+{:else} -->
 
 <main>
     <div class="space"></div>
     <div class="frontpage">
         <div class="section_1">
-            <h6 class="hello">Hello, my name is</h6>
-            <h1 class="myname">Kavin</h1>
-            <h1 class="myname">Lokeswaran</h1>
+            <div class="tekst">
+                <h6 class="hello">Hello, my name is</h6>
+                <h1 class="myname">Kavin</h1>
+                <h1 class="myname">Lokeswaran</h1>
+            </div>
             
             
             
@@ -48,7 +50,7 @@ isLoading = false;
         
         
         <div class="section_2">
-            <img class="frontpage_picture" src=/assets/homepagebilde.png alt="">
+            <img class="frontpage_picture" src=/assets/homepagebilde.png alt="Bilde av Kavin Lokeswaran">
         </div>
         
         
@@ -58,16 +60,31 @@ isLoading = false;
     <Footer/>
 </main>
 
-{/if}
+<!-- {/if} -->
 
 <style>
+    :global(body) {
+        background-color: white;
+    }
+
+    :global(body.dark-mode) {
+        background-color: black;
+    }
+
+
+    main {
+        background-color: white;
+    }
+
+    :global(body.dark-mode) main {
+        background-color: black;
+    }
 
     .frontpage {
         display: flex;
         flex-direction: row;
-        gap: 12em;
-        overflow-x: hidden;
-        overflow-y: none;
+        gap: 20em;
+        padding-top: 5em;
     }
 
     :global(body.dark-mode) .frontpage {
@@ -99,7 +116,7 @@ isLoading = false;
     }
 
     :global(body.dark-mode) .hello {
-        color: white;
+        color: #EFEFEF;
     }
 
     .myname{
@@ -157,7 +174,7 @@ isLoading = false;
     }
 
     :global(body.dark-mode) .button {
-        border: 3px solid white;
+        border: 3px solid #EFEFEF;
     }
 
 
@@ -186,18 +203,8 @@ isLoading = false;
         }
     }
 
-    @media (max-width: 730px) {
-        .frontpage_picture{
-            opacity: 0;
-        }
-    }
 
-    @media (max-width: 570px) {
-        .frontpage_picture{
-            opacity: 0;
-            overflow-x: hidden;
-        }
-
+    @media (max-width: 920px) {
         .hello{
             font-size: 1em;
         }
@@ -209,6 +216,80 @@ isLoading = false;
         .btns{
             gap: 1em;
             scale: 0.8;
+        }
+
+        .frontpage {
+            flex-direction: column;
+            gap: 0em;
+        }
+
+        .frontpage_picture{
+            height: 30em;
+            width: auto;
+            justify-content: center;
+            align-items: center;
+            transform: scaleX(-1);
+        }
+
+        .section_1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 0em;
+            margin-top: 10em;
+        }
+
+        .section_2{
+            margin-top: 0em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .myname{
+            text-align: center;
+        }
+
+        .hello{
+            text-align: center;
+        }
+
+        .tekst {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btns{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    @media (min-height: 1200px) {
+        
+        .frontpage{
+            padding-top: 7em;
+        }
+    }
+
+    @media (min-height: 1230px) {
+        
+        .frontpage{
+            padding-top: 10em;
+        }
+    }
+
+    @media (min-height: 1200px) {
+        
+        .frontpage{
+            padding-top: 12em;
         }
     }
 </style>

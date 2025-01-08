@@ -87,11 +87,11 @@
     :global(body.dark-mode) nav {
         background-color: black;
         border-bottom: white;
-        box-shadow: 0px 0px 10px white;
+        box-shadow: 0px 0px 10px #EFEFEF;
     }
 
     :global(body.dark-mode) nav a {
-        color: white;
+        color: #EFEFEF;
     }
 
     .links {
@@ -121,7 +121,7 @@
     }   
 
     :global(body.dark-mode) .links .knapper a:hover {
-        color: white;
+        color: #EFEFEF;
     }
 
 
@@ -183,7 +183,7 @@
     }
 
     :global(body.dark-mode) nav .knapper a::after {
-        background-color: white;
+        background-color: #EFEFEF;
     }
 
     nav a:hover::after {
@@ -210,7 +210,7 @@
     }
 
     :global(body.dark-mode) p {
-        color: white;
+        color: #EFEFEF;
     }
 
     .switchtext {
@@ -252,11 +252,26 @@
         }
 
         ul {
-            flex-direction: column;
+            flex-direction: row;
+            height: fit-content;
+            border: #024D98 1px solid;
+            text-align: center;
+            align-items: center;
+        }
+
+        li {
+            margin: 0;
+            height: fit-content;
+            padding-left: 5px;
+        }
+
+        .logo-navbar {
+            margin-left: 0em;
         }
 
         nav {
-            justify-content: none;
+            flex-direction: column;
+            justify-content: center;
         }
     
     }

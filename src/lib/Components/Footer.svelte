@@ -62,13 +62,12 @@
         color: white;
         font-family: coolvetica;
         position: relative;
-        width: 100%;
     }
 
     :global(body.dark-mode) .footer {
         background-color: black;
         border-bottom: white;
-        box-shadow: 0px 0px 10px white;
+        box-shadow: 0px 0px 20px #EFEFEF;
     }
 
     .section1{
