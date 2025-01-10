@@ -47,13 +47,13 @@ isLoading = false;
                     <img class="img" src="/assets/bakkasmakhome.png" alt="Bakkasmak-home">
                 </div>
                 <div class="tekst-right">
-                    <p>This web page, titled "Wolfheart Tribe," is a project I designed and coded to capture a Viking-inspired theme. The centerpiece of the design is a detailed 3D model of a Viking longship, adding depth and interactivity to the layout. The background, styled to resemble aged parchment, enhances the historical aesthetic, while the navigation links for "Shop," "About Us," and "Join Us" provide a clean and functional user experience. This project showcases my ability to blend creative design with 3D model integration and functional web development.</p>
+                    <p>This page from the "Bakkasmak" project presents a visually appealing weekly menu design. The layout features vibrant food imagery, each labeled with a corresponding day of the week in Norwegian, offering a clear and appetizing overview. The minimalist top navigation, search functionality, and clean typography demonstrate my ability to create user-friendly and aesthetically pleasing interfaces, ideal for showcasing culinary content.</p>
                 </div>
             </div>
     
             <div class="section">
                 <div class="tekst-left">
-                    <p>This web page delves into the tribe's fictional lore and cultural heritage. It features a striking visual design, including images of Viking warriors, which enhance the immersive storytelling. The page layout combines a bold header, textured parchment background, and clean typography to emphasize the tribe's legendary bravery and connection to nature. The content explores their traditions, alliances, and spiritual practices, providing a rich narrative experience. This project highlights my ability to create visually engaging and thematic web pages that combine historical inspiration with modern design principles.</p>
+                    <p>This page from "Elvebakken Kantinen" is focused on showcasing a specific meal offering for Monday ("Mandag"). The left side features a high-quality image of a burger, enticing the viewer, while the right side provides a detailed description in Norwegian. The footer contains clear contact information and a prominent call-to-action ("Om oss") button. The clean and contrasting color scheme complements the text and image content, making it user-friendly and visually appealing.</p>
                 </div>
                 <div class="container">
                     <img class="img" src="/assets/bakkasmakhome2.png" alt="Bakkasmak-home">
@@ -65,14 +65,13 @@ isLoading = false;
                     <img class="img" src="/assets/bakkasmaksnack.png" alt="Bakkasmak-snacks">
                 </div>
                 <div class="tekst-right">
-                    <p>
-                        This web page, part of the "Wolfheart Tribe" project, showcases a Viking-themed shop section. It features a clean layout with categories for "Weapons" and "Shields," highlighting detailed visual representations of items like axes, along with their prices listed in "gold coins" to enhance the immersive historical feel. The parchment-style background and simple typography align with the overall Viking aesthetic of the project.</p>
+                    <p>This page from Elvebakken Kantinen highlights drinks, salad ingredients, and food items with a clean and inviting green design. Drinks are priced individually, salads are available by weight, and the menu offers a variety of fresh, customizable options. The layout is simple and easy to navigate, maintaining a focus on clarity and freshness.</p>
                 </div>
             </div>
     
             <div class="section">
                 <div class="tekst-left">
-                    <p>This page from the "Wolfheart Tribe" project features a registration form inviting users to join a Viking-inspired community. With a dramatic backdrop of a Viking ship at sea, it combines immersive visuals with functional elements, such as input fields for personal details. The design emphasizes a sense of adventure and camaraderie, showcasing my ability to create engaging and thematic user interfaces.</p>
+                    <p>This page is for the user to see who the developers are. Thsi page telles about the developers and their background. The page also says a bit about what the webpage is all about.</p>
                 </div>
                 <div class="container">
                     <img class="img" src="/assets/bakkasmakomoss.png" alt="Bakkasmak-aboutus">
@@ -84,8 +83,7 @@ isLoading = false;
                     <img class="img" src="/assets/bakkasmakstem.png" alt="Bakkasmak-voting">
                 </div>
                 <div class="tekst-right">
-                    <p>
-                        This web page, part of the "Wolfheart Tribe" project, showcases a Viking-themed shop section. It features a clean layout with categories for "Weapons" and "Shields," highlighting detailed visual representations of items like axes, along with their prices listed in "gold coins" to enhance the immersive historical feel. The parchment-style background and simple typography align with the overall Viking aesthetic of the project.</p>
+                    <p>This page is for the user to vote on which project they want to work on next. They have the three option and could choose what they want in the cantine for next week</p>
                 </div>
             </div>
 

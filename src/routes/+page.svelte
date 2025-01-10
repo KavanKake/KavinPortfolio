@@ -12,9 +12,9 @@ isLoading = false;
     
 </script>
 
-<!-- {#if isLoading}
+{#if isLoading}
     <LoadingScreen class="loading-screen" message="Please wait while we load the app..." />
-{:else} -->
+{:else}
 
 <main>
     <div class="space"></div>
@@ -60,7 +60,7 @@ isLoading = false;
     <Footer/>
 </main>
 
-<!-- {/if} -->
+{/if}
 
 <style>
     :global(body) {

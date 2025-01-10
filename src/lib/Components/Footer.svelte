@@ -95,6 +95,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        padding-bottom: 2.5em;
     }
 
     h1{
@@ -135,5 +136,37 @@
     .logo{
         width: 5em;
         height: auto;
+    }
+
+    @media (max-width: 1040px) {
+        .footer{
+            display: flex;
+            background-color: #024D98;
+            height: 25em;
+            color: white;
+            font-family: coolvetica;
+            height: fit-content;
+        }
+
+        .section1{
+            font-size: 0.5em;   
+        }
+
+        .btns{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2.5em;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .section1{
+            font-size: 0.5em;
+            scale: 0.8;
+        }
+
     }
 </style>
