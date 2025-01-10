@@ -42,16 +42,16 @@ isLoading = false;
     
         <div class="innhold">
     
-            <div class="section">
+            <div class="section_right">
                 <div class="container">
-                    <img class="img" src="/assets/vikingtokthome.png" alt="Vikingtokt">
+                    <img class="img"  src="/assets/vikingtokthome.png" alt="Vikingtokt">
                 </div>
                 <div class="tekst-right">
                     <p>This web page, titled "Wolfheart Tribe," is a project I designed and coded to capture a Viking-inspired theme. The centerpiece of the design is a detailed 3D model of a Viking longship, adding depth and interactivity to the layout. The background, styled to resemble aged parchment, enhances the historical aesthetic, while the navigation links for "Shop," "About Us," and "Join Us" provide a clean and functional user experience. This project showcases my ability to blend creative design with 3D model integration and functional web development.</p>
                 </div>
             </div>
     
-            <div class="section">
+            <div class="section_left">
                 <div class="tekst-left">
                     <p>This web page delves into the tribe's fictional lore and cultural heritage. It features a striking visual design, including images of Viking warriors, which enhance the immersive storytelling. The page layout combines a bold header, textured parchment background, and clean typography to emphasize the tribe's legendary bravery and connection to nature. The content explores their traditions, alliances, and spiritual practices, providing a rich narrative experience. This project highlights my ability to create visually engaging and thematic web pages that combine historical inspiration with modern design principles.</p>
                 </div>
@@ -60,7 +60,7 @@ isLoading = false;
                 </div>
             </div>
     
-            <div class="section">
+            <div class="section_right">
                 <div class="container">
                     <img class="img" src="/assets/vikingtoktshop.png" alt="Vikingtokt">
                 </div>
@@ -70,7 +70,7 @@ isLoading = false;
                 </div>
             </div>
     
-            <div class="section">
+            <div class="section_left">
                 <div class="tekst-left">
                     <p>This page from the "Wolfheart Tribe" project features a registration form inviting users to join a Viking-inspired community. With a dramatic backdrop of a Viking ship at sea, it combines immersive visuals with functional elements, such as input fields for personal details. The design emphasizes a sense of adventure and camaraderie, showcasing my ability to create engaging and thematic user interfaces.</p>
                 </div>
@@ -183,7 +183,21 @@ isLoading = false;
     text-decoration: underline;
 }
 
-.section{
+.section_left{
+    padding-top: 2em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5em;
+    font-size: 1.25em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 2em;
+    font-family: "coolvetica";
+    justify-content: space-evenly;
+}
+
+.section_right{
     padding-top: 2em;
     display: flex;
     flex-direction: row;
@@ -279,7 +293,13 @@ button:hover{
         gap: 0;
         padding-top: 2em;
     }
-    .section{
+    .section_left{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 0;
+        padding-top: 2em;
+    }
+    .section_right{
         display: flex;
         flex-direction: column;
         gap: 0;

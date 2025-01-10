@@ -157,7 +157,7 @@ setTimeout(() => {
         flex-direction: column;
         text-align: left;
         font-size: 1.5em;
-        width: 30em;
+        width: 100%;
         font-family: coolvetica;
     }
 
@@ -249,7 +249,7 @@ setTimeout(() => {
 
     
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1000px) {
         .aboutme{
             flex-direction: column;
             gap: 1em;

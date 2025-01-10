@@ -50,7 +50,7 @@
     {#if open}
         <ul id="nav" class="menu" transition:fly={{x: 50 }}>
             <li><a href="/">Home</a></li>
-            <li><a href="/projects">projects</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li><a href="/aboutme">About me</a></li>
             <li><a class = "contactme" href="/contactme">Contactme</a></li>
             <li class="switchtext">
