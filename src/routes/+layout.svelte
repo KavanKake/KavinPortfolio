@@ -254,7 +254,6 @@
         ul {
             flex-direction: row;
             height: fit-content;
-            border: #024D98 1px solid;
             text-align: center;
             align-items: center;
         }
