@@ -1,4 +1,4 @@
-"""Oppgave 2""" 
+
 # Importerer random 
 import random
 
@@ -31,7 +31,6 @@ def stein_saks_papir():
         print("Du fikk skattene")
     else: 
         print("monster vant")
-        print("Monsteret følte synd på deg og ga skatten likeveld")
 
 # Kjører funksjoen over
 stein_saks_papir()
