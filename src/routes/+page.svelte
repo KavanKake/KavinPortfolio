@@ -4,6 +4,8 @@
     import LoadingScreen from "$lib/Components/LoadingScreen.svelte";
 
 let isLoading = true;
+
+// Simulate a delay (e.g., fetching data)
 setTimeout(() => {
 isLoading = false;
 }, 2500);
@@ -155,16 +157,7 @@ isLoading = false;
         border-radius: 30%;
         padding: 0.25em;
         &:hover{
-            animation: scaleAnimation 0.75s ease-in ;
-        }
-    }
-
-    @keyframes scaleAnimation{
-        0%{
-            transform: scale(1);
-        }
-        100%{
-            transform: scale(1.1);
+            scale: 1.2;
         }
     }
 

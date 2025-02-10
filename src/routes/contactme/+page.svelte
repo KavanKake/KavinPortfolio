@@ -24,11 +24,11 @@
             <h1 class="contactform">Contact form</h1>
             <form method="POST" action="https://formsubmit.co/contact@kavinlokeswaran.no">
                 <h3 class="name">Your name</h3>
-                <input name="Name" type="text" class="placeholder" placeholder="Enter your name" autocomplete="off">
+                <input name="Name" type="text" class="placeholder" placeholder="Enter your name" required>
                 <h3 class="name">Your e-mail</h3>
-                <input name="Email" type="email" class="placeholder" placeholder="Enter your e-mail" autocomplete="off">
+                <input name="Email" type="email" class="placeholder" placeholder="Enter your e-mail" required>
                 <h3 class="name">Topic</h3>
-                <input name="Topic" type="text" class="placeholder" autocomplete="off" placeholder="Enter your topic">
+                <input name="Topic" type="text" class="placeholder" placeholder="Enter your topic">
                 <h3 class="name">Message</h3>
                 <textarea name="Message" placeholder="Enter message"></textarea>
                 <button class="submit"type="submit">Send in</button>

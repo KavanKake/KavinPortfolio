@@ -36,7 +36,7 @@
 
         <div class="copyright">
             <h1>Copyright © Kavin Lokeswaran</h1>
-            <h1>2025</h1>
+            <h1>2024</h1>
         </div>
         
     </div>

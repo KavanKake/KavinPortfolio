@@ -51,7 +51,7 @@
 
 
 .mini_spacer{
-    height: 17em;
+    height: 5em;
 }
 
 .mini_spacer1{
