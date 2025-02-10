@@ -29,7 +29,7 @@
             <a href="/aboutme">About me</a>
         </li>
         <!-- <li class="knapper">
-            <a href="/extrapages">extrapages</a>
+            <a href="/barcelona">FC Barcelona</a>
         </li> -->
         <li class="blå_knapp">
             <a class = "contactme" href="/contactme">Contact me</a>
@@ -55,6 +55,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="/aboutme">About me</a></li>
+            <!-- <li><a href="/barclona">FC Barcelona</a></li> -->
             <li><a class = "contactme" href="/contactme">Contactme</a></li>
             <li class="switchtext">
                 <p>Dark mode:</p>

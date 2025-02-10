@@ -54,4 +54,4 @@ The website has some of the projects I have made, and its possible to download t
 ## Contact
 Feel free to reach out to me through:
 - **Email**: contact@kavinlokeswaran.no
-- **Github**: github.com/kavankake
+- **Github**: github.com/kavankake  
