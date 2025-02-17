@@ -48,6 +48,7 @@
 		"svelte-preprocess": "^6.0.3",
 		"svelte-store": "^0.0.2",
 		"svelte-toggles": "^2.1.7",
-		"svelte-transition": "^0.0.17"
+		"svelte-transition": "^0.0.17",
+		"typewriter": "^9.2.0"
 	}
 }

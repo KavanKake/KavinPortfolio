@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
     import Footer from "$lib/Components/Footer.svelte";
 </script>
 
@@ -143,4 +143,86 @@ h1{
         font-size: 2em;
     }
     }
+</style> -->
+
+
+<script>
+  let darkMode = false;
+</script>
+
+<style>
+
+
+  :root {
+    --bg: white;
+    --text: black;
+    --primary: #1e3a8a;
+    --secondary: #f8fafc;
+  }
+
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: coolvetica;
+  }
+
+  :global(body.dark-mode) .container {
+    background-color: black;
+    color: white;
+  }
+
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: 2px solid var(--primary);
+    background: none;
+    color: var(--primary);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+  }
+
+  :global(body.dark-mode) .button {
+    border: 2px solid white;
+    color: white;
+  }
+
+  .button:hover {
+    background: var(--primary);
+    color: var(--secondary);
+  }
+
+
 </style>
+
+<div class="container">
+  <h1 class="title">🚧 Under Construction 🚧</h1>
+  <p>We're working hard to launch something amazing. Stay tuned!</p>
+  
+  <button class="button" on:click={() => alert('You will be notified soon!')}>
+    Notify Me
+  </button>
+</div>
+
+
+
+<svelte:head>
+  <script>
+    document.body.setAttribute('data-theme', 'light');
+    document.querySelector('input[type="checkbox"]').addEventListener('change', (e) => {
+      document.body.setAttribute('data-theme', e.target.checked ? 'dark' : 'light');
+    });
+  </script>
+</svelte:head>
