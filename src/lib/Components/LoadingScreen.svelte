@@ -21,6 +21,7 @@
        align-items: center;
        z-index: 9999;
     }
+
  
     .spinner {
        width: 50px;

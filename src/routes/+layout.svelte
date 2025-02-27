@@ -88,9 +88,9 @@
     }
 
     :global(body.dark-mode) nav {
-        background-color: black;
-        border-bottom: white;
-        box-shadow: 0px 0px 10px #EFEFEF;
+        background-color: #0d0c1d;
+        border-bottom: #024D98;
+        box-shadow: 0px 0px 10px #024D98;
     }
 
     :global(body.dark-mode) nav a {

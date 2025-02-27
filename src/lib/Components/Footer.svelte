@@ -36,7 +36,7 @@
 
         <div class="copyright">
             <h1>Copyright © Kavin Lokeswaran</h1>
-            <h1>2024</h1>
+            <h1>2025</h1>
         </div>
         
     </div>
@@ -65,9 +65,9 @@
     }
 
     :global(body.dark-mode) .footer {
-        background-color: black;
+        background-color: #0d0c1d;
         border-bottom: white;
-        box-shadow: 0px 0px 20px #EFEFEF;
+        box-shadow: 0px 0px 20px #024D98;
     }
 
     .section1{

@@ -96,7 +96,7 @@ setTimeout(() => {
     }
 
     :global(body.dark-mode) .spacer {
-        background-color: black;
+        background-color: #0d0c1d;
     }
 
     .mini_spacer{
@@ -104,7 +104,7 @@ setTimeout(() => {
     }
 
     :global(body.dark-mode) .mini_spacer {
-        background-color: black;
+        background-color: #0d0c1d;
     }
 
     .aboutme{
@@ -113,8 +113,14 @@ setTimeout(() => {
         gap: 7.5em;
     }
 
+    main{
+        background-color: white;
+        overflow-y: scroll;
+    }
+
+
     :global(body.dark-mode) .aboutme {
-        background-color: black;
+        background-color: #0d0c1d;
     }
 
     .section_1{
@@ -189,7 +195,6 @@ setTimeout(() => {
 
     :global(body.dark-mode) .icon {
         filter: invert(1);
-        border: white 3px solid;
     }
 
     .barneskole{

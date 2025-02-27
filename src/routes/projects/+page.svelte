@@ -172,7 +172,7 @@ h1{
   }
 
   :global(body.dark-mode) .container {
-    background-color: black;
+    background-color: #0d0c1d;
     color: white;
   }
 

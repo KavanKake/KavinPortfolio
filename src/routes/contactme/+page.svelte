@@ -1,5 +1,4 @@
 <script>
-
     import Footer from "$lib/Components/Footer.svelte";
     </script>
     
@@ -24,7 +23,10 @@
             <h1 class="contactform">Contact form</h1>
             <form method="POST" action="https://formsubmit.co/contact@kavinlokeswaran.no">
                 <h3 class="name">Your name</h3>
-                <input name="Name" type="text" class="placeholder" placeholder="Enter your name" required>
+                <div class="nameSplit">
+                    <input name="Name" type="text" class="placeholderName" placeholder="First name" required>
+                    <input name="Name" type="text" class="placeholderName" placeholder="Last name" required>
+                </div>
                 <h3 class="name">Your e-mail</h3>
                 <input name="Email" type="email" class="placeholder" placeholder="Enter your e-mail" required>
                 <h3 class="name">Topic</h3>
@@ -40,7 +42,6 @@
 
     <Footer/>
     
-    
     <style>
         *{
             margin: 0;
@@ -51,7 +52,7 @@
         }
 
         :global(body.dark-mode) .spacer {
-            background-color: black;
+            background-color: #0d0c1d;
         }
     
         .frontpage {
@@ -64,7 +65,7 @@
         }
 
         :global(body.dark-mode) .frontpage {
-            background-color: black;
+            background-color: #0d0c1d;
         }
     
         .section_1 {
@@ -106,6 +107,7 @@
             color: black;
             font-size: 2.5em;
         }
+
     
         form{
             display: flex;
@@ -126,7 +128,6 @@
             padding-top: 0.5em;
             font-size: 1em;
             color: black;
-            
         }
     
         button {
@@ -161,6 +162,15 @@
             padding: 1em;
             border-radius: 10px;
         }
+
+        .placeholderName {
+            color: black;
+            font-family: coolvetica;
+            font-size: 1em;
+            padding: 1em;
+            border-radius: 10px;
+            width: 20em;
+        }
     
     
         .mail_logo {
@@ -186,6 +196,12 @@
         }
         :global(body.dark-mode) h1 {
             color: white;
+        }
+
+        .nameSplit {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
         }
     
         .email {
