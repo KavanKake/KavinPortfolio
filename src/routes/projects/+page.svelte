@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
     import Footer from "$lib/Components/Footer.svelte";
 </script>
 
@@ -6,223 +6,222 @@
 
 <div class="spacer"></div>
 
-<div class="projectspage">
+<div class="page">
     <div class="overskrift">
-        <h1>My projects</h1>
+        <div class="tekst">
+            <h1>Projects</h1>
+        </div>
     </div>
-    <div class="mini_spacer1"></div>
+<div class="space"></div>
     <div class="projects">
-        <div class="Python">
-            <button>
-                <a href="/projects/python">Python</a>
-            </button>
+        <div class="projectsContainer">
+            <a href="https://github.com/KavanKake/KavinPortfolio"> 
+            <div class="project1">
+                <img class="project1_image" src=/assets/portfolioFront.png alt="Portfolio-picture">
+                    <h1 class="project1_title">Portfolio</h1>
+                </div>
+            </a>
+            <a href="https://github.com/KavanKake/Express-js"> 
+            <div class="project2">
+                <img class="project2_image" src=/assets/expressJSFront.png alt="ExpressJS-picture">
+                    <h1 class="project2_title">Login page with ExpressJS</h1>
+                </div>
+            </a>
+            <a href="https://github.com/KavanKake/BakkaSmak"> 
+                <div class="project1">
+                    <img class="project1_image" src=/assets/BakkaSmak.png alt="Portfolio-picture">
+                        <h1 class="project1_title">BakkaSmak</h1>
+                    </div>
+                </a>
         </div>
+        <div class="projectsContainer">
+            <a href="https://github.com/KavanKake/Ratingsystem-fotball"> 
+            <div class="project1">
+            
+                    <h1 class="project1_title_python">Ratingsystem - football</h1>
+                    <h1 class="project1_title_python">Python</h1>
 
-        <div class="html">
-            <button>
-                <a href="/projects/HTML,CSS,JS">HTML, CSS, JS</a>
-            </button>
-        </div>
-
-        <div class="Other">
-            <button>
-                <a href="/projects/other">Others</a>
-            </button>
+                </div>
+            </a>
+            <a href="https://github.com/KavanKake/Quizspill"> 
+            <div class="project1">
+                    <h1 class="project1_title_python">Who wants to be a millionaire</h1>
+                    <h1 class="project1_title_python">Python game</h1>
+                </div>
+            </a>                                                    
+            <a href="https://github.com/KavanKake/Viking_game">  
+                <div class="project1">
+                        <h1 class="project1_title_python">Viking game</h1>
+                        <h1 class="project1_title_python">Godot game</h1>   
+                    </div>
+                </a>
+        </div>  
+        
+        <div class="projectsContainer">
+            <a href="https://github.com/KavanKake/Vikingtokt"> 
+            <div class="project1">
+                <img class="project1_image" src=/assets/vikingtokthome.png alt="Portfolio-picture">
+                    <h1 class="project1_title_python">Viking webpage</h1>
+                    <h1 class="project1_title_python">With Henrik Luan</h1>
+                </div>
+            </a>
         </div>
     </div>
 
-    <div class="mini_spacer"></div>
 </div>
 
 
 
 
 
+
+<div class="spacer"></div>
 <Footer/>
+
 <style>
 
-.spacer{
+.spacer {
     height: 10em;
 }
 
-:global(body.dark-mode) .spacer {
-    background-color: black;
-}
-
-
-.mini_spacer{
-    height: 5em;
-}
-
-.mini_spacer1{
+.space {
     height: 2em;
 }
-
-:global(body.dark-mode) .mini_spacer {
-    background-color: black;
+/* Global transition for background and text color */
+:root, :global(body.dark-mode) {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
 
-.projectspage{
-    display: flex;
-    flex-direction: column; 
-    font-family: coolvetica;
-    padding-left: 2.5em; 
-    margin: 0;
+/* General page background transition */
+.page {
+    background-color: white;
+    transition: background-color 0.5s ease-in-out;
 }
 
-:global(body.dark-mode) .projectspage {
-    background-color: black;
-}
-
-.overskrift{
-    display: flex;
-    flex-direction: column;
-    font-size: 2.5em;
-    font-family: "industry-inc-stencil", sans-serif;
-}
-
-:global(body.dark-mode) .overskrift {
-    color: white;
-}
-
-
-button{
-    text-decoration: none;
-    list-style: none;
-    background: transparent;
-    border: #024D98 3px solid;
-    border-radius: 10px;  
-    padding: 0.5em;  
-}
-
-:global(body.dark-mode) button {
-    border: white 3px solid;
-}
-
-button:hover{
-    background-color: #024D98;
-    color: white;
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-
-.projects{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    font-size: 1.25em;
-    font-family: "coolvetica";
-    justify-content: space-evenly;
-}
-
-a{
-    text-decoration: none;
-    color: black;
-    font-family: coolvetica;
-    font-size: 2em;
-    padding: 20px;
-    letter-spacing: 0.1em;
-    width: fit-content;
-}
-
-:global(body.dark-mode) a {
-    color: white;
-}
-
-a:hover{
-    color: white;
-}
-
-h1{
-    margin: 0;
-}       
-
-@media (max-width: 480px) {
-    .overskrift{
-        gap: 0.5em;
-        font-size: 2em;
-    }
-    }
-</style> -->
-
-
-<script>
-  let darkMode = false;
-</script>
-
-<style>
-
-
-  :root {
-    --bg: white;
-    --text: black;
-    --primary: #1e3a8a;
-    --secondary: #f8fafc;
-  }
-
-
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: coolvetica;
-  }
-
-  :global(body.dark-mode) .container {
+:global(body.dark-mode) .page {
     background-color: #0d0c1d;
+}
+
+/* Header text and general elements */
+.tekst {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2em;
+    font-family: "industry-inc-stencil", sans-serif;
+    align-items: center;
+    gap: 1em;
+    padding-left: 1.5em;
+    color: #024D98;
+    transition: color 0.5s ease-in-out;
+}
+
+
+
+/* Project container styles */
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10em;
+}
+
+/* Projects container for responsive grid */
+.projectsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 5em;
+    font-family: coolvetica;
+}
+
+/* Individual project box with smooth hover transition */
+.project1, .project2 {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    height: 25em;
+    width: 25em;
+    align-items: center;
+    justify-content: center;
+    border: #024D98 3px solid;
+    border-radius: 20px;
+    background-color: #024D98;
+    transition: transform 0.3s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+/* Hover effects for project items */
+.project1:hover, .project2:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+    background-color: #1e2a4d; /* Darker shade on hover */
+}
+
+/* Image styling inside project boxes */
+.project1_image, .project2_image {
+    height: 10em;
+    width: auto;
+    border: black 3px solid;
+}
+
+/* Titles inside the project items */
+.project1_title, .project2_title {
     color: white;
-  }
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
+}
 
-  .title {
-    font-size: 3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  .button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: 2px solid var(--primary);
-    background: none;
-    color: var(--primary);
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: all 0.3s;
-  }
-
-  :global(body.dark-mode) .button {
-    border: 2px solid white;
+.project1_title_python, .project2_title {
     color: white;
-  }
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
+    margin: 0;
+}
 
-  .button:hover {
-    background: var(--primary);
-    color: var(--secondary);
-  }
+/* Hover effect to scale up the text */
+.project1_title:hover, .project2_title:hover {
+    transform: scale(1.3);
+}
+
+/* Dark mode text color changes */
+:global(body.dark-mode) .project1_title,
+:global(body.dark-mode) .project2_title {
+    color: #f0f0f0;
+}
+
+:global(body.dark-mode) .project1_title:hover,
+:global(body.dark-mode) .project2_title:hover {
+    color: #ffcc00; /* Highlight color on hover */
+}
+
+/* Dark mode project box background */
+:global(body.dark-mode) .project1, :global(body.dark-mode) .project2 {
+    background-color: #1e2a4d; /* Darker shade for projects in dark mode */
+}
+
+:global(body.dark-mode) .project1:hover, :global(body.dark-mode) .project2:hover {
+    background-color: #2a3d5a; /* Slightly darker shade on hover */
+}
 
 
+@media (max-width: 1040px) {
+    .projectsContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 5em;
+    }
+    
+}
 </style>
 
-<div class="container">
-  <h1 class="title">🚧 Under Construction 🚧</h1>
-  <p>We're working hard to launch something amazing. Stay tuned!</p>
-  
-  <button class="button" on:click={() => alert('You will be notified soon!')}>
-    Notify Me
-  </button>
-</div>
 
 
 
-<svelte:head>
-  <script>
-    document.body.setAttribute('data-theme', 'light');
-    document.querySelector('input[type="checkbox"]').addEventListener('change', (e) => {
-      document.body.setAttribute('data-theme', e.target.checked ? 'dark' : 'light');
-    });
-  </script>
-</svelte:head>
+

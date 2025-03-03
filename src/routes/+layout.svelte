@@ -16,8 +16,9 @@
 
 
 <nav>
-    
-    <img class= "logo-navbar" src=/assets/logo.png alt="logo"/>
+    <a href="/">
+        <img class= "logo-navbar" src=/assets/logo.png alt="logo"/>
+    </a>
     <ul class="links">
         <li class="knapper">
             <a href="/">Home</a>
@@ -86,6 +87,23 @@
         background-color: white;
         z-index: 100;
     }
+
+    nav, 
+:global(body.dark-mode) nav, 
+.knapper a, 
+.contactme, 
+.hamburger, 
+.logo-navbar, 
+.menu, 
+.knapper a::after {
+    transition: background-color 0.4s ease-in-out, 
+                color 0.5s ease-in-out, 
+                border-color 0.5s ease-in-out, 
+                box-shadow 0.5s ease-in-out, 
+                transform 0.3s ease-in-out, 
+                width 0.3s ease-in-out, 
+                opacity 0.3s ease-in-out;
+}
 
     :global(body.dark-mode) nav {
         background-color: #0d0c1d;

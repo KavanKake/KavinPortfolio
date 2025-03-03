@@ -102,6 +102,26 @@ isLoading = false;
         background-color: #0d0c1d;
     }
 
+    :global(body), :global(body.dark-mode), main, :global(body.dark-mode) main {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+:global(body), 
+:global(body.dark-mode), 
+main, 
+:global(body.dark-mode) main, 
+.hello, 
+.myname, 
+.projectHeader, 
+.button, 
+.project1, 
+.project2 {
+    transition: background-color 0.5s ease-in-out, 
+                color 0.5s ease-in-out, 
+                border-color 0.5s ease-in-out, 
+                filter 0.5s ease-in-out;
+}
+
     .frontpage1 {
         display: flex;
         flex-direction: row;

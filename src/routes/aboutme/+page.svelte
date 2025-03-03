@@ -22,7 +22,7 @@ setTimeout(() => {
     <div class="aboutme">
         <div class="section_1">
             <div class="conteiner">
-                <img src="assets/aboutme.jpg" alt="Kavin Lokeswaran">
+                <img src="assets/OmmegBilde.png" alt="Kavin Lokeswaran">
             </div>
         </div>
     
@@ -163,7 +163,7 @@ setTimeout(() => {
         flex-direction: column;
         text-align: left;
         font-size: 1.5em;
-        width: 100%;
+        width: 90%;
         font-family: coolvetica;
     }
 
@@ -250,7 +250,31 @@ setTimeout(() => {
         align-items: center;
         width: 100%;
         margin-right: 10em;
+        margin-top: 2.5em;
     }
+
+    /* Apply smooth transition to dark mode changes */
+:root, :global(body.dark-mode) {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.spacer, .mini_spacer, main, .aboutme, .overskrift, .tekst, .icon, .barneskole, .ungdomskole, .vgs {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+/* Add fade-in effect when switching themes */
+:global(body.dark-mode) {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.8;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
     
 

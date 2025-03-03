@@ -64,6 +64,19 @@
         position: relative;
     }
 
+    .footer, 
+:global(body.dark-mode) .footer, 
+.button, 
+.btns .button, 
+.btns:has(.button:hover) .button:not(:hover) {
+    transition: background-color 0.5s ease-in-out, 
+                color 0.5s ease-in-out, 
+                border-color 0.5s ease-in-out, 
+                box-shadow 0.5s ease-in-out, 
+                transform 0.3s ease-in-out, 
+                opacity 0.3s ease-in-out;
+}
+
     :global(body.dark-mode) .footer {
         background-color: #0d0c1d;
         border-bottom: white;
