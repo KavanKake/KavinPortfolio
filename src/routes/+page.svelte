@@ -135,7 +135,7 @@ main,
     }
 
     .space {
-        height: 4em;
+        height: 6em;
     }
 
     .space2 {
