@@ -344,6 +344,14 @@ main,
         }
     }
 
+    @media (max-width: 1090px) {
+        .projectsContainer{
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+    }
+
 
     @media (max-width: 920px) {
         .hello{
@@ -365,11 +373,14 @@ main,
         }
 
         .frontpage_picture{
-            height: 30em;
+            height: 40em;
             width: auto;
             justify-content: center;
             align-items: center;
-            transform: scaleX(-1);
+        }
+
+        .projectsContainer{
+            scale: 0.8;
         }
 
         .section_1{
@@ -432,6 +443,10 @@ main,
         .frontpage1{
             padding-top: 12em;
         }
+    }
+
+    @media (max-width: 1090px) {
+        
     }
 </style>
 
