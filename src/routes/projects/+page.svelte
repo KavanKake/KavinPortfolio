@@ -1,4 +1,4 @@
-<script>
+                                    <script>
     import Footer from "$lib/Components/Footer.svelte";
 </script>
 
@@ -65,6 +65,13 @@
                     <h1 class="project1_title_python">With Henrik Luan</h1>
                 </div>
             </a>
+
+            <a href="https://github.com/KavanKake/MultikitWebpage"> 
+                <div class="project1">
+                    <img class="project1_image" src=/assets/MultikitFrontpage.png alt="Portfolio-picture">
+                        <h1 class="project1_title">Multikit (in progress)</h1>
+                    </div>
+                </a>
         </div>
     </div>
 

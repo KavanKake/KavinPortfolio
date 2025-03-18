@@ -68,10 +68,11 @@ isLoading = false;
                     <h1 class="project1_title">Portfolio</h1>
                 </div>
             </a>
-            <a href="https://github.com/KavanKake/Express-js"> 
+            <a href="https://github.com/KavanKake/MultikitWebpage"> 
             <div class="project2">
-                <img class="project2_image" src=/assets/expressJSFront.png alt="ExpressJS-picture">
-                    <h1 class="project2_title">Login page with ExpressJS</h1>
+                <img class="project2_image" src=/assets/MultikitFrontpage.png alt="ExpressJS-picture">
+                    <h1 class="project2_title">MultiKit (In progress)
+                    </h1>
                 </div>
             </a>
 
