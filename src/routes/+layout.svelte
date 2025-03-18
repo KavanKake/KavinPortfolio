@@ -56,7 +56,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/projects">Projects</a></li>
             <li><a href="/aboutme">About me</a></li>
-            <li><a class = "contactme" href="/contactme">Contactme</a></li>
+            <li><a class = "contactme" href="/contactme">Contact me</a></li>
             <li class="switchtext">
                 <p>Dark mode:</p>
                 <Switch class="switch" bind:checked={acceptTerms}></Switch>
