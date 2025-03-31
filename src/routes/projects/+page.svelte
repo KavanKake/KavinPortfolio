@@ -69,7 +69,7 @@
             <a href="https://github.com/KavanKake/MultikitWebpage"> 
                 <div class="project1">
                     <img class="project1_image" src=/assets/MultikitFrontpage.png alt="Portfolio-picture">
-                        <h1 class="project1_title">Multikit (in progress)</h1>
+                        <h1 class="project1_title">Multikit (in progress)</h1>  
                     </div>
                 </a>
         </div>

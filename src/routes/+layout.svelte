@@ -80,6 +80,7 @@
         display: flex;
         position: fixed;
         width: 100%;
+        height: 15vh;
         justify-content: space-between;
         align-items: center;   
         border-bottom: 2px solid #024D98; 

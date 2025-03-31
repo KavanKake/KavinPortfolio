@@ -126,6 +126,7 @@ main,
     .frontpage1 {
         display: flex;
         flex-direction: row;
+        height: 85vh;
         gap: 20em;
         padding-top: 2em;
         border-bottom: #024D98 10px solid;
@@ -226,7 +227,7 @@ main,
 
 
     .frontpage_picture{
-        height: 40em;
+        height: 38em;
         width: fit-content;
         opacity: 100;
     }
@@ -235,6 +236,7 @@ main,
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 85vh;
     }
 
     .projectHeader{
