@@ -50,7 +50,7 @@ isLoading = false;
         
         
         <div class="section_2">
-            <img class="frontpage_picture" src=/assets/homepagebilde.png alt="Bilde av Kavin Lokeswaran">
+            <img class="frontpage_picture" src=/assets/KavinLokeswaran.png alt="Bilde av Kavin Lokeswaran">
         </div>
         
         
@@ -149,10 +149,13 @@ main,
         margin-left: 6em;
     }
 
-    .section_2{
-        margin: 0em;
-        height: 640px;
-        margin-top: 5em;
+
+
+    .frontpage_picture{
+        height: 85vh;
+        width: auto;
+        justify-content: center;
+        align-items: flex-end;
     }
 
     .hello{
@@ -226,17 +229,11 @@ main,
     }
 
 
-    .frontpage_picture{
-        height: 38em;
-        width: fit-content;
-        opacity: 100;
-    }
-
     .projects{
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 85vh;
+        height: fit-content;
     }
 
     .projectHeader{
@@ -353,17 +350,14 @@ main,
             align-items: center;
             gap: 1em;
         }
+
+        .frontpage_picture{
+            display: none;
+        }
     }
 
 
-    @media (max-width: 920px) {
-        .hello{
-            font-size: 1em;
-        }
-
-        .myname{
-            font-size: 3em;
-        }
+    @media (max-width: 1090px) {
 
         .btns{
             gap: 1em;
@@ -392,24 +386,9 @@ main,
             justify-content: center;
             align-items: center;
             margin-left: 0em;
-            margin-top: 10em;
+            margin-top: 5em;
         }
 
-        .section_2{
-            margin-top: 0em;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .myname{
-            text-align: center;
-        }
-
-        .hello{
-            text-align: center;
-        }
 
         .tekst {
             text-align: center;
@@ -427,29 +406,12 @@ main,
         }
     }
 
-    @media (min-height: 1200px) {
-        
-        .frontpage1{
-            padding-top: 7em;
-        }
-    }
 
-    @media (min-height: 1230px) {
-        
-        .frontpage1{
-            padding-top: 10em;
-        }
-    }
-
-    @media (min-height: 1200px) {
-        
-        .frontpage1{
-            padding-top: 12em;
-        }
-    }
 
     @media (max-width: 1090px) {
-        
+    .section_1{
+        height: 80em;
+    }
     }
 </style>
 

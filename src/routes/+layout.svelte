@@ -16,7 +16,7 @@
 
 
 <nav>
-    <a href="/">
+    <a class="navbarAtag" href="/">
         <img class= "logo-navbar" src=/assets/logo.png alt="logo"/>
     </a>
     <ul class="links">
@@ -151,9 +151,14 @@
         width: 80px;
         height: auto;
         margin-left: 7.5em;
-        padding: 15px;
+        padding-top: 1em;
+        padding-bottom: 1em;
         scale: 1.2;
     } 
+
+    .navbarAtag {
+        text-decoration: none;
+    }
 
     a {
         font-family: coolvetica;
@@ -255,9 +260,14 @@
 
         }
     }
-    @media (max-width: 750px) {
+    @media (max-width: 850px) {
         .hamburger {
             display: flex;
+            padding-top: 0em;
+        }
+
+        nav{
+            height: 20vh;
         }
 
         .contactme:hover {
@@ -288,6 +298,8 @@
 
         .logo-navbar {
             margin-left: 0em;
+            padding-bottom: 0em;
+            scale: 0.75;
         }
 
         nav {

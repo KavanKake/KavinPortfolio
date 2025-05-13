@@ -282,27 +282,44 @@ setTimeout(() => {
         .aboutme{
             flex-direction: column;
             gap: 1em;
+            justify-content: center;
+            align-items: center;
         }
 
         .section_2{
             margin-left: 1em;
+            margin-right: 1em;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .conteiner {
             scale: 0.8;
             height: 30em;
+            justify-content: center;
         }
 
         .section_1{
             margin-left: 0em;
+
         }
 
         .tekst{
             width: 100%;
+            text-align: center;
         }
 
         .skole{
             scale: 0.8;
+        }
+
+        .underoverskrift{
+            text-align: center;
+        }
+
+        .overskrift{
+            text-align: center;
         }
     }
 </style>

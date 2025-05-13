@@ -62,6 +62,7 @@
             overflow-x: hidden;
             overflow-y: none;
             font-family: coolvetica;
+            margin-left: 0;
         }
 
         :global(body.dark-mode) .frontpage {
@@ -73,11 +74,8 @@
             flex-direction: column;
             align-items: right;
             justify-content: center;
-    
             margin-top: 5em;
-            margin-left: 3em;
-    
-            
+            padding-left: 3em;
         }
     
         .section_2 {
@@ -89,14 +87,11 @@
             border-radius: 20px;
             padding: 1.5em;
             margin-top: 2em;
-            margin-right: 5em;
             margin-bottom: 2em;
             z-index: 0;
             height: fit-content;
             width: 35em;
             scale: 0.9;
-            
-            
         }
     
         .contactform{
@@ -135,7 +130,6 @@
             justify-content: center;
             align-items: center;
             margin-top: 1em;
-    
             font-family: coolvetica;
             font-size: 1em;
             padding: 0.5em;
@@ -169,7 +163,7 @@
             font-size: 1em;
             padding: 1em;
             border-radius: 10px;
-            width: 20em;
+            width: 92.5%;
         }
     
     
@@ -217,25 +211,27 @@
             
         }
     
-        @media (max-width: 950px) {
-            .frontpage {
-                gap: 1em;
-                margin-left: 0;
-            }
-        }
     
-        @media (max-width: 780px) {
+        @media (max-width: 1200px) {
             .section_1{
                 display: none;
             }
     
             .frontpage{
-                margin-left: 2em;
+                margin-left: 0em;
                 justify-content: center;
+                align-items: center;
             }
     
-            .section_2{
-                margin-right: 2em;
+        }
+
+        @media (max-width: 600px) {
+            .nameSplit{
+                flex-direction: column;
+            }
+    
+            .placeholder{
+                width: auto;
             }
     
         }
