@@ -14,14 +14,14 @@
     
             <div class="email">
                 <img class="mail_logo"src="/assets/mail.png" alt="E-mail">
-                <h3>contact@kavinlokeswaran.no</h3>
+                <h3>kontakt@kavinlokeswaran.no</h3>
             </div>
     
         </div>
     
         <div class="section_2">
             <h1 class="contactform">Contact form</h1>
-            <form method="POST" action="https://formsubmit.co/contact@kavinlokeswaran.no">
+            <form method="POST" action="https://formsubmit.co/kontakt@kavinlokeswaran.no">
                 <h3 class="name">Your name</h3>
                 <div class="nameSplit">
                     <input name="Name" type="text" class="placeholderName" placeholder="First name" required>
