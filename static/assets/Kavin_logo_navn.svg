@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 463.05 211.53">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient-2);
+        stroke: url(#linear-gradient-3);
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        isolation: isolate;
+      }
+
+      .cls-4 {
+        letter-spacing: .19em;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        fill: #3066be;
+        font-family: Arial-BoldMT, Arial;
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        letter-spacing: .17em;
+      }
+
+      .cls-6 {
+        letter-spacing: .13em;
+      }
+
+      .cls-7 {
+        letter-spacing: .24em;
+      }
+
+      .cls-8 {
+        letter-spacing: .23em;
+      }
+
+      .cls-9 {
+        letter-spacing: .25em;
+      }
+
+      .cls-10 {
+        letter-spacing: .21em;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="265.63" y1="74.98" x2="198.89" y2="146.48" gradientTransform="translate(0 222.44) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#030027"/>
+      <stop offset="1" stop-color="#3066be"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="221.05" y1="75.77" x2="221.05" y2="223.94" gradientTransform="translate(0 222.44) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".1" stop-color="#030027"/>
+      <stop offset=".99" stop-color="#3066be"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="159.24" y1="71.46" x2="282.87" y2="71.46" gradientUnits="userSpaceOnUse">
+      <stop offset=".1" stop-color="#030027"/>
+      <stop offset=".99" stop-color="#3066be"/>
+    </linearGradient>
+  </defs>
+  <g id="K">
+    <path class="cls-2" d="M217.63,138.64l-33.58-45.48,33.84-39.51,63.73,82.71c1.98,2.42.26,6.06-2.87,6.06h-53.17c-3.09,0-6.01-1.39-7.96-3.78h0Z"/>
+    <path class="cls-1" d="M159.75,138.7V4.38c0-2.05,1.66-3.71,3.71-3.71h45.06v24.52L228.13.5h50.52c3.17,0,4.88,3.72,2.82,6.12l-115.2,134.49c-2.24,2.62-6.53,1.03-6.53-2.41h.01Z"/>
+  </g>
+  <g id="Layer_3" data-name="Layer 3">
+    <g class="cls-3">
+      <text class="cls-9" transform="translate(0 199.48)"><tspan x="0" y="0">K</tspan></text>
+      <text class="cls-6" transform="translate(30.27 199.48)"><tspan x="0" y="0">A</tspan></text>
+      <text class="cls-9" transform="translate(60.77 199.48)"><tspan x="0" y="0">VIN </tspan></text>
+      <text class="cls-4" transform="translate(159.71 199.48)"><tspan x="0" y="0">L</tspan></text>
+      <text class="cls-9" transform="translate(182.91 199.48)"><tspan x="0" y="0">OK</tspan></text>
+      <text class="cls-7" transform="translate(250.46 199.48)"><tspan x="0" y="0">E</tspan></text>
+      <text class="cls-8" transform="translate(276.73 199.48)"><tspan x="0" y="0">S</tspan></text>
+      <text class="cls-5" transform="translate(304.26 199.48)"><tspan x="0" y="0">W</tspan></text>
+      <text class="cls-10" transform="translate(347.17 199.48)"><tspan x="0" y="0">A</tspan></text>
+      <text class="cls-8" transform="translate(380.13 199.48)"><tspan x="0" y="0">R</tspan></text>
+      <text class="cls-9" transform="translate(408.83 199.48)"><tspan x="0" y="0">AN</tspan></text>
+    </g>
+  </g>
+</svg>

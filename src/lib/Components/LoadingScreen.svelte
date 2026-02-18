@@ -1,51 +1,70 @@
 <script>
-    export let message = 'Loading...';
- </script>
- 
- <div class="loading-screen">
-    <div class="spinner"></div>
-    <p>{message}</p>
- </div>
- 
- <style>
-    .loading-screen {
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background: rgba(255, 255, 255, 0.9);
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       z-index: 9999;
-    }
+  import { fade } from "svelte/transition";
+  import { onMount } from "svelte";
 
- 
-    .spinner {
-       width: 50px;
-       height: 50px;
-       border: 4px solid rgba(0, 0, 0, 0.1);
-       border-top-color: #024D98;
-       border-radius: 50%;
-       animation: spin 1s linear infinite;
+  export let isLoading = true;
+</script>
+
+{#if isLoading}
+  <div class="loading-wrapper" transition:fade={{ duration: 600 }}>
+    <div class="content">
+      <h1>KAVIN LOKESWARAN</h1>
+      <div class="loader">
+        <div class="bar"></div>
+      </div>
+    </div>
+  </div>
+{/if}
+
+<style>
+  .loading-wrapper {
+    position: fixed;
+    inset: 0;
+    background: #05061a; /* mørk blå som i bildene */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  h1 {
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 0.05em;
+    color: #6fa3ff; /* blå tekst */
+    margin-bottom: 1.5rem;
+  }
+
+  .loader {
+    width: 280px;
+    height: 4px;
+    background: rgba(111, 163, 255, 0.25);
+    overflow: hidden;
+    border-radius: 2px;
+    margin: 0 auto;
+  }
+
+  .bar {
+    width: 40%;
+    height: 100%;
+    background: #6fa3ff;
+    animation: slide 1.6s ease-in-out infinite;
+    border-radius: 2px;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(-100%);
     }
- 
-    @keyframes spin {
-       from {
-          transform: rotate(0deg);
-       }
-       to {
-          transform: rotate(360deg);
-       }
+    50% {
+      transform: translateX(150%);
     }
- 
-    p {
-       margin-top: 10px;
-       font-size: 1.2rem;
-       color: #333;
-       font-family: coolvetica;
+    100% {
+      transform: translateX(-100%);
     }
- </style>
- 
+  }
+</style>

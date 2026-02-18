@@ -17,29 +17,23 @@
 
 <nav>
     <a class="navbarAtag" href="/">
-        <img class= "logo-navbar" src=/assets/logo.png alt="logo"/>
+        <img class= "logo-navbar" src=/assets/Kavin_logo.svg alt="logo"/>
     </a>
     <ul class="links">
-        <li class="knapper">
-            <a href="/">Home</a>
-        </li>
         <li class="knapper">
             <a href="/projects">Projects</a>
         </li>
         <li class="knapper">
             <a href="/aboutme">About me</a>
         </li>
-        <!-- <li class="knapper">
-            <a href="/extrapages">extrapages</a>
-        </li> -->
-        <li class="blå_knapp">
-            <a class = "contactme" href="/contactme">Contact me</a>
+        <li class="knapper">
+            <a  href="/contactme">Contact me</a>
         </li>
-        <li class="switchtext">
+        <!-- <li class="switchtext">
             <p>Dark mode:</p>
             <Switch  bind:checked={acceptTerms}></Switch>
         
-        </li>
+        </li> -->
     </ul>  
 
     <div class="hamburger">
@@ -48,7 +42,7 @@
         type="collapse"
         title="Toggle nav links"
         ariaControls="nav"
-        --color="#024D98"
+        --color="#3066BE"
     />
 
     {#if open}
@@ -85,36 +79,13 @@
         align-items: center;   
         border-bottom: 2px solid #024D98; 
         box-shadow: 0px 0px 10px #024D98;
-        background-color: white;
+        background-color: #030027;
         z-index: 100;
+        
     }
 
     nav, 
-:global(body.dark-mode) nav, 
-.knapper a, 
-.contactme, 
-.hamburger, 
-.logo-navbar, 
-.menu, 
-.knapper a::after {
-    transition: background-color 0.4s ease-in-out, 
-                color 0.5s ease-in-out, 
-                border-color 0.5s ease-in-out, 
-                box-shadow 0.5s ease-in-out, 
-                transform 0.3s ease-in-out, 
-                width 0.3s ease-in-out, 
-                opacity 0.3s ease-in-out;
-}
 
-    :global(body.dark-mode) nav {
-        background-color: #0d0c1d;
-        border-bottom: #024D98;
-        box-shadow: 0px 0px 10px #024D98;
-    }
-
-    :global(body.dark-mode) nav a {
-        color: #EFEFEF;
-    }
 
     .links {
         display: flex;
@@ -128,6 +99,7 @@
         margin-right: 40px;
         text-decoration: none;
         text-align: center;
+        color: #3066BE;
     }
 
     .knapper {
@@ -142,17 +114,14 @@
     padding-bottom: 5px;
     }   
 
-    :global(body.dark-mode) .links .knapper a:hover {
-        color: #EFEFEF;
-    }
+   
 
 
     .logo-navbar {
-        width: 80px;
+        display: inline-block;
+        width: 50px;
         height: auto;
         margin-left: 7.5em;
-        padding-top: 1em;
-        padding-bottom: 1em;
         scale: 1.2;
     } 
 
@@ -161,16 +130,17 @@
     }
 
     a {
-        font-family: coolvetica;
-        font-size: 1.2em;
+        font-size: 1em;
         text-decoration: none;
-        color: black;
+        color: #3066BE;
         padding: 0;
+        font-family: "alphabet-soup-pro", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 
     .contactme {
         color: white;
-        background-color: #024D98;
         border-radius: 10px;
         padding: 10px;
     }
@@ -193,7 +163,7 @@
 
     nav a {
     text-decoration: none;
-    color: black;
+    color: #3066BE;
     display: inline-block;
     }
 
@@ -209,9 +179,7 @@
     transition: width 0.3s ease;
     }
 
-    :global(body.dark-mode) nav .knapper a::after {
-        background-color: #EFEFEF;
-    }
+  
 
     nav a:hover::after {
     width: 100%;
@@ -221,24 +189,17 @@
         gap: 10px;
     }
 
-    .contactme:hover {
-        background-color: white;
-        color: #024D98;
-        transition: 0.3s;
-        border: #024D98 2px solid;
-        padding: 7.5px;
-        
-    }
 
     p {
         margin: 0;
         font-size: 1.2em;
-        font-family: coolvetica;
+        font-family: "alphabet-soup-pro", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        color: #3066BE;
     }
 
-    :global(body.dark-mode) p {
-        color: #EFEFEF;
-    }
+
 
     .switchtext {
         margin-right: 2em;
@@ -307,6 +268,43 @@
             justify-content: center;
         }
     
+    }
+
+
+    :global(body.dark-mode) nav, 
+.knapper a, 
+.contactme, 
+.hamburger, 
+.logo-navbar, 
+.menu, 
+.knapper a::after {
+    transition: background-color 0.4s ease-in-out, 
+                color 0.5s ease-in-out, 
+                border-color 0.5s ease-in-out, 
+                box-shadow 0.5s ease-in-out, 
+                transform 0.3s ease-in-out, 
+                width 0.3s ease-in-out, 
+                opacity 0.3s ease-in-out;
+}
+
+    :global(body.dark-mode) nav {
+        background-color: #0d0c1d;
+        border-bottom: #024D98;
+        box-shadow: 0px 0px 10px #024D98;
+    }
+
+    :global(body.dark-mode) nav a {
+        color: #3066BE;
+    }
+
+        :global(body.dark-mode) p {
+        color: #EFEFEF;
+    }
+      :global(body.dark-mode) nav .knapper a::after {
+        background-color: #EFEFEF;
+    }
+     :global(body.dark-mode) .links .knapper a:hover {
+        color: #EFEFEF;
     }
 </style>
 

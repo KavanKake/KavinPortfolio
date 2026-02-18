@@ -1,16 +1,68 @@
 <script>
     import Footer from "$lib/Components/Footer.svelte";
-
     import LoadingScreen from "$lib/Components/LoadingScreen.svelte";
 
-let isLoading = true;
 
-// Simulate a delay (e.g., fetching data)
-setTimeout(() => {
-isLoading = false;
-},1500);
+  import { onMount } from "svelte";
+
+  let isLoading = true;
+
+  onMount(async () => {
+    // Simuler lasting (erstatt med ekte data/komponent-load)
+    await new Promise((res) => setTimeout(res, 2000));
+    isLoading = false;
+  });
+
+
+import { projects } from '$lib/Components/projects.js';
+
+  // Klon første og siste
+  const extended = [
+    projects[projects.length - 1],
+    ...projects,
+    projects[0]
+  ];
+
+  let index = 1;
+  let transitioning = true;
+
+  function next() {
+    transitioning = true;
+    index += 1;
+  }
+
+  function prev() {
+  if (index === 1) {
+    // Gå til klonen bakerst først (med animasjon)
+    transitioning = true;
+    index = 0;
+
+    // Etter animasjonen: hopp til ekte siste slide
+    setTimeout(() => {
+      transitioning = false;
+      index = extended.length - 2;
+    }, 400); // samme som transition-tiden
+  } else {
+    transitioning = true;
+    index -= 1;
+  }
+}
+
+  function handleTransitionEnd() {
+    // Hopper uten animasjon når vi er på kloner
+    if (index === extended.length - 1) {
+      transitioning = false;
+      index = 1;
+    }
+    if (index === 0) {
+      transitioning = false;
+      index = extended.length - 2;
+    }
+  }
     
 </script>
+
+<LoadingScreen {isLoading} />
 
 {#if isLoading}
     <LoadingScreen class="loading-screen" message="Please wait while we load the app..." />
@@ -18,67 +70,48 @@ isLoading = false;
 
 <main>
     <div class="space"></div>
-    <div class="frontpage1">
-        <div class="section_1">
-            <div class="tekst">
-                <h6 class="hello">Hello, my name is</h6>
-                <h1 class="myname">Kavin</h1>
-                <h1 class="myname">Lokeswaran</h1>
-            </div>
-            
-            
-            
-            <div class="btns">
-            
-                <a class="button" href="https://github.com/KavanKake">
-                    <img class="logo" src=/assets/githubblack.png alt="button" />
-                </a>
-            
-                <a class="button" href="https://www.instagram.com/kavin_lokeswaran_/">
-                    <img class="logo" src=/assets/instablack.png alt="button" />
-                </a>
-            
-                <a class="button" href="https://www.facebook.com/profile.php?id=61550619093513">
-                    <img class="logo" src=/assets/faceblack.png alt="button" />
-                </a>
-            
-                <a class="button" href="https://www.linkedin.com/in/kavin-lokeswaran/">
-                    <img class="logo" src=/assets/linkedinblack.png alt="button" />
-                </a>
-            </div>
-        </div>
-        
-        
-        <div class="section_2">
-            <img class="frontpage_picture" src=/assets/KavinLokeswaran.png alt="Bilde av Kavin Lokeswaran">
-        </div>
-        
-        
-        
+    <div class="backgroundtext">
+        <h1>Kavin</h1>
+        <h1>Lokeswaran</h1>
     </div>
-    <div class="space2"></div>
+    <div class="frontpage1">
+        <div class="title">
+            <h1 class="title_text">Hi, and welcome to my Portfolio</h1>
+        </div>
+
+
+
+    </div>
     <div class="projects">
         <div class="projectHeader">
-            <h1>Featured projects</h1>
+            <h1>Projects</h1>
+            <h2>Here are some featured projects</h2>
         </div>
-        <div class="projectsContainer">
-            <a href="https://github.com/KavanKake/KavinPortfolio"> 
-            <div class="project1">
-                <img class="project1_image" src=/assets/portfolioFront.png alt="Portfolio-picture">
-                    <h1 class="project1_title">Portfolio</h1>
-                </div>
-            </a>
-            <a href="https://github.com/KavanKake/MultikitWebpage"> 
-            <div class="project2">
-                <img class="project2_image" src=/assets/MultikitFrontpage.png alt="ExpressJS-picture">
-                    <h1 class="project2_title">MultiKit (In progress)
-                    </h1>
-                </div>
-            </a>
+        <div class="carousel">
+        <button class="arrow left" on:click={prev}>◀</button>
 
+        <div
+        class="track"
+        style="
+            transform: translateX(-{index * 100}%);
+            transition: {transitioning ? 'transform 0.4s ease' : 'none'};
+        "
+        on:transitionend={handleTransitionEnd}
+        >
+    {#each extended as project}
+      <div class="slide">
+        <div class="card">
+          <img class="project-image" src={project.image} alt={project.title} />
+          <h3>{project.title}</h3>
         </div>
+      </div>
+    {/each}
+  </div>
+
+  <button class="arrow right" on:click={next}>▶</button>
+</div>
     </div>
-    <div class="space"></div>
+    <div class="footer-space"></div>
     
     <Footer/>
 </main>
@@ -96,7 +129,7 @@ isLoading = false;
 
 
     main {
-        background-color: white;
+        background-color: #030027;
     }
 
     :global(body.dark-mode) main {
@@ -107,25 +140,11 @@ isLoading = false;
     transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
-:global(body), 
-:global(body.dark-mode), 
-main, 
-:global(body.dark-mode) main, 
-.hello, 
-.myname, 
-.projectHeader, 
-.button, 
-.project1, 
-.project2 {
-    transition: background-color 0.5s ease-in-out, 
-                color 0.5s ease-in-out, 
-                border-color 0.5s ease-in-out, 
-                filter 0.5s ease-in-out;
-}
+
 
     .frontpage1 {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         height: 85vh;
         gap: 20em;
         padding-top: 2em;
@@ -137,110 +156,56 @@ main,
     }
 
     .space {
-        height: 6em;
+        height: 15vh;
     }
 
-    .space2 {
-        height: 0em;
+    .title {
+       font-family: "alphabet-soup-pro", sans-serif;
+        font-size: 2em;
+        color: #024D98;
+        font-weight: 600;
     }
 
-    .section_1{
-        margin-top: 15em;
-        margin-left: 6em;
-    }
-
-
-
-    .frontpage_picture{
-        height: 85vh;
-        width: auto;
+    .title_text{
+        margin-top: 0.5em;
+        text-align: center;
+        align-items: center;
         justify-content: center;
-        align-items: flex-end;
-    }
+    } 
 
-    .hello{
-        text-align: left;
-        color: black;
-        font-family: "coolvetica";
-        font-size: 1.5em;   
-        margin-bottom: 0.25em;
-        margin-top: 0em;
-        width: fit-content;
-    }
+    .backgroundtext {
+    position: fixed; /* 👈 viktig */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 5em;
+    color: #3066BE;
+    opacity: 0.25;
 
-    :global(body.dark-mode) .hello {
-        color: #EFEFEF;
-    }
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-weight: 400;
 
-    .myname{
-        color: white;
-        text-shadow: 0px 0px 10px #024D98,
-                    0px 0px 10px #024D98,
-                    0px 0px 20px #024D98,
-                    0px 0px 30px #024D98,
-                    0px 0px 40px #024D98;
-        font-family: "industry-inc-stencil", sans-serif;
-        font-weight: 750;
-        font-size: 5em;   
-        margin-bottom: 0em;
-        margin-top: 0em;
+    user-select: none;
+    pointer-events: none;
 
-        width: fit-content;
-    }
-
-    .btns{
-        display: flex;
-        flex-direction: row;
-        gap: 2.5em;
-        padding: 20px;
-        padding-left: 0px;
-        width: fit-content;
-    }
-
-    .btns:has(.button:hover) .button:not(:hover) {
-    opacity: 0.8;
-    transform: scale(0.8); /* Use transform instead of scale */
-    filter: blur(4px);
+    z-index: 0;
+    text-align: center;
 }
-
-    .button {
-    align-content: space-between;
-    border: 3px solid #024D98;
-    border-radius: 30%;
-    padding: 0.25em;
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-
-    &:hover {
-        transform: scale(1.2); /* Use transform instead of scale */
-    }
-}
-
-    .logo{
-        width: 3em;
-        height: auto;
-    }
-
-    :global(body.dark-mode) .logo {
-        filter: invert(1);
-    }
-
-    :global(body.dark-mode) .button {
-        border: 3px solid #EFEFEF;
-    }
 
 
     .projects{
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: fit-content;
+        height: 85vh;
     }
 
     .projectHeader{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        gap: 1em;
+        gap: 0em;
         font-size: 1.5em;
         padding-top: 2em;
         padding-bottom: 2em;
@@ -249,85 +214,17 @@ main,
         color: #024D98;
     }
 
-    .projectsContainer{
-        display: flex;
-        flex-direction: row;
-        gap: 10em;
-        font-family: coolvetica;
+
+    h1 {
+        font-family: "alphabet-soup-pro", sans-serif;
+        margin: 0;
     }
 
-    .project1{
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
-        height: 30em;
-        width: 30em;
-        align-items: center;
-        justify-content: center;
-        border: #024D98 3px solid;
-        border-radius: 20px;
-        background-color: #024D98;
+    h2 {
+        font-family: "coolvetica", sans-serif;
+        margin: 0;
+        font-weight: 400;
     }
-
-    .project2{
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
-        height: 30em;
-        width: 30em;
-        align-items: center;
-        justify-content: center;
-        border: #024D98 3px solid;
-        border-radius: 20px;
-        background-color: #024D98;
-    }
-
-    .project1_image{
-        height: 15em;
-        width: auto;
-        border: black 3px solid;
-    }
-
-    .project2_image{
-        height: 15em;
-        width: auto;
-        border: black 3px solid;
-    }
-
-    .project1_title{
-        color: white;
-        font-size: 2em;
-        text-align: center;
-        font-weight: 600;
-        text-decoration: none;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .project1_title:hover{
-        transform: scale(1.3);
-    }
-
-    .project1:hover .project1_title{
-        transform: scale(1.3);
-    }
-
-    .project2:hover .project2_title{
-        transform: scale(1.3);
-    }
-
-    .project2_title{
-        color: white;
-        font-size: 2em;
-        text-align: center;
-        font-weight: 600;
-        text-decoration: none;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .project2_title:hover{
-        transform: scale(1.3);
-    }
-
 
     @media (max-width: 1167px) {
         .frontpage1 {
@@ -335,84 +232,84 @@ main,
             margin-left: 0;
         }
 
-        .section_1{
-            margin-left: 2em;
-        }
-
-        .myname{
-            font-size: 5em;
-        }
     }
 
-    @media (max-width: 1090px) {
-        .projectsContainer{
-            flex-direction: column;
-            align-items: center;
-            gap: 1em;
-        }
-
-        .frontpage_picture{
-            display: none;
-        }
-    }
+  
 
 
-    @media (max-width: 1090px) {
-
-        .btns{
-            gap: 1em;
-            scale: 0.8;
-        }
-
-        .frontpage1 {
-            flex-direction: column;
-            gap: 0em;
-        }
-
-        .frontpage_picture{
-            height: 40em;
-            width: auto;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .projectsContainer{
-            scale: 0.8;
-        }
-
-        .section_1{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-left: 0em;
-            margin-top: 5em;
-        }
-
-
-        .tekst {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .btns{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
+@media (max-width: 1090px) {
+    .frontpage1 {
+        flex-direction: column;
+        gap: 0em;
     }
 
 
 
-    @media (max-width: 1090px) {
-    .section_1{
-        height: 80em;
-    }
-    }
+
+}
+
+
+    .carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+    background: #4a6fb3;
+    padding: 2rem;
+    width: 40%;
+    height: 85%;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-size: 3rem;
+    color: #030027;
+    padding: 2rem;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #7fa1ff;
+
+  z-index: 10;          /* 👈 VIKTIG */
+  pointer-events: auto; /* 👈 SIKKERHET */
+}
+
+.left { left: 1rem; }
+.right { right: 1rem; }
+
+.footer-space {
+    height: 10vh;
+}
+
+
+
+
 </style>
 
 
