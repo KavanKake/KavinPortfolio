@@ -1,5 +1,8 @@
+<script>
+  import { t } from "$lib/i18n";
+</script>
+
 <footer class="footer">
-  <!-- SVG-linje --> 
   <svg
     viewBox="0 0 1440 120"
     preserveAspectRatio="none"
@@ -14,34 +17,26 @@
   </svg>
 
   <div class="footer-content">
-    <!-- VENSTRE -->
     <div class="left">
       <h2>KAVIN LOKESWARAN</h2>
-
-      <h3>SOCIAL MEDIA</h3>
+      <h3>{$t("footer_social")}</h3>
       <ul>
         <li>Instagram - kavinlokeswaran</li>
         <li>LinkedIn - kavinlokeswaran</li>
         <li>GitHub - kavinlokeswaran</li>
         <li>Twitter - kavinlokeswaran</li>
       </ul>
-
-      <a href="#top" class="back-to-top">← BACK TO TOP →</a>
+      <a href="#top" class="back-to-top">{$t("footer_back_to_top")}</a>
     </div>
-
-    <!-- HØYRE -->
     <div class="right">
-      <h3>NAVIGATION</h3>
+      <h3>{$t("footer_nav")}</h3>
       <nav>
-        <a href="/">HOME</a>
-        <a href="/projects">PROJECTS</a>
-        <a href="/about">ABOUT ME</a>
-        <a href="/contact">CONTACT ME</a>
+        <a href="/">{$t("footer_home")}</a>
+        <a href="/projects">{$t("footer_projects")}</a>
+        <a href="/aboutme">{$t("footer_about")}</a>
+        <a href="/contactme">{$t("footer_contact")}</a>
       </nav>
-
-      <p class="copyright">
-        COPYRIGHT (2026) KAVIN LOKESWARAN
-      </p>
+      <p class="copyright">{$t("footer_copyright")}</p>
     </div>
   </div>
 </footer>
@@ -68,7 +63,10 @@
 .footer-content {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   padding: 0 6rem;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
 .left h2 {
@@ -125,6 +123,53 @@
 .copyright {
   font-size: 0.9rem;
   opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    padding: 0 2rem;
+    align-items: flex-start;
+  }
+
+  .left h2 {
+    font-size: 2.2rem;
+  }
+
+  .left h3,
+  .right h3 {
+    font-size: 1.6rem;
+  }
+
+  .right nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .right nav a {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-content {
+    padding: 0 1.5rem;
+  }
+
+  .left ul {
+    font-size: 1.1rem;
+  }
+
+  .back-to-top {
+    display: inline-block;
+    margin-top: 0.75rem;
+  }
 }
 
 </style>

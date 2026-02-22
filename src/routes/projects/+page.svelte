@@ -1,234 +1,276 @@
-                                    <script>
-    import Footer from "$lib/Components/Footer.svelte";
+<script>
+  import Footer from "$lib/Components/Footer.svelte";
+  import { githubProjects } from "$lib/Components/projects.js";
+  import { t } from "$lib/i18n";
+  import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
 </script>
 
-
-
-<div class="spacer"></div>
-
-<div class="page">
-    <div class="overskrift">
-        <div class="tekst">
-            <h1>Projects</h1>
+<div class="page-wrapper">
+  <div class="spacer"></div>
+  <main class="page">
+    <ScrollReveal>
+      <div class="overskrift">
+        <h1>{$t("projects_title")}</h1>
+        <p class="subtitle">{$t("projects_subtitle")}</p>
+      </div>
+    </ScrollReveal>
+    <div class="projects-grid">
+    {#each githubProjects as project, i}
+      <ScrollReveal delay={i * 80}>
+      {#if project.githubUrl}
+      <a
+        class="project-card"
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {#if project.image}
+          <img class="project-image" src={project.image} alt={project.title} />
+        {:else}
+          <div class="project-placeholder">
+            <span class="placeholder-icon">📁</span>
+          </div>
+        {/if}
+        <div class="project-info">
+          <h2 class="project-title">{project.title}</h2>
+          {#if project.status === "in_progress"}
+            <span class="status-badge">{$t("projects_in_progress")}</span>
+          {/if}
+          {#if project.description}
+            <p class="project-description">{project.description}</p>
+          {/if}
+          <span class="github-link">{$t("projects_github")}</span>
         </div>
+      </a>
+      {:else}
+      <div class="project-card disabled" role="article" aria-label={project.title}>
+        {#if project.image}
+          <img class="project-image" src={project.image} alt={project.title} />
+        {:else}
+          <div class="project-placeholder">
+            <span class="placeholder-icon">📁</span>
+          </div>
+        {/if}
+        <div class="project-info">
+          <h2 class="project-title">{project.title}</h2>
+          <span class="status-badge">{$t("projects_in_progress")}</span>
+          {#if project.description}
+            <p class="project-description">{project.description}</p>
+          {/if}
+          <span class="github-link muted">{$t("projects_in_progress")}</span>
+        </div>
+      </div>
+      {/if}
+      </ScrollReveal>
+    {/each}
     </div>
-<div class="space"></div>
-    <div class="projects">
-        <div class="projectsContainer">
-            <a href="https://github.com/KavanKake/KavinPortfolio"> 
-            <div class="project1">
-                <img class="project1_image" src=/assets/portfolioFront.png alt="Portfolio-picture">
-                    <h1 class="project1_title">Portfolio</h1>
-                </div>
-            </a>
-            <a href="https://github.com/KavanKake/Express-js"> 
-            <div class="project2">
-                <img class="project2_image" src=/assets/expressJSFront.png alt="ExpressJS-picture">
-                    <h1 class="project2_title">Login page with ExpressJS</h1>
-                </div>
-            </a>
-            <a href="https://github.com/KavanKake/BakkaSmak"> 
-                <div class="project1">
-                    <img class="project1_image" src=/assets/BakkaSmak.png alt="Portfolio-picture">
-                        <h1 class="project1_title">BakkaSmak</h1>
-                    </div>
-                </a>
-        </div>
-        <div class="projectsContainer">
-            <a href="https://github.com/KavanKake/Ratingsystem-fotball"> 
-            <div class="project1">
-            
-                    <h1 class="project1_title_python">Ratingsystem - football</h1>
-                    <h1 class="project1_title_python">Python</h1>
-
-                </div>
-            </a>
-            <a href="https://github.com/KavanKake/Quizspill"> 
-            <div class="project1">
-                    <h1 class="project1_title_python">Who wants to be a millionaire</h1>
-                    <h1 class="project1_title_python">Python game</h1>
-                </div>
-            </a>                                                    
-            <a href="https://github.com/KavanKake/Viking_game">  
-                <div class="project1">
-                        <h1 class="project1_title_python">Viking game</h1>
-                        <h1 class="project1_title_python">Godot game</h1>   
-                    </div>
-                </a>
-        </div>  
-        
-        <div class="projectsContainer">
-            <a href="https://github.com/KavanKake/Vikingtokt"> 
-            <div class="project1">
-                <img class="project1_image" src=/assets/vikingtokthome.png alt="Portfolio-picture">
-                    <h1 class="project1_title_python">Viking webpage</h1>
-                    <h1 class="project1_title_python">With Henrik Luan</h1>
-                </div>
-            </a>
-
-            <a href="https://github.com/KavanKake/MultikitWebpage"> 
-                <div class="project1">
-                    <img class="project1_image" src=/assets/MultikitFrontpage.png alt="Portfolio-picture">
-                        <h1 class="project1_title">Multikit (in progress)</h1>  
-                    </div>
-                </a>
-        </div>
-    </div>
-
+  </main>
+  <div class="footer-spacer"></div>
+  <Footer />
 </div>
 
-
-
-
-
-
-<div class="spacer"></div>
-<Footer/>
-
 <style>
+  .page-wrapper {
+    background-color: #030027;
+    min-height: 100vh;
+  }
 
-.spacer {
-    height: 10em;
-}
-
-.space {
-    height: 2em;
-}
-/* Global transition for background and text color */
-:root, :global(body.dark-mode) {
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, filter 0.5s ease-in-out;
-}
-
-/* General page background transition */
-.page {
-    background-color: white;
-    transition: background-color 0.5s ease-in-out;
-}
-
-:global(body.dark-mode) .page {
+  :global(body.dark-mode) .page-wrapper {
     background-color: #0d0c1d;
-}
+  }
 
-/* Header text and general elements */
-.tekst {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 2em;
-    font-family: "industry-inc-stencil", sans-serif;
-    align-items: center;
-    gap: 1em;
-    padding-left: 1.5em;
-    color: #024D98;
-    transition: color 0.5s ease-in-out;
-}
-
-
-
-/* Project container styles */
-.projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10em;
-}
-
-/* Projects container for responsive grid */
-.projectsContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 5em;
-    font-family: coolvetica;
-}
-
-/* Individual project box with smooth hover transition */
-.project1, .project2 {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    height: 25em;
-    width: 25em;
-    align-items: center;
-    justify-content: center;
-    border: #024D98 3px solid;
-    border-radius: 20px;
-    background-color: #024D98;
-    transition: transform 0.3s ease-in-out, background-color 0.5s ease-in-out;
-}
-
-/* Hover effects for project items */
-.project1:hover, .project2:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-    background-color: #1e2a4d; /* Darker shade on hover */
-}
-
-/* Image styling inside project boxes */
-.project1_image, .project2_image {
+  .spacer {
     height: 10em;
-    width: auto;
-    border: black 3px solid;
-}
+    background-color: #030027;
+  }
 
-/* Titles inside the project items */
-.project1_title, .project2_title {
-    color: white;
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
-}
+  .page {
+    padding-top: 2em;
+  }
 
-.project1_title_python, .project2_title {
-    color: white;
-    font-size: 1.5em;
+  :global(body.dark-mode) .spacer {
+    background-color: #0d0c1d;
+  }
+
+  .footer-spacer {
+    height: 4em;
+    background-color: #030027;
+  }
+
+  :global(body.dark-mode) .footer-spacer {
+    background-color: #0d0c1d;
+  }
+
+  .page {
+    background-color: #030027;
+    min-height: 60vh;
+    padding: 0 2rem 2rem;
+  }
+
+  :global(body.dark-mode) .page {
+    background-color: #0d0c1d;
+  }
+
+  .overskrift {
     text-align: center;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
+    padding: 2em 0 3em;
+  }
+
+  .overskrift h1 {
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-size: 2.5em;
+    color: #024d98;
+    margin: 0 0 0.25em;
+  }
+
+  .subtitle {
+    font-family: "coolvetica", sans-serif;
+    font-size: 1.2em;
+    color: #3066be;
     margin: 0;
-}
+  }
 
-/* Hover effect to scale up the text */
-.project1_title:hover, .project2_title:hover {
-    transform: scale(1.3);
-}
+  :global(body.dark-mode) .overskrift h1 {
+    color: #6fa3ff;
+  }
 
-/* Dark mode text color changes */
-:global(body.dark-mode) .project1_title,
-:global(body.dark-mode) .project2_title {
+  :global(body.dark-mode) .subtitle {
+    color: #9ab8ff;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    border: 3px solid #024d98;
+    border-radius: 20px;
+    background-color: #024d98;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: scale(1.03);
+    background-color: #1e2a4d;
+    border-color: #3066be;
+  }
+
+  :global(body.dark-mode) .project-card {
+    background-color: #1e2a4d;
+    border-color: #3066be;
+  }
+
+  :global(body.dark-mode) .project-card:hover {
+    background-color: #2a3d5a;
+    border-color: #6fa3ff;
+  }
+
+  .project-image {
+    width: 100%;
+    height: 12em;
+    object-fit: cover;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .project-placeholder {
+    width: 100%;
+    height: 12em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .placeholder-icon {
+    font-size: 4em;
+    opacity: 0.7;
+  }
+
+  .project-info {
+    padding: 1.25em;
+    text-align: center;
+    flex: 1;
+  }
+
+  .project-title {
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: white;
+    margin: 0 0 0.35em;
+    line-height: 1.3;
+  }
+
+  .project-description {
+    font-family: "coolvetica", sans-serif;
+    font-size: 0.95em;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 0.75em;
+  }
+
+  .github-link {
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-size: 0.9em;
+    color: #7fa1ff;
+    font-weight: 500;
+  }
+
+  .project-card:hover .github-link {
+    text-decoration: underline;
+  }
+
+  .project-card.disabled {
+    cursor: default;
+    opacity: 0.9;
+  }
+
+  .project-card.disabled:hover {
+    transform: none;
+  }
+
+  .status-badge {
+    display: inline-block;
+    margin: 0.25em 0 0.5em;
+    padding: 0.25em 0.6em;
+    border-radius: 999px;
+    font-family: "alphabet-soup-pro", sans-serif;
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .github-link.muted {
+    text-decoration: none;
+    opacity: 0.85;
+  }
+
+  :global(body.dark-mode) .project-title {
     color: #f0f0f0;
-}
+  }
 
-:global(body.dark-mode) .project1_title:hover,
-:global(body.dark-mode) .project2_title:hover {
-    color: #ffcc00; /* Highlight color on hover */
-}
+  :global(body.dark-mode) .project-description {
+    color: rgba(240, 240, 240, 0.85);
+  }
 
-/* Dark mode project box background */
-:global(body.dark-mode) .project1, :global(body.dark-mode) .project2 {
-    background-color: #1e2a4d; /* Darker shade for projects in dark mode */
-}
-
-:global(body.dark-mode) .project1:hover, :global(body.dark-mode) .project2:hover {
-    background-color: #2a3d5a; /* Slightly darker shade on hover */
-}
-
-
-@media (max-width: 1040px) {
-    .projectsContainer {
-        flex-direction: column;
-        align-items: center;
-        gap: 5em;
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
     }
-    
-}
+
+    .spacer {
+      height: 6em;
+    }
+  }
 </style>
-
-
-
-
-

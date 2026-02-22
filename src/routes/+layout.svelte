@@ -1,67 +1,64 @@
 <script>
-    import Button from "$lib/Components/button.svelte"
-    import Switch from "$lib/Components/switch.svelte"
-    import { Hamburger } from 'svelte-hamburgers';
-    import { fly } from 'svelte/transition';
+  import { Hamburger } from "svelte-hamburgers";
+  import { fly } from "svelte/transition";
+  import { locale, t } from "$lib/i18n";
+  import { onMount } from "svelte";
 
-    
+  let open = $state(false);
 
-    let open = $state(false);
+  onMount(() => {
+    try {
+      const stored = localStorage.getItem("portfolio-locale");
+      if (stored === "en" || stored === "no") locale.set(stored);
+    } catch (_) {}
+  });
 
-    let acceptTerms = $state(false);
+  function closeMenu() {
+    open = false;
+  }
 
-
-
-</script>   
-
+  function setLang(lang) {
+    locale.set(lang);
+  }
+</script>
 
 <nav>
-    <a class="navbarAtag" href="/">
-        <img class= "logo-navbar" src=/assets/Kavin_logo.svg alt="logo"/>
-    </a>
-    <ul class="links">
-        <li class="knapper">
-            <a href="/projects">Projects</a>
-        </li>
-        <li class="knapper">
-            <a href="/aboutme">About me</a>
-        </li>
-        <li class="knapper">
-            <a  href="/contactme">Contact me</a>
-        </li>
-        <!-- <li class="switchtext">
-            <p>Dark mode:</p>
-            <Switch  bind:checked={acceptTerms}></Switch>
-        
-        </li> -->
-    </ul>  
+  <a class="navbarAtag" href="/">
+    <img class="logo-navbar" src="/assets/Kavin_logo.svg" alt="Kavin Lokeswaran logo" />
+  </a>
+  <ul class="links">
+    <li class="knapper"><a href="/projects">{$t("nav_projects")}</a></li>
+    <li class="knapper"><a href="/aboutme">{$t("nav_about")}</a></li>
+    <li class="knapper"><a href="/contactme">{$t("nav_contact")}</a></li>
+    <li class="lang-switch">
+      <button type="button" class="lang-btn" class:active={$locale === "no"} on:click={() => setLang("no")} aria-label="Norsk">NO</button>
+      <span class="lang-divider">|</span>
+      <button type="button" class="lang-btn" class:active={$locale === "en"} on:click={() => setLang("en")} aria-label="English">EN</button>
+    </li>
+  </ul>
 
-    <div class="hamburger">
-        <Hamburger
-        bind:open
-        type="collapse"
-        title="Toggle nav links"
-        ariaControls="nav"
-        --color="#3066BE"
+  <div class="hamburger">
+    <Hamburger
+      bind:open
+      type="collapse"
+      title="Toggle nav links"
+      ariaControls="nav"
+      --color="#3066BE"
     />
-
     {#if open}
-        <ul id="nav" class="menu" transition:fly={{x: 50 }}>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/aboutme">About me</a></li>
-            <li><a class = "contactme" href="/contactme">Contact me</a></li>
-            <li class="switchtext">
-                <p>Dark mode:</p>
-                <Switch class="switch" bind:checked={acceptTerms}></Switch>
-            
-            </li>
-        </ul>
+      <ul id="nav" class="menu" transition:fly={{ x: 50 }}>
+        <li><a href="/" on:click={closeMenu}>{$t("nav_home")}</a></li>
+        <li><a href="/projects" on:click={closeMenu}>{$t("nav_projects")}</a></li>
+        <li><a href="/aboutme" on:click={closeMenu}>{$t("nav_about")}</a></li>
+        <li><a class="contactme" href="/contactme" on:click={closeMenu}>{$t("nav_contact")}</a></li>
+        <li class="lang-switch menu-lang">
+          <button type="button" class="lang-btn" class:active={$locale === "no"} on:click={() => setLang("no")}>NO</button>
+          <span class="lang-divider">|</span>
+          <button type="button" class="lang-btn" class:active={$locale === "en"} on:click={() => setLang("en")}>EN</button>
+        </li>
+      </ul>
     {/if}
-    </div>
-    
-
-
+  </div>
 </nav>
 
 
@@ -73,6 +70,7 @@
     nav {
         display: flex;
         position: fixed;
+        inset: 0 auto auto 0;
         width: 100%;
         height: 15vh;
         justify-content: space-between;
@@ -81,11 +79,9 @@
         box-shadow: 0px 0px 10px #024D98;
         background-color: #030027;
         z-index: 100;
-        
+        padding: 0 3rem;
+        box-sizing: border-box;
     }
-
-    nav, 
-
 
     .links {
         display: flex;
@@ -121,8 +117,8 @@
         display: inline-block;
         width: 50px;
         height: auto;
-        margin-left: 7.5em;
-        scale: 1.2;
+        margin-left: 0;
+        transform: scale(1.1);
     } 
 
     .navbarAtag {
@@ -201,14 +197,43 @@
 
 
 
-    .switchtext {
-        margin-right: 2em;
-        scale: 0.75;
+    .lang-switch {
+        display: flex;
+        align-items: center;
+        gap: 0.35em;
+        margin-right: 1em;
+    }
+
+    .lang-btn {
+        background: none;
+        border: none;
+        color: #3066be;
+        font-family: "alphabet-soup-pro", sans-serif;
+        font-size: 0.85em;
+        cursor: pointer;
+        padding: 0.2em 0.4em;
+        border-radius: 4px;
+    }
+
+    .lang-btn:hover,
+    .lang-btn.active {
+        color: #024d98;
+        font-weight: 600;
+    }
+
+    .lang-divider {
+        color: #3066be;
+        opacity: 0.6;
+        font-size: 0.9em;
+    }
+
+    .menu-lang {
+        margin-right: 0;
     }
 
     @media (max-width: 1040px) {
         .logo-navbar {
-            margin-left: 2em;
+            margin-left: 0;
         }
         a {
             font-size: 1em;
@@ -228,7 +253,8 @@
         }
 
         nav{
-            height: 20vh;
+            height: 18vh;
+            padding: 0 1.5rem;
         }
 
         .contactme:hover {
@@ -244,7 +270,7 @@
             font-size: 1em;
         }
 
-        ul {
+        .menu {
             flex-direction: row;
             height: fit-content;
             text-align: center;
@@ -271,40 +297,22 @@
     }
 
 
-    :global(body.dark-mode) nav, 
-.knapper a, 
-.contactme, 
-.hamburger, 
-.logo-navbar, 
-.menu, 
-.knapper a::after {
-    transition: background-color 0.4s ease-in-out, 
-                color 0.5s ease-in-out, 
-                border-color 0.5s ease-in-out, 
-                box-shadow 0.5s ease-in-out, 
-                transform 0.3s ease-in-out, 
-                width 0.3s ease-in-out, 
-                opacity 0.3s ease-in-out;
-}
-
-    :global(body.dark-mode) nav {
-        background-color: #0d0c1d;
-        border-bottom: #024D98;
-        box-shadow: 0px 0px 10px #024D98;
-    }
-
-    :global(body.dark-mode) nav a {
-        color: #3066BE;
-    }
-
-        :global(body.dark-mode) p {
-        color: #EFEFEF;
-    }
-      :global(body.dark-mode) nav .knapper a::after {
-        background-color: #EFEFEF;
-    }
-     :global(body.dark-mode) .links .knapper a:hover {
-        color: #EFEFEF;
+    /* basic hover / transition */
+    nav,
+    .knapper a,
+    .contactme,
+    .hamburger,
+    .logo-navbar,
+    .menu,
+    .knapper a::after {
+      transition:
+        background-color 0.4s ease-in-out,
+        color 0.5s ease-in-out,
+        border-color 0.5s ease-in-out,
+        box-shadow 0.5s ease-in-out,
+        transform 0.3s ease-in-out,
+        width 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
     }
 </style>
 
