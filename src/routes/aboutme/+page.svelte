@@ -1,337 +1,226 @@
 <script>
-  import Footer from "$lib/Components/Footer.svelte";
-  import LoadingScreen from "$lib/Components/LoadingScreen.svelte";
-  import { onMount } from "svelte";
   import { t } from "$lib/i18n";
+  import { education, skills, links } from "$lib/data/profile.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
+  import Icon from "$lib/Components/Icon.svelte";
 
-  let isLoading = $state(true);
-
-  onMount(() => {
-    const id = setTimeout(() => {
-      isLoading = false;
-    }, 750);
-    return () => clearTimeout(id);
-  });
+  const interests = ["interest_1", "interest_2", "interest_3", "interest_4", "interest_5"];
+  const allSkills = skills.flatMap((g) => g.items.map((i) => i.name));
 </script>
 
-{#if isLoading}
-    <LoadingScreen {isLoading} />
-{:else}
+<svelte:head>
+  <title>{$t("about_title")} – Kavin Lokeswaran</title>
+</svelte:head>
 
-<main class="about-page">
-  <div class="spacer"></div>
-  <div class="aboutme">
+<section class="page-hero">
+  <div class="container grid">
     <ScrollReveal>
-      <div class="section_1">
-        <div class="container">
-          <img src="/assets/OmmegBilde.png" alt="Kavin Lokeswaran" />
+      <div class="photo">
+        <img src="/img/kavin-about.webp" alt={$t("about_img_alt")} width="825" height="1100" />
+      </div>
+    </ScrollReveal>
+
+    <ScrollReveal delay={100}>
+      <div>
+        <p class="eyebrow">{$t("about_eyebrow")}</p>
+        <h1>{$t("about_title")}</h1>
+        <div class="text">
+          <p>{$t("about_p1")}</p>
+          <p>{$t("about_p2")}</p>
+          <p>{$t("about_p3")}</p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary" href="/contactme">{$t("hero_cta_contact")} <Icon name="arrow" /></a>
+          <a class="btn btn-ghost" href={links.github} target="_blank" rel="noopener noreferrer"><Icon name="github" /> GitHub</a>
         </div>
       </div>
     </ScrollReveal>
-    
-    <div class="section_2">
+  </div>
+</section>
+
+<section class="section">
+  <div class="container cols">
+    <ScrollReveal>
+      <div class="card block">
+        <h2><Icon name="school" size={22} /> {$t("edu_title")}</h2>
+        <ol class="timeline">
+          {#each education as e}
+            <li class:current={e.current}>
+              <span class="dot"></span>
+              <div>
+                <div class="row">
+                  <h3>{$t(`edu_${e.key}`)}</h3>
+                  {#if e.current}<span class="tag tag-accent">{$t("edu_now")}</span>{/if}
+                </div>
+                <p class="sub">{$t(`edu_${e.key}_sub`)}</p>
+                <p class="years">{$t(`edu_${e.key}_years`)}</p>
+              </div>
+            </li>
+          {/each}
+        </ol>
+      </div>
+    </ScrollReveal>
+
+    <div class="stack">
       <ScrollReveal delay={100}>
-        <div class="overskrift">
-                <h1>{$t("about_title")}</h1>
-            </div>
-            <div class="underoverskrift">
-                <h3>{$t("about_subtitle")}</h3>
-            </div>
-    
-            <div class="tekst">
-          <p>{$t("about_paragraph")}</p>
+        <div class="card block">
+          <h2><Icon name="code" size={22} /> {$t("skills_title")}</h2>
+          <ul class="tags">
+            {#each allSkills as s}
+              <li class="tag">{s}</li>
+            {/each}
+          </ul>
         </div>
       </ScrollReveal>
-      <ScrollReveal delay={200}>
-        <div class="skole">
-                <div class="barneskole">
-                    <div class="barneskole-icon">
-                        <img class="icon" src="/assets/skoleicon.png" alt="icon">
-                    </div>
-                    <div class="barneskole-tekst">
-                        <h4>{$t("about_school_mortensrud")}</h4>
-                        <p>{$t("about_school_mortensrud_years")}</p>
-                    </div>
-                </div>
-    
-                <i class="arrow"></i>
-    
-                <div class="ungdomskole">
-                    <div class="ungdomskole-icon">
-                        <img class="icon" src="/assets/skoleicon.png" alt="icon">
-                    </div>
-                    <div class="ungdomskole-tekst">
-                        <h4>{$t("about_school_lofsrud")}</h4>
-                        <p>{$t("about_school_lofsrud_years")}</p>
-                    </div>
-                </div>
-    
-                <i class="arrow"></i>
-    
-                <div class="vgs">
-                    <div class="vgs-icon">
-                        <img class="icon" src="/assets/skoleicon.png" alt="icon">
-                    </div>
-                    <div class="vgs-tekst">
-                        <h4>{$t("about_school_elvebakken")}</h4>
-                        <p>{$t("about_school_elvebakken_years")}</p>
-                    </div>
-                </div>
+
+      <ScrollReveal delay={180}>
+        <div class="card block">
+          <h2><Icon name="star" size={22} /> {$t("interests_title")}</h2>
+          <ul class="tags">
+            {#each interests as i}
+              <li class="tag tag-accent">{$t(i)}</li>
+            {/each}
+          </ul>
         </div>
       </ScrollReveal>
     </div>
   </div>
-  <div class="mini_spacer"></div>
-  <Footer />
-</main>
-
-{/if}
-
-
-
+</section>
 
 <style>
-
-
-    .spacer{
-        height: 10em;
+  .page-hero {
+    padding-top: calc(var(--nav-h) + clamp(40px, 8vw, 90px));
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+  }
+  .photo {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    aspect-ratio: 4 / 5;
+  }
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    margin: 10px 0 20px;
+  }
+  .text {
+    display: grid;
+    gap: 14px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 62ch;
+  }
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .stack {
+    display: grid;
+    gap: 20px;
+  }
+  .block {
+    padding: 28px;
+  }
+  .block h2 {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .block h2 :global(svg) {
+    color: var(--accent);
+  }
+  .tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tags .tag {
+    font-size: 0.88rem;
+    padding: 0.4em 0.85em;
+  }
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(var(--accent), rgba(111, 163, 255, 0.1));
+  }
+  .timeline li {
+    position: relative;
+    display: flex;
+    gap: 18px;
+    padding-bottom: 24px;
+  }
+  .timeline li:last-child {
+    padding-bottom: 0;
+  }
+  .dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+  .current .dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 5px rgba(111, 163, 255, 0.2);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .timeline h3 {
+    font-size: 1.08rem;
+  }
+  .sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  .years {
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+  @media (max-width: 860px) {
+    .grid,
+    .cols {
+      grid-template-columns: 1fr;
     }
-
-    :global(body.dark-mode) .spacer {
-        background-color: #0d0c1d;
+    .photo {
+      max-width: 380px;
     }
-
-    .mini_spacer{
-        height: 5.5em;
-    }
-
-    :global(body.dark-mode) .mini_spacer {
-        background-color: #0d0c1d;
-    }
-
-    .aboutme{
-        display: flex;
-        flex-direction: row;
-        gap: 7.5em;
-    }
-
-    main {
-        background-color: #030027;
-        overflow-y: auto;
-    }
-
-    :global(body.dark-mode) main {
-        background-color: #0d0c1d;
-    }
-
-
-    :global(body.dark-mode) .aboutme {
-        background-color: #0d0c1d;
-    }
-
-    .section_1{
-        display: flex;
-        margin-left: 1em;
-        align-items: center;
-    }
-
-    .container {
-        display: flex;
-        width: 32em;
-        max-width: 90vw;
-        height: 42em;
-        border: 3px solid #024D98;
-        border-radius: 20px;
-        overflow: hidden;
-        z-index: 0;
-    }
-
-    .container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 18px;
-    }
-
-    .about-page {
-        font-family: "coolvetica", sans-serif;
-    }
-
-    .overskrift {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        font-size: 2.5em;
-        font-family: "alphabet-soup-pro", sans-serif;
-        color: #ffffff;
-    }
-
-    :global(body.dark-mode) .overskrift {
-        color: #ffffff;
-    }
-
-    .underoverskrift {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        font-size: 1.75em;
-        font-family: "alphabet-soup-pro", sans-serif;
-        font-weight: 500;
-        color: #e8e8e8;
-    }
-
-    .tekst {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        font-size: 1.25rem;
-        line-height: 1.6;
-        width: 90%;
-        font-family: "coolvetica", sans-serif;
-        font-weight: 400;
-        color: #ffffff;
-    }
-
-    :global(body.dark-mode) .tekst {
-        color: #ffffff;
-    }
-
-    h1{
-        margin: 0;
-    }
-
-    h3{
-        margin: 0;
-    }
-
-    h4{
-        margin: 0;
-    }
-
-    .icon{
-        width: 3.25em;
-        height: auto;
-        margin-right: 0.5em;
-        border: #024D98 3px solid;
-        padding: 5px;
-        border-radius: 50%;
-        filter: brightness(0) invert(1);
-    }
-
-    .barneskole,
-    .ungdomskole,
-    .vgs {
-        display: flex;
-        flex-direction: column;
-        font-size: 1.05em;
-        font-family: "coolvetica", sans-serif;
-        color: #ffffff;
-    }
-
-    :global(body.dark-mode) .barneskole,
-    :global(body.dark-mode) .ungdomskole,
-    :global(body.dark-mode) .vgs {
-        color: #ffffff;
-    }
-
-    .vgs {
-        width: fit-content;
-    }
-
-    .arrow{
-        border: solid #024D98;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-        margin-left: 1em;
-        margin-right: 1em;
-        scale: 1.2;
-    }
-
-    .skole{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: center;
-        width: 100%;
-        margin-right: 0;
-        margin-top: 2.5em;
-        gap: 1.25em;
-    }
-
-    /* Apply smooth transition to dark mode changes */
-:root, :global(body.dark-mode) {
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, filter 0.5s ease-in-out;
-}
-
-.spacer, .mini_spacer, main, .aboutme, .overskrift, .tekst, .icon, .barneskole, .ungdomskole, .vgs {
-    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, filter 0.5s ease-in-out;
-}
-
-/* Add fade-in effect when switching themes */
-:global(body.dark-mode) {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0.8;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-    
-
-    @media (max-width: 1000px) {
-        .aboutme{
-            flex-direction: column;
-            gap: 1em;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .section_2{
-            margin-left: 1em;
-            margin-right: 1em;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .container {
-            scale: 1;
-            width: min(32em, 92vw);
-            height: 34em;
-            justify-content: center;
-        }
-
-        .section_1{
-            margin-left: 0em;
-
-        }
-
-        .tekst{
-            width: 100%;
-            text-align: center;
-        }
-
-        .skole{
-            scale: 0.7;
-        }
-
-        .underoverskrift{
-            text-align: center;
-        }
-
-        .overskrift{
-            text-align: center;
-        }
-    }
+  }
 </style>
-
-

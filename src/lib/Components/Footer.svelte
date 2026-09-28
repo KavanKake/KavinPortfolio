@@ -1,175 +1,143 @@
 <script>
   import { t } from "$lib/i18n";
+  import { links } from "$lib/data/profile.js";
+  import Icon from "$lib/Components/Icon.svelte";
+
+  const social = [
+    { name: "github", label: "GitHub", href: links.github },
+    { name: "linkedin", label: "LinkedIn", href: links.linkedin },
+    { name: "instagram", label: "Instagram", href: links.instagram },
+    { name: "mail", label: "E-post", href: `mailto:${links.email}` }
+  ].filter((s) => s.href);
+
+  const year = new Date().getFullYear();
 </script>
 
 <footer class="footer">
-  <svg
-    viewBox="0 0 1440 120"
-    preserveAspectRatio="none"
-    class="footer-wave"
-  >
-    <polyline
-      points="0,40 400,10 800,70 1200,60 1440,30"
-      fill="none"
-      stroke="#3066BE"
-      stroke-width="4"
-    />
-  </svg>
+  <div class="container grid">
+    <div class="about">
+      <a class="brand" href="/">
+        <img src="/assets/Kavin_logo_navn.svg" alt="Kavin Lokeswaran" width="200" height="91" />
+      </a>
+      <p>{$t("footer_tagline")}</p>
+      <a class="mail" href="mailto:{links.email}">{links.email}</a>
+    </div>
 
-  <div class="footer-content">
-    <div class="left">
-      <h2>KAVIN LOKESWARAN</h2>
-      <h3>{$t("footer_social")}</h3>
+    <div>
+      <h2>{$t("footer_nav")}</h2>
       <ul>
-        <li>Instagram - kavinlokeswaran</li>
-        <li>LinkedIn - kavinlokeswaran</li>
-        <li>GitHub - kavinlokeswaran</li>
-        <li>Twitter - kavinlokeswaran</li>
+        <li><a href="/">{$t("nav_home")}</a></li>
+        <li><a href="/projects">{$t("nav_projects")}</a></li>
+        <li><a href="/aboutme">{$t("nav_about")}</a></li>
+        <li><a href="/contactme">{$t("nav_contact")}</a></li>
       </ul>
-      <a href="#top" class="back-to-top">{$t("footer_back_to_top")}</a>
     </div>
-    <div class="right">
-      <h3>{$t("footer_nav")}</h3>
-      <nav>
-        <a href="/">{$t("footer_home")}</a>
-        <a href="/projects">{$t("footer_projects")}</a>
-        <a href="/aboutme">{$t("footer_about")}</a>
-        <a href="/contactme">{$t("footer_contact")}</a>
-      </nav>
-      <p class="copyright">{$t("footer_copyright")}</p>
+
+    <div>
+      <h2>{$t("footer_social")}</h2>
+      <ul class="social">
+        {#each social as s}
+          <li>
+            <a href={s.href} target={s.name === "mail" ? undefined : "_blank"} rel="noopener noreferrer">
+              <Icon name={s.name} size={16} />
+              {s.label}
+            </a>
+          </li>
+        {/each}
+      </ul>
     </div>
+  </div>
+
+  <div class="container bottom">
+    <span>© {year} {$t("footer_copyright")} · {$t("footer_built")}</span>
+    <a href="#main" class="top">
+      {$t("footer_back_to_top")}
+      <Icon name="arrow-up" size={16} />
+    </a>
   </div>
 </footer>
 
-
 <style>
-.footer {
-  position: relative;
-  background: #030027;
-  color: #3066BE;
-  padding-top: 6rem;
-  padding-bottom: 2rem;
-  font-family: "alphabet-soup-pro", sans-serif;
-}
-
-.footer-wave {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0 6rem;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.left h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.left h3,
-.right h3 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.left ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1.5rem;
-  font-family: "alphabet-soup-pro", sans-serif;
-    font-size: 1.5rem;
-
-}
-
-.left li {
-  margin-bottom: 0.5rem;
-  font-family: "alphabet-soup-pro", sans-serif;
-}
-
-.back-to-top {
-  text-decoration: none;
-  color: #3066BE;
-  font-weight: 600;
-  font-size: larger;
-  border: #3066BE 2px solid;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.right nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 3rem;
-  font-size: larger;
-}
-
-.right nav a {
-  text-decoration: none;
-  color: #3066BE;
-  font-family: "alphabet-soup-pro", sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-}
-
-.copyright {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-@media (max-width: 900px) {
-  .footer-content {
-    flex-direction: column;
-    padding: 0 2rem;
-    align-items: flex-start;
-  }
-
-  .left h2 {
-    font-size: 2.2rem;
-  }
-
-  .left h3,
-  .right h3 {
-    font-size: 1.6rem;
-  }
-
-  .right nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
-  }
-
-  .right nav a {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 600px) {
   .footer {
-    padding-top: 4rem;
-    padding-bottom: 1.5rem;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(3, 0, 39, 0), rgba(2, 77, 152, 0.12));
+    padding: 64px 0 28px;
+    font-size: 0.95rem;
   }
-
-  .footer-content {
-    padding: 0 1.5rem;
+  .grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 40px;
   }
-
-  .left ul {
-    font-size: 1.1rem;
+  .brand img {
+    height: 64px;
+    width: auto;
+    margin-bottom: 14px;
   }
-
-  .back-to-top {
-    display: inline-block;
-    margin-top: 0.75rem;
+  .about p {
+    color: var(--text-muted);
+    margin-bottom: 8px;
   }
-}
-
+  .mail {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .mail:hover {
+    text-decoration: underline;
+  }
+  h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  ul a {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+  }
+  ul a:hover {
+    color: var(--text);
+  }
+  .bottom {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+  .top {
+    color: var(--text-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .top:hover {
+    color: var(--text);
+  }
+  @media (max-width: 760px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .about {
+      grid-column: 1 / -1;
+    }
+  }
 </style>

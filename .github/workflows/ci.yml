@@ -1,0 +1,23 @@
+name: Build check
+
+# Bygger (uten å publisere) på alle andre brancher og pull requests,
+# så du ser om noe er ødelagt før det merges til main.
+on:
+  push:
+    branches-ignore: ['main', 'gh-pages']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run build

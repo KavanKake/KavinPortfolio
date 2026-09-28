@@ -1,57 +1,35 @@
-# Portfolio Website
+# kavinlokeswaran.no
 
-Welcome to my portfolio website! This project is designed to showcase my skills, experience, and projects. It serves as a personal space to demonstrate my passion and contributions.
+Personlig portefølje for Kavin Lokeswaran – IT-student og utvikler fra Oslo.
+Bygget med **SvelteKit** (statisk), tospråklig (NO/EN) og publisert via GitHub Actions.
 
-## Table of Contents
+## Funksjoner
 
-- [Features](#features)  
-- [Installation](#installation)  
-- [Technologies](#technologies)  
-- [Usage](#usage)  
-- [Contact](#contact)  
+- **Rekrutterer-vennlig oppsett:** tydelig hero med hvem/hva/tilgjengelighet, ferdigheter med nivå, 3–4 utvalgte prosjekter med teknologi, kode- og live-lenker, om meg, utdanning og kontakt.
+- **Automatiske GitHub-prosjekter:** alle offentlige repoer på [github.com/KavanKake](https://github.com/KavanKake) hentes automatisk
+  - live i nettleseren via GitHub API (nye repoer vises med en gang)
+  - pluss et øyeblikksbilde (`static/data/repos.json`) som lages ved hver build og oppdateres hver natt av GitHub Actions
+- Raske, optimaliserte bilder (WebP), ingen kunstig lasteskjerm, mobilvennlig og tilgjengelig (tastatur, skip-lenke, redusert bevegelse).
 
-## Features  
+## Endre innhold
 
-- **Responsive Design**: Optimized for both desktop and mobile devices.  
-- **Portfolio**: A curated selection of my past projects with descriptions and links.  
-- **About Me**: Learn more about my background, skills, and interests.  
-- **Contact Form**: Easily get in touch with me.  
+| Hva | Fil |
+| --- | --- |
+| Tekster (norsk/engelsk) | `src/lib/i18n/index.js` |
+| Ferdigheter, lenker (LinkedIn m.m.), utdanning | `src/lib/data/profile.js` |
+| Utvalgte prosjekter (bilde, tekst, teknologi) | `src/lib/data/projects.js` |
 
-## Installation
+Nye offentlige repoer trenger du **ikke** legge inn – de dukker opp automatisk. Tips: gi repoene en beskrivelse, *topics* og eventuelt en *website*-lenke på GitHub, så vises det på kortet.
 
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/username/portfolio-website.git
-    ````
-2. Navigate to the project directory: 
-    ```bash
-    cd portfolio-website
-    ````
+## Utvikling
 
-3. Install dependencies:
-    ```bash
-    npm install
-    ````
+```bash
+npm install
+npm run dev      # lokal utvikling
+npm run build    # henter repoer + bygger til /build
+```
 
-4. Start the development server:
-    ```bash
-    npm run start
-    ````
+## Kontakt
 
-## Technologies  
-
-- **HTML5 & CSS3**: For structure and styling.
-- **JavaScript**: To add interactivity.
-- **Node.js**: For backend functionality.
-
-## Usage
-To use the website, feel free to visit kavinlokeswaran.no
-The website has an easy design with a simple navbar. The navbar explains the diffrent pages, for example the projoct page.
-All of the buttons have a easy usage and you could easly see whats a button or not. 
-
-The website has some of the projects I have made, and its possible to download the projects. You also have a contact page, where you could contact me. You also have a list of my sosial media listed on the website
-
-## Contact
-Feel free to reach out to me through:
-- **Email**: contact@kavinlokeswaran.no
-- **Github**: github.com/kavankake
+- E-post: contact@kavinlokeswaran.no
+- GitHub: [KavanKake](https://github.com/KavanKake)

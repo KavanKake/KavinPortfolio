@@ -1,276 +1,237 @@
 <script>
-  import Footer from "$lib/Components/Footer.svelte";
-  import { githubProjects } from "$lib/Components/projects.js";
+  import { onMount } from "svelte";
   import { t } from "$lib/i18n";
+  import { links } from "$lib/data/profile.js";
+  import { curatedProjects } from "$lib/data/projects.js";
+  import { github, loadRepos } from "$lib/github.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
+  import ProjectCard from "$lib/Components/ProjectCard.svelte";
+  import RepoCard from "$lib/Components/RepoCard.svelte";
+  import Icon from "$lib/Components/Icon.svelte";
+
+  onMount(loadRepos);
+
+  // Repoer som allerede vises som utvalgte prosjekter hoppes over nedenfor
+  const curatedRepos = new Set(
+    curatedProjects.filter((p) => p.repo).map((p) => p.repo.toLowerCase())
+  );
+
+  let query = $state("");
+  let lang = $state("all");
+
+  const others = $derived($github.repos.filter((r) => !curatedRepos.has(r.name.toLowerCase())));
+
+  const languages = $derived([
+    ...new Set(others.map((r) => r.language).filter(Boolean))
+  ].sort());
+
+  const filtered = $derived(
+    others.filter((r) => {
+      if (lang !== "all" && r.language !== lang) return false;
+      if (!query.trim()) return true;
+      const q = query.trim().toLowerCase();
+      return (
+        r.name.toLowerCase().includes(q) ||
+        (r.description ?? "").toLowerCase().includes(q) ||
+        r.topics.some((tp) => tp.toLowerCase().includes(q))
+      );
+    })
+  );
 </script>
 
-<div class="page-wrapper">
-  <div class="spacer"></div>
-  <main class="page">
+<svelte:head>
+  <title>{$t("projects_title")} – Kavin Lokeswaran</title>
+</svelte:head>
+
+<section class="page-hero">
+  <div class="container">
     <ScrollReveal>
-      <div class="overskrift">
-        <h1>{$t("projects_title")}</h1>
-        <p class="subtitle">{$t("projects_subtitle")}</p>
-      </div>
+      <p class="eyebrow">{$t("nav_projects")}</p>
+      <h1>{$t("projects_title")}</h1>
+      <p class="section-lead">{$t("projects_lead")}</p>
     </ScrollReveal>
-    <div class="projects-grid">
-    {#each githubProjects as project, i}
-      <ScrollReveal delay={i * 80}>
-      {#if project.githubUrl}
-      <a
-        class="project-card"
-        href={project.githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {#if project.image}
-          <img class="project-image" src={project.image} alt={project.title} />
-        {:else}
-          <div class="project-placeholder">
-            <span class="placeholder-icon">📁</span>
-          </div>
-        {/if}
-        <div class="project-info">
-          <h2 class="project-title">{project.title}</h2>
-          {#if project.status === "in_progress"}
-            <span class="status-badge">{$t("projects_in_progress")}</span>
-          {/if}
-          {#if project.description}
-            <p class="project-description">{project.description}</p>
-          {/if}
-          <span class="github-link">{$t("projects_github")}</span>
-        </div>
-      </a>
-      {:else}
-      <div class="project-card disabled" role="article" aria-label={project.title}>
-        {#if project.image}
-          <img class="project-image" src={project.image} alt={project.title} />
-        {:else}
-          <div class="project-placeholder">
-            <span class="placeholder-icon">📁</span>
-          </div>
-        {/if}
-        <div class="project-info">
-          <h2 class="project-title">{project.title}</h2>
-          <span class="status-badge">{$t("projects_in_progress")}</span>
-          {#if project.description}
-            <p class="project-description">{project.description}</p>
-          {/if}
-          <span class="github-link muted">{$t("projects_in_progress")}</span>
-        </div>
-      </div>
-      {/if}
-      </ScrollReveal>
-    {/each}
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="container">
+    <h2 class="sub">{$t("projects_curated")}</h2>
+    <div class="grid" class:single={curatedProjects.length === 1}>
+      {#each curatedProjects as project, i}
+        <ScrollReveal delay={(i % 3) * 80}>
+          <ProjectCard {project} horizontal={curatedProjects.length === 1} />
+        </ScrollReveal>
+      {/each}
     </div>
-  </main>
-  <div class="footer-spacer"></div>
-  <Footer />
-</div>
+  </div>
+</section>
+
+<section class="section tight" id="github">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow"><span class="live-dot"></span>{$t("gh_eyebrow")}</p>
+        <h2 class="sub">{$t("projects_more")}</h2>
+        <p class="section-lead">{$t("projects_more_lead")}</p>
+      </div>
+      <a class="btn btn-ghost" href={links.github} target="_blank" rel="noopener noreferrer">
+        <Icon name="github" />
+        {$t("gh_profile")}
+      </a>
+    </div>
+
+    {#if $github.status === "ready" && others.length}
+      <div class="toolbar">
+        <label class="search">
+          <Icon name="search" size={16} />
+          <span class="sr-only">{$t("projects_search")}</span>
+          <input type="search" placeholder={$t("projects_search")} bind:value={query} />
+        </label>
+        <div class="chips" role="group" aria-label="Språk">
+          <button type="button" class="chip" class:active={lang === "all"} onclick={() => (lang = "all")}>
+            {$t("projects_filter_all")}
+          </button>
+          {#each languages as l}
+            <button type="button" class="chip" class:active={lang === l} onclick={() => (lang = l)}>{l}</button>
+          {/each}
+        </div>
+        <span class="count">{filtered.length} {$t("projects_count")}</span>
+      </div>
+
+      <div class="grid">
+        {#each filtered as repo (repo.name)}
+          <RepoCard {repo} />
+        {/each}
+      </div>
+    {:else if $github.status === "ready" || $github.status === "error"}
+      <p class="empty card">
+        {$github.status === "error" ? $t("gh_error") : $t("gh_empty")}
+        <a href={links.github} target="_blank" rel="noopener noreferrer">github.com/KavanKake</a>
+      </p>
+    {:else}
+      <div class="grid" aria-busy="true" aria-label={$t("gh_loading")}>
+        {#each Array(3) as _}
+          <div class="card skeleton"></div>
+        {/each}
+      </div>
+    {/if}
+  </div>
+</section>
 
 <style>
-  .page-wrapper {
-    background-color: #030027;
-    min-height: 100vh;
+  .page-hero {
+    padding-top: calc(var(--nav-h) + clamp(40px, 8vw, 90px));
   }
-
-  :global(body.dark-mode) .page-wrapper {
-    background-color: #0d0c1d;
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    margin: 10px 0 14px;
   }
-
-  .spacer {
-    height: 10em;
-    background-color: #030027;
+  .tight {
+    padding: 48px 0;
   }
-
-  .page {
-    padding-top: 2em;
+  .sub {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin: 6px 0 24px;
   }
-
-  :global(body.dark-mode) .spacer {
-    background-color: #0d0c1d;
+  .section-head .sub {
+    margin-bottom: 8px;
   }
-
-  .footer-spacer {
-    height: 4em;
-    background-color: #030027;
-  }
-
-  :global(body.dark-mode) .footer-spacer {
-    background-color: #0d0c1d;
-  }
-
-  .page {
-    background-color: #030027;
-    min-height: 60vh;
-    padding: 0 2rem 2rem;
-  }
-
-  :global(body.dark-mode) .page {
-    background-color: #0d0c1d;
-  }
-
-  .overskrift {
-    text-align: center;
-    padding: 2em 0 3em;
-  }
-
-  .overskrift h1 {
-    font-family: "alphabet-soup-pro", sans-serif;
-    font-size: 2.5em;
-    color: #024d98;
-    margin: 0 0 0.25em;
-  }
-
-  .subtitle {
-    font-family: "coolvetica", sans-serif;
-    font-size: 1.2em;
-    color: #3066be;
-    margin: 0;
-  }
-
-  :global(body.dark-mode) .overskrift h1 {
-    color: #6fa3ff;
-  }
-
-  :global(body.dark-mode) .subtitle {
-    color: #9ab8ff;
-  }
-
-  .projects-grid {
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
-
-  .project-card {
+  .grid.single {
+    grid-template-columns: 1fr;
+  }
+  .toolbar {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 12px 16px;
     align-items: center;
-    text-decoration: none;
-    color: inherit;
-    border: 3px solid #024d98;
-    border-radius: 20px;
-    background-color: #024d98;
-    overflow: hidden;
-    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    margin-bottom: 24px;
   }
-
-  .project-card:hover {
-    transform: scale(1.03);
-    background-color: #1e2a4d;
-    border-color: #3066be;
-  }
-
-  :global(body.dark-mode) .project-card {
-    background-color: #1e2a4d;
-    border-color: #3066be;
-  }
-
-  :global(body.dark-mode) .project-card:hover {
-    background-color: #2a3d5a;
-    border-color: #6fa3ff;
-  }
-
-  .project-image {
-    width: 100%;
-    height: 12em;
-    object-fit: cover;
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .project-placeholder {
-    width: 100%;
-    height: 12em;
+  .search {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  .placeholder-icon {
-    font-size: 4em;
-    opacity: 0.7;
-  }
-
-  .project-info {
-    padding: 1.25em;
-    text-align: center;
-    flex: 1;
-  }
-
-  .project-title {
-    font-family: "alphabet-soup-pro", sans-serif;
-    font-size: 1.25em;
-    font-weight: 600;
-    color: white;
-    margin: 0 0 0.35em;
-    line-height: 1.3;
-  }
-
-  .project-description {
-    font-family: "coolvetica", sans-serif;
-    font-size: 0.95em;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0 0 0.75em;
-  }
-
-  .github-link {
-    font-family: "alphabet-soup-pro", sans-serif;
-    font-size: 0.9em;
-    color: #7fa1ff;
-    font-weight: 500;
-  }
-
-  .project-card:hover .github-link {
-    text-decoration: underline;
-  }
-
-  .project-card.disabled {
-    cursor: default;
-    opacity: 0.9;
-  }
-
-  .project-card.disabled:hover {
-    transform: none;
-  }
-
-  .status-badge {
-    display: inline-block;
-    margin: 0.25em 0 0.5em;
-    padding: 0.25em 0.6em;
+    gap: 8px;
+    padding: 0 14px;
     border-radius: 999px;
-    font-family: "alphabet-soup-pro", sans-serif;
-    font-size: 0.75em;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    background: rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-faint);
+    min-width: min(100%, 260px);
   }
-
-  .github-link.muted {
-    text-decoration: none;
-    opacity: 0.85;
+  .search input {
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 0.95rem;
+    padding: 10px 0;
+    width: 100%;
+    outline: none;
   }
-
-  :global(body.dark-mode) .project-title {
-    color: #f0f0f0;
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
   }
-
-  :global(body.dark-mode) .project-description {
-    color: rgba(240, 240, 240, 0.85);
+  .chip {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font: 500 0.85rem var(--font-body);
+    cursor: pointer;
   }
-
+  .chip:hover {
+    border-color: var(--border-strong);
+  }
+  .chip.active {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+  }
+  .count {
+    margin-left: auto;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    display: inline-block;
+  }
+  .skeleton {
+    height: 190px;
+    background: linear-gradient(100deg, var(--surface) 30%, var(--surface-2) 50%, var(--surface) 70%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite linear;
+  }
+  @keyframes shimmer {
+    to {
+      background-position: -200% 0;
+    }
+  }
+  .empty {
+    padding: 24px;
+    color: var(--text-muted);
+  }
+  @media (max-width: 1000px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   @media (max-width: 640px) {
-    .projects-grid {
+    .grid {
       grid-template-columns: 1fr;
     }
-
-    .spacer {
-      height: 6em;
+    .count {
+      margin-left: 0;
     }
   }
 </style>
