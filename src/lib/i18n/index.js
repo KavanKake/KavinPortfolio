@@ -39,16 +39,15 @@ const translations = {
     nav_contact: "Kontakt",
     nav_menu: "Meny",
 
-    hero_eyebrow: "IT-student · Utvikler · Oslo",
+    hero_eyebrow: "Student · Utvikler · Oslo",
     hero_hi: "Hei, jeg er",
     hero_title: "Jeg bygger nettsider og apper som er enkle å bruke.",
     hero_pitch:
-      "IT-student ved Elvebakken VGS med fokus på webutvikling. Jeg jobber med JavaScript, Svelte, Node/Express og Python – og liker å ta et prosjekt helt fra idé til ferdig, publisert løsning.",
+      "Bachelorstudent i programmering og systemarkitektur med fokus på webutvikling. Jeg jobber med JavaScript, Svelte, Node/Express og Python – og liker å ta et prosjekt helt fra idé til ferdig, publisert løsning.",
     hero_available: "Åpen for nye muligheter",
     hero_cta_projects: "Se prosjektene mine",
     hero_cta_contact: "Ta kontakt",
-    hero_img_alt: "Portrett av Kavin Lokeswaran",
-
+    
     stat_repos: "offentlige repoer",
     stat_last: "Sist aktiv på GitHub",
     stat_location: "Oslo, Norge",
@@ -68,7 +67,7 @@ const translations = {
 
     featured_eyebrow: "Utvalgte prosjekter",
     featured_title: "Ting jeg har bygget",
-    featured_lead: "Et utvalg prosjekter som viser hva jeg kan – med kode og teknologi for hvert av dem.",
+    featured_lead: "Prosjekter med åpen kildekode – se koden og teknologien bak hvert av dem.",
     featured_all: "Alle prosjekter",
 
     gh_eyebrow: "Direkte fra GitHub",
@@ -90,26 +89,36 @@ const translations = {
     about_eyebrow: "Om meg",
     about_title: "Litt om meg",
     about_p1:
-      "Jeg heter Kavin Lokeswaran og er IT-student ved Elvebakken VGS i Oslo. Jeg valgte IT fordi jeg liker å forstå hvordan teknologi fungerer – og hvordan den kan gjøre hverdagen enklere for folk.",
+      "Jeg heter Kavin Lokeswaran og tar en bachelor i programmering og systemarkitektur (2026–2029). Før det gikk jeg IT ved Elvebakken VGS i Oslo, der jeg ble ferdig i 2026. Jeg liker å forstå hvordan teknologi fungerer – og hvordan den kan gjøre hverdagen enklere for folk.",
     about_p2:
-      "Jeg lærer best ved å bygge. Derfor har jeg laget alt fra nettsider og innloggingssystemer til spill i Python og Godot, både alene og i team. Denne nettsiden er også et av prosjektene mine.",
+      "Jeg lærer best ved å bygge. Derfor har jeg laget alt fra nettsider og innloggingssystemer til spill i Python og Godot, både alene og i team. Denne nettsiden er også et av prosjektene mine, og de offentlige prosjektene mine finner du på GitHub.",
     about_p3:
       "Når jeg ikke koder, spiller jeg fotball eller gaming. Målet mitt er å bli IT-ingeniør.",
     about_more: "Mer om meg",
     about_img_alt: "Kavin som jobber på laptop",
 
     values_title: "Hva du får med meg",
+    now_title: "Akkurat nå",
+    now_study: "Studerer",
+    now_focus: "Fokus",
+    now_focus_v: "Webutvikling og systemdesign",
+    now_open: "Ser etter",
+    now_open_v: "Deltid, sommerjobb og prosjekter",
+    edu_done: "Fullført",
     value_1_t: "Lærer raskt",
     value_1_d: "Setter meg inn i nye verktøy og rammeverk på egen hånd – som SvelteKit og Express.",
     value_2_t: "Fullfører",
     value_2_d: "Tar prosjekter fra idé til publisert løsning, med kode på GitHub.",
     value_3_t: "Samarbeider",
-    value_3_d: "Vant til teamprosjekter på skolen, med Git for deling og versjonskontroll.",
+    value_3_d: "Vant til teamprosjekter på skole og studier, med Git for deling og versjonskontroll.",
 
     edu_title: "Utdanning",
     edu_elvebakken: "Elvebakken VGS",
-    edu_elvebakken_sub: "Informasjonsteknologi",
-    edu_elvebakken_years: "2023 – nå",
+    edu_elvebakken_sub: "Informasjonsteknologi – fullført",
+    edu_elvebakken_years: "2023 – 2026",
+    edu_bachelor: "Programmering og systemarkitektur",
+    edu_bachelor_sub: "Bachelorgrad",
+    edu_bachelor_years: "2026 – 2029",
     edu_lofsrud: "Lofsrud skole",
     edu_lofsrud_sub: "Ungdomsskole",
     edu_lofsrud_years: "2020 – 2023",
@@ -160,7 +169,7 @@ const translations = {
     contact_copy: "Kopier",
     contact_copied: "Kopiert!",
 
-    footer_tagline: "IT-student og utvikler fra Oslo.",
+    footer_tagline: "Student og utvikler fra Oslo.",
     footer_nav: "Navigasjon",
     footer_social: "Finn meg",
     footer_back_to_top: "Til toppen",
@@ -176,16 +185,15 @@ const translations = {
     nav_contact: "Contact",
     nav_menu: "Menu",
 
-    hero_eyebrow: "IT student · Developer · Oslo",
+    hero_eyebrow: "Student · Developer · Oslo",
     hero_hi: "Hi, I'm",
     hero_title: "I build websites and apps that are easy to use.",
     hero_pitch:
-      "IT student at Elvebakken Upper Secondary in Oslo, focused on web development. I work with JavaScript, Svelte, Node/Express and Python – and I enjoy taking a project all the way from idea to a finished, published product.",
+      "Bachelor student in Programming and Systems Architecture, focused on web development. I work with JavaScript, Svelte, Node/Express and Python – and I enjoy taking a project all the way from idea to a finished, published product.",
     hero_available: "Open to new opportunities",
     hero_cta_projects: "View my projects",
     hero_cta_contact: "Get in touch",
-    hero_img_alt: "Portrait of Kavin Lokeswaran",
-
+    
     stat_repos: "public repositories",
     stat_last: "Last active on GitHub",
     stat_location: "Oslo, Norway",
@@ -205,7 +213,7 @@ const translations = {
 
     featured_eyebrow: "Featured work",
     featured_title: "Things I've built",
-    featured_lead: "A selection of projects that show what I can do – with code and tech stack for each.",
+    featured_lead: "Open-source projects – see the code and tech stack behind each one.",
     featured_all: "All projects",
 
     gh_eyebrow: "Live from GitHub",
@@ -227,25 +235,35 @@ const translations = {
     about_eyebrow: "About",
     about_title: "A bit about me",
     about_p1:
-      "My name is Kavin Lokeswaran and I'm an IT student at Elvebakken Upper Secondary School in Oslo. I chose IT because I love understanding how technology works – and how it can make everyday life easier for people.",
+      "My name is Kavin Lokeswaran and I'm doing a bachelor's degree in Programming and Systems Architecture (2026–2029). Before that I studied IT at Elvebakken Upper Secondary School in Oslo, graduating in 2026. I love understanding how technology works – and how it can make everyday life easier for people.",
     about_p2:
-      "I learn best by building. I've made everything from websites and login systems to games in Python and Godot, both on my own and in teams. This website is one of my projects too.",
+      "I learn best by building. I've made everything from websites and login systems to games in Python and Godot, both on my own and in teams. This website is one of my projects too, and you can find my public projects on GitHub.",
     about_p3: "When I'm not coding, I play football or games. My goal is to become an IT engineer.",
     about_more: "More about me",
     about_img_alt: "Kavin working on a laptop",
 
     values_title: "What you get with me",
+    now_title: "Right now",
+    now_study: "Studying",
+    now_focus: "Focus",
+    now_focus_v: "Web development and system design",
+    now_open: "Looking for",
+    now_open_v: "Part-time, summer jobs and projects",
+    edu_done: "Completed",
     value_1_t: "Fast learner",
     value_1_d: "I pick up new tools and frameworks on my own – like SvelteKit and Express.",
     value_2_t: "I finish things",
     value_2_d: "I take projects from idea to a published product, with the code on GitHub.",
     value_3_t: "Team player",
-    value_3_d: "Used to team projects at school, using Git for sharing and version control.",
+    value_3_d: "Used to team projects at school and university, using Git for sharing and version control.",
 
     edu_title: "Education",
     edu_elvebakken: "Elvebakken Upper Secondary",
-    edu_elvebakken_sub: "Information Technology",
-    edu_elvebakken_years: "2023 – present",
+    edu_elvebakken_sub: "Information Technology – completed",
+    edu_elvebakken_years: "2023 – 2026",
+    edu_bachelor: "Programming and Systems Architecture",
+    edu_bachelor_sub: "Bachelor's degree",
+    edu_bachelor_years: "2026 – 2029",
     edu_lofsrud: "Lofsrud School",
     edu_lofsrud_sub: "Lower secondary",
     edu_lofsrud_years: "2020 – 2023",
@@ -296,7 +314,7 @@ const translations = {
     contact_copy: "Copy",
     contact_copied: "Copied!",
 
-    footer_tagline: "IT student and developer from Oslo.",
+    footer_tagline: "Student and developer from Oslo.",
     footer_nav: "Navigation",
     footer_social: "Find me",
     footer_back_to_top: "Back to top",

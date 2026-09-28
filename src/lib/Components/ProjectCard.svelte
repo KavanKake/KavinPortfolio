@@ -3,12 +3,12 @@
   import { githubUrl } from "$lib/data/projects.js";
   import Icon from "$lib/Components/Icon.svelte";
 
-  let { project, large = false } = $props();
+  let { project, large = false, horizontal = false } = $props();
 
   const code = $derived(githubUrl(project.repo));
 </script>
 
-<article class="card project" class:large>
+<article class="card project" class:large class:horizontal>
   <div class="media" class:logo={project.image?.endsWith(".svg")}>
     {#if project.image}
       <img src={project.image} alt="" loading="lazy" decoding="async" />
@@ -143,6 +143,25 @@
     flex-wrap: wrap;
     margin-top: auto;
     padding-top: 6px;
+  }
+  @media (min-width: 861px) {
+    .horizontal {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+    }
+    .horizontal .media {
+      aspect-ratio: auto;
+      min-height: 320px;
+      border-bottom: 0;
+      border-right: 1px solid var(--border);
+    }
+    .horizontal .body {
+      padding: 36px;
+      justify-content: center;
+    }
+    .horizontal .links {
+      margin-top: 12px;
+    }
   }
   .sm {
     padding: 0.55em 1em;

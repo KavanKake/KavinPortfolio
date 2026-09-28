@@ -51,7 +51,8 @@ export const skills = [
 ];
 
 export const education = [
-  { key: "elvebakken", current: true },
+  { key: "bachelor", current: true },
+  { key: "elvebakken" },
   { key: "lofsrud" },
   { key: "mortensrud" }
 ];

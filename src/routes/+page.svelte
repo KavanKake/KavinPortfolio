@@ -55,10 +55,23 @@
       </div>
     </div>
 
-    <div class="hero-visual" aria-hidden="false">
-      <img class="logo-bg" src="/assets/Kavin_logo.svg" alt="" aria-hidden="true" />
-      <div class="glow" aria-hidden="true"></div>
-      <img class="portrait" src="/img/kavin-cutout.webp" alt={$t("hero_img_alt")} width="350" height="1100" fetchpriority="high" />
+    <div class="hero-visual" aria-hidden="true">
+      <div class="glow"></div>
+      <img class="logo-bg" src="/assets/Kavin_logo.svg" alt="" />
+      <div class="code card">
+        <div class="code-bar">
+          <span class="dotc r"></span><span class="dotc y"></span><span class="dotc g"></span>
+          <span class="file">kavin.js</span>
+        </div>
+        <pre><code><span class="k">const</span> <span class="v">kavin</span> = {"{"}
+  <span class="p">{$locale === "no" ? "studerer" : "studying"}</span>: <span class="s">"{$t("edu_bachelor")}"</span>,
+  <span class="p">{$locale === "no" ? "år" : "years"}</span>: <span class="s">"2026 – 2029"</span>,
+  <span class="p">stack</span>: [<span class="s">"JavaScript"</span>, <span class="s">"Svelte"</span>,
+          <span class="s">"Node"</span>, <span class="s">"Python"</span>],
+  <span class="p">{$locale === "no" ? "base" : "location"}</span>: <span class="s">"Oslo"</span>,
+  <span class="p">{$locale === "no" ? "åpenForJobb" : "openToWork"}</span>: <span class="b">true</span>
+{"}"};</code></pre>
+      </div>
     </div>
   </div>
 
@@ -144,10 +157,10 @@
       </div>
     </ScrollReveal>
 
-    <div class="featured-grid">
+    <div class="featured-grid" class:single={featured.length === 1}>
       {#each featured as project, i}
         <ScrollReveal delay={i * 90}>
-          <ProjectCard {project} large={i === 0} />
+          <ProjectCard {project} large={i === 0} horizontal={featured.length === 1} />
         </ScrollReveal>
       {/each}
     </div>
@@ -196,8 +209,26 @@
 <section class="section alt" id="about">
   <div class="container about-grid">
     <ScrollReveal>
-      <div class="about-photo">
-        <img src="/img/kavin-about.webp" alt={$t("about_img_alt")} loading="lazy" width="825" height="1100" />
+      <div class="card now">
+        <h3><span class="live-dot"></span>{$t("now_title")}</h3>
+        <dl>
+          <div>
+            <dt><Icon name="school" size={18} /> {$t("now_study")}</dt>
+            <dd>{$t("edu_bachelor")}<span>{$t("edu_bachelor_sub")} · 2026 – 2029</span></dd>
+          </div>
+          <div>
+            <dt><Icon name="code" size={18} /> {$t("now_focus")}</dt>
+            <dd>{$t("now_focus_v")}</dd>
+          </div>
+          <div>
+            <dt><Icon name="target" size={18} /> {$t("now_open")}</dt>
+            <dd>{$t("now_open_v")}</dd>
+          </div>
+          <div>
+            <dt><Icon name="check" size={18} /> {$t("edu_done")}</dt>
+            <dd>{$t("edu_elvebakken")}<span>{$t("edu_elvebakken_sub")} · 2023 – 2026</span></dd>
+          </div>
+        </dl>
       </div>
     </ScrollReveal>
     <ScrollReveal delay={100}>
@@ -250,6 +281,7 @@
     padding-top: calc(var(--nav-h) + clamp(24px, 6vw, 72px));
     padding-bottom: 24px;
     position: relative;
+    overflow-x: clip;
   }
   .hero-grid {
     display: grid;
@@ -358,7 +390,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: clamp(380px, 48vw, 560px);
+    height: clamp(380px, 44vw, 520px);
   }
   .logo-bg {
     position: absolute;
@@ -372,19 +404,74 @@
   }
   .glow {
     position: absolute;
-    bottom: 0;
-    width: 80%;
-    height: 40%;
+    bottom: 10%;
+    width: 90%;
+    height: 50%;
     background: radial-gradient(ellipse at center, rgba(48, 102, 190, 0.45), transparent 70%);
     filter: blur(20px);
   }
-  .portrait {
+  .code {
     position: relative;
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
-    mask-image: linear-gradient(180deg, #000 82%, transparent 100%);
+    width: min(100%, 440px);
+    margin-bottom: 8%;
+    border-radius: 16px;
+    background: rgba(5, 8, 48, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transform: rotate(-2deg);
+  }
+  .code-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dotc {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+  .dotc.r {
+    background: #ff5f57;
+  }
+  .dotc.y {
+    background: #febc2e;
+  }
+  .dotc.g {
+    background: #28c840;
+  }
+  .file {
+    margin-left: 8px;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  pre {
+    margin: 0;
+    padding: 18px 20px 22px;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.84rem;
+    line-height: 1.75;
+    color: var(--text);
+    white-space: pre-wrap;
+  }
+  .k {
+    color: #c792ea;
+  }
+  .v {
+    color: #82aaff;
+  }
+  .p {
+    color: #89ddff;
+  }
+  .s {
+    color: #c3e88d;
+  }
+  .b {
+    color: #f78c6c;
   }
 
   .facts {
@@ -503,6 +590,9 @@
     gap: 22px;
   }
 
+  .featured-grid.single {
+    grid-template-columns: 1fr;
+  }
   .repo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -539,17 +629,48 @@
     gap: clamp(32px, 6vw, 72px);
     align-items: center;
   }
-  .about-photo {
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-    aspect-ratio: 4 / 5;
+  .now {
+    padding: 28px;
   }
-  .about-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .now h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    margin-bottom: 18px;
+  }
+  .now dl {
+    margin: 0;
+    display: grid;
+  }
+  .now dl > div {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+  }
+  .now dt {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    gap: 8px;
+    margin-bottom: 4px;
+    font-family: var(--font-body);
+  }
+  .now dd {
+    margin: 0;
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+  }
+  .now dd span {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.88rem;
+    color: var(--text-muted);
   }
   .about-text {
     display: grid;
@@ -636,8 +757,20 @@
       grid-template-columns: 1fr;
     }
     .hero-visual {
-      order: -1;
-      height: 320px;
+      height: auto;
+      padding: 24px 0 8px;
+      justify-content: flex-start;
+    }
+    .logo-bg {
+      height: 120%;
+      left: auto;
+      right: -10%;
+      transform: none;
+      top: -10%;
+    }
+    .code {
+      margin-bottom: 0;
+      transform: none;
     }
     .facts {
       grid-template-columns: repeat(2, 1fr);
@@ -660,17 +793,15 @@
     .about-grid {
       grid-template-columns: 1fr;
     }
-    .about-photo {
-      max-width: 380px;
-    }
+
   }
   @media (max-width: 600px) {
     .skills-grid,
     .repo-grid {
       grid-template-columns: 1fr;
     }
-    .hero-visual {
-      height: 260px;
+    pre {
+      font-size: 0.78rem;
     }
     .cta .btn {
       flex: 1 1 auto;

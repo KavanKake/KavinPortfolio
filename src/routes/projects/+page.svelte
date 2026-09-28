@@ -56,10 +56,10 @@
 <section class="section tight">
   <div class="container">
     <h2 class="sub">{$t("projects_curated")}</h2>
-    <div class="grid">
+    <div class="grid" class:single={curatedProjects.length === 1}>
       {#each curatedProjects as project, i}
         <ScrollReveal delay={(i % 3) * 80}>
-          <ProjectCard {project} />
+          <ProjectCard {project} horizontal={curatedProjects.length === 1} />
         </ScrollReveal>
       {/each}
     </div>
@@ -140,6 +140,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+  }
+  .grid.single {
+    grid-template-columns: 1fr;
   }
   .toolbar {
     display: flex;
