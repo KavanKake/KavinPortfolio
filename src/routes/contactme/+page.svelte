@@ -1,278 +1,304 @@
 <script>
-  import Footer from "$lib/Components/Footer.svelte";
   import { t } from "$lib/i18n";
+  import { links } from "$lib/data/profile.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
+  import Icon from "$lib/Components/Icon.svelte";
+
+  let copied = $state(false);
+
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(links.email);
+      copied = true;
+      setTimeout(() => (copied = false), 1800);
+    } catch {
+      window.location.href = `mailto:${links.email}`;
+    }
+  }
+
+  const social = [
+    { name: "github", label: "GitHub", handle: "KavanKake", href: links.github },
+    { name: "linkedin", label: "LinkedIn", handle: "Kavin Lokeswaran", href: links.linkedin },
+    { name: "instagram", label: "Instagram", handle: "@kavinlokeswaran", href: links.instagram }
+  ].filter((s) => s.href);
 </script>
 
-<main class="contact-page">
-  <div class="spacer"></div>
-  <div class="frontpage">
-    <div class="section_1">
-      <ScrollReveal>
+<svelte:head>
+  <title>{$t("nav_contact")} – Kavin Lokeswaran</title>
+</svelte:head>
+
+<section class="page">
+  <div class="container grid">
+    <ScrollReveal>
+      <div class="intro">
+        <p class="eyebrow">{$t("contact_eyebrow")}</p>
         <h1>{$t("contact_heading")}</h1>
-        <h3>{$t("contact_intro1")}</h3>
-        <h3>{$t("contact_intro2")}</h3>
-        <div class="email">
-          <img class="mail_logo" src="/assets/mail.png" alt="" />
-          <h3>contact@kavinlokeswaran.no</h3>
-        </div>
-      </ScrollReveal>
-    </div>
-    <ScrollReveal delay={150}>
-      <div class="section_2">
-        <h2 class="contactform">{$t("contact_form_title")}</h2>
-        <form
-          method="POST"
-          action="https://formsubmit.co/contact@kavinlokeswaran.no"
-        >
-          <input type="hidden" name="_subject" value={$t("contact_subject_hidden")} />
-          <label class="name" for="firstname">{$t("contact_name")}</label>
-          <div class="nameSplit">
-            <input id="firstname" name="Navn" type="text" class="placeholderName" placeholder={$t("contact_firstname")} required />
-            <input name="Etternavn" type="text" class="placeholderName" placeholder={$t("contact_lastname")} />
+        <p class="section-lead">{$t("contact_intro")}</p>
+
+        <div class="card email">
+          <span class="e-icon"><Icon name="mail" size={22} /></span>
+          <div class="e-text">
+            <span class="label">{$t("contact_direct")}</span>
+            <a href="mailto:{links.email}">{links.email}</a>
+            <span class="hint"><Icon name="clock" size={13} /> {$t("contact_response")}</span>
           </div>
-          <label class="name" for="email">{$t("contact_email")}</label>
-          <input id="email" name="Email" type="email" class="placeholder" placeholder={$t("contact_email_placeholder")} required />
-          <label class="name" for="topic">{$t("contact_topic")}</label>
-          <input id="topic" name="Emne" type="text" class="placeholder" placeholder={$t("contact_topic_placeholder")} />
-          <label class="name" for="message">{$t("contact_message")}</label>
-          <textarea id="message" name="Melding" placeholder={$t("contact_message_placeholder")}></textarea>
-          <button class="submit" type="submit">{$t("contact_submit")}</button>
-        </form>
+          <button type="button" class="copy" onclick={copyEmail} aria-live="polite">
+            <Icon name={copied ? "check" : "copy"} size={16} />
+            {copied ? $t("contact_copied") : $t("contact_copy")}
+          </button>
+        </div>
+
+        <ul class="social">
+          {#each social as s}
+            <li>
+              <a class="card" href={s.href} target="_blank" rel="noopener noreferrer">
+                <Icon name={s.name} size={20} />
+                <span>
+                  <strong>{s.label}</strong>
+                  <small>{s.handle}</small>
+                </span>
+                <Icon name="external" size={16} />
+              </a>
+            </li>
+          {/each}
+          <li>
+            <span class="card static">
+              <Icon name="pin" size={20} />
+              <span>
+                <strong>Oslo</strong>
+                <small>{$t("stat_location")}</small>
+              </span>
+            </span>
+          </li>
+        </ul>
       </div>
     </ScrollReveal>
+
+    <ScrollReveal delay={120}>
+      <form class="card form" method="POST" action="https://formsubmit.co/{links.email}">
+        <h2>{$t("contact_form_title")}</h2>
+        <input type="hidden" name="_subject" value={$t("contact_subject_hidden")} />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="two">
+          <label>
+            <span>{$t("contact_firstname")}</span>
+            <input name="Fornavn" type="text" autocomplete="given-name" required />
+          </label>
+          <label>
+            <span>{$t("contact_lastname")}</span>
+            <input name="Etternavn" type="text" autocomplete="family-name" />
+          </label>
+        </div>
+        <label>
+          <span>{$t("contact_email")}</span>
+          <input name="email" type="email" autocomplete="email" placeholder={$t("contact_email_placeholder")} required />
+        </label>
+        <label>
+          <span>{$t("contact_topic")}</span>
+          <input name="Emne" type="text" placeholder={$t("contact_topic_placeholder")} />
+        </label>
+        <label>
+          <span>{$t("contact_message")}</span>
+          <textarea name="Melding" rows="6" placeholder={$t("contact_message_placeholder")} required></textarea>
+        </label>
+        <button class="btn btn-primary submit" type="submit">
+          {$t("contact_submit")}
+          <Icon name="arrow" />
+        </button>
+      </form>
+    </ScrollReveal>
   </div>
-  <div class="footer-spacer"></div>
-  <Footer />
-</main>
-    
+</section>
+
 <style>
-  .contact-page {
-    background-color: #030027;
-    min-height: 100vh;
-    font-family: "coolvetica", sans-serif;
-    font-weight: 400;
+  .page {
+    padding: calc(var(--nav-h) + clamp(40px, 8vw, 90px)) 0 80px;
   }
-
-  :global(body.dark-mode) .contact-page {
-    background-color: #0d0c1d;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: clamp(32px, 6vw, 72px);
+    align-items: start;
   }
-
-  .spacer {
-    height: 12em;
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    margin: 10px 0 14px;
   }
-
-  .footer-spacer {
-    height: 4em;
-  }
-
-  .frontpage {
-    display: flex;
-    flex-direction: row;
-    gap: 10em;
-    overflow-x: hidden;
-    margin-left: 0;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 2rem 2rem;
-  }
-
-  .section_1 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin-top: 5em;
-    padding-left: 3em;
-  }
-
-  .section_2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    border: 10px solid #024d98;
-    border-radius: 20px;
-    padding: 1.5em;
-    margin-top: 3em;
-    margin-bottom: 2em;
-    height: fit-content;
-    width: 35em;
-    max-width: 95vw;
-    background: rgba(255, 255, 255, 0.03);
-  }
-
-  :global(body.dark-mode) .section_2 {
-    background: rgba(0, 0, 0, 0.2);
-    border-color: #3066be;
-  }
-
-  .contactform {
-    font-family: "alphabet-soup-pro", sans-serif;
-    color: #024d98;
-    font-size: 1.75em;
-    font-weight: 500;
-    margin: 0 0 0.5em;
-  }
-
-  :global(body.dark-mode) .contactform {
-    color: #6fa3ff;
-  }
-
-  form {
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-    gap: 0.5em;
-  }
-
-  textarea {
-    height: 10em;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1em;
-    padding: 1em;
-    border: 2px solid #3066be;
-    background: #030027;
-    color: #eee;
-  }
-
-  :global(body.dark-mode) textarea {
-    background: #1a1a2e;
-    border-color: #3066be;
-  }
-
-  .name {
-    padding-top: 0.5em;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #3066be;
-  }
-
-  :global(body.dark-mode) .name {
-    color: #9ab8ff;
-  }
-
-  .submit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1em;
-    font-family: inherit;
-    font-size: 1em;
-    padding: 0.6em 1.2em;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    background-color: #024d98;
-    width: 10em;
-    cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s;
-  }
-
-  .submit:hover {
-    background-color: #3066be;
-    transform: scale(1.05);
-  }
-
-  .placeholder,
-  .placeholderName {
-    font-family: inherit;
-    font-size: 1em;
-    padding: 1em;
-    border-radius: 10px;
-    border: 2px solid #3066be;
-    background: #030027;
-    color: #eee;
-  }
-
-  .placeholderName {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  :global(body.dark-mode) .placeholder,
-  :global(body.dark-mode) .placeholderName {
-    background: #1a1a2e;
-    border-color: #3066be;
-    color: #eee;
-  }
-
-  .mail_logo {
-    width: 2em;
-    height: auto;
-    margin-right: 0.5em;
-    filter: brightness(0) invert(1);
-  }
-
-  .contact-page h1 {
-    color: #024d98;
-    font-family: "alphabet-soup-pro", sans-serif;
-  }
-
-  :global(body.dark-mode) .contact-page h1 {
-    color: #6fa3ff;
-  }
-
-  .contact-page h3 {
-    color: #3066be;
-  }
-
-  :global(body.dark-mode) .contact-page h3 {
-    color: #9ab8ff;
-  }
-
-  .nameSplit {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-  }
-
   .email {
+    margin-top: 32px;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    margin-top: 4em;
-    font-size: 1.25em;
-    color: #3066be;
-    padding: 0.75em 1em;
-    border: 2px solid #024d98;
-    border-radius: 10px;
+    gap: 16px;
+    padding: 18px 20px;
+    flex-wrap: wrap;
+  }
+  .e-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: #fff;
+  }
+  .e-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+  }
+  .e-text a {
+    color: var(--text);
+    font-family: var(--font-head);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .e-text a:hover {
+    color: var(--accent);
+  }
+  .hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-faint);
+    font-size: 0.8rem;
+    margin-top: 2px;
+  }
+  .copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font: 500 0.85rem var(--font-body);
+    cursor: pointer;
+  }
+  .copy:hover {
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .social {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .social .card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 14px;
+  }
+  .social a.card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+  .social .card > :global(svg:first-child) {
+    color: var(--accent);
+  }
+  .social .card > span {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.3;
+  }
+  .social small {
+    color: var(--text-faint);
+    font-size: 0.8rem;
+  }
+  .social .card > :global(svg:last-child) {
+    color: var(--text-faint);
   }
 
-  :global(body.dark-mode) .email {
-    border-color: #3066be;
-    color: #9ab8ff;
+  .form {
+    padding: clamp(22px, 4vw, 36px);
+    display: grid;
+    gap: 16px;
   }
-
-  @media (max-width: 1200px) {
-    .section_1 {
-      display: none;
-    }
-
-    .frontpage {
-      justify-content: center;
-      align-items: center;
+  .form h2 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+  .two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  label {
+    display: grid;
+    gap: 6px;
+  }
+  label span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  input,
+  textarea {
+    font: inherit;
+    font-size: 0.97rem;
+    color: var(--text);
+    background: rgba(3, 0, 39, 0.6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+    width: 100%;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-faint);
+  }
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(111, 163, 255, 0.2);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+  .honey {
+    display: none;
+  }
+  .submit {
+    justify-self: start;
+    margin-top: 4px;
+  }
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
   }
-
-  @media (max-width: 600px) {
-    .spacer {
-      height: 8em;
+  @media (max-width: 520px) {
+    .two,
+    .social {
+      grid-template-columns: 1fr;
     }
-
-    .nameSplit {
-      flex-direction: column;
-    }
-
-    .section_2 {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .frontpage {
-      padding: 0 1rem 2rem;
+    .submit {
+      justify-self: stretch;
     }
   }
 </style>
