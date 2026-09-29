@@ -11,6 +11,11 @@ export const links = {
   site: "https://kavinlokeswaran.no"
 };
 
+// Web3Forms tilgangsnøkkel for kontaktskjemaet (https://web3forms.com).
+// Nøkkelen er laget for å ligge offentlig i nettsiden – den kan bare brukes til å
+// sende skjemaer til din e-post. Du kan lage en ny i Web3Forms-dashbordet ved behov.
+export const WEB3FORMS_KEY = "f12fe63f-5ca8-48e0-b345-65bf4353e21a";
+
 /** Ferdigheter gruppert slik rekrutterere skanner dem. level: 1–3 (lærer / komfortabel / sterk) */
 export const skills = [
   {

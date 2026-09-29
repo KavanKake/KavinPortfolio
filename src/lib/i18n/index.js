@@ -167,6 +167,9 @@ const translations = {
     contact_submit: "Send melding",
     contact_subject_hidden: "Ny melding fra porteføljen",
     contact_copy: "Kopier",
+    contact_sending: "Sender …",
+    contact_success: "Takk! Meldingen er sendt – jeg svarer så fort jeg kan.",
+    contact_error: "Noe gikk galt, og meldingen ble ikke sendt. Prøv igjen, eller send e-post til",
     contact_copied: "Kopiert!",
 
     footer_tagline: "Student og utvikler fra Oslo.",
@@ -312,6 +315,9 @@ const translations = {
     contact_submit: "Send message",
     contact_subject_hidden: "New message from portfolio",
     contact_copy: "Copy",
+    contact_sending: "Sending …",
+    contact_success: "Thanks! Your message has been sent – I'll get back to you soon.",
+    contact_error: "Something went wrong and the message wasn't sent. Please try again, or email",
     contact_copied: "Copied!",
 
     footer_tagline: "Student and developer from Oslo.",
