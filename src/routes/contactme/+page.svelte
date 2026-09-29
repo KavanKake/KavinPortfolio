@@ -1,6 +1,6 @@
 <script>
   import { t } from "$lib/i18n";
-  import { links } from "$lib/data/profile.js";
+  import { links, WEB3FORMS_KEY } from "$lib/data/profile.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
   import Icon from "$lib/Components/Icon.svelte";
 
@@ -13,6 +13,40 @@
       setTimeout(() => (copied = false), 1800);
     } catch {
       window.location.href = `mailto:${links.email}`;
+    }
+  }
+
+  // Kontaktskjema via Web3Forms. Sendes i bakgrunnen (fetch) så besøkende blir på siden.
+  // Uten JavaScript sendes skjemaet vanlig til Web3Forms, som viser sin egen takkeside.
+  /** @type {"idle" | "sending" | "success" | "error"} */
+  let status = $state("idle");
+
+  // Emnet på e-posten du mottar – alltid på norsk, uansett språk besøkende har valgt
+  const MAIL_SUBJECT = "Ny melding fra porteføljen";
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+    if (data.botcheck) return; // spam-bot fylte ut det skjulte feltet
+
+    const name = [data.Fornavn, data.Etternavn].filter(Boolean).join(" ");
+    data.from_name = name ? `${name} (kavinlokeswaran.no)` : "kavinlokeswaran.no";
+    if (data.Emne) data.subject = `${MAIL_SUBJECT}: ${data.Emne}`;
+
+    status = "sending";
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (!res.ok || !json.success) throw new Error(json.message);
+      status = "success";
+      form.reset();
+    } catch {
+      status = "error";
     }
   }
 
@@ -75,11 +109,13 @@
     </ScrollReveal>
 
     <ScrollReveal delay={120}>
-      <form class="card form" method="POST" action="https://formsubmit.co/{links.email}">
+      <form class="card form" method="POST" action="https://api.web3forms.com/submit" onsubmit={handleSubmit}>
         <h2>{$t("contact_form_title")}</h2>
-        <input type="hidden" name="_subject" value={$t("contact_subject_hidden")} />
-        <input type="hidden" name="_template" value="table" />
-        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+        <input type="hidden" name="subject" value={MAIL_SUBJECT} />
+        <input type="hidden" name="from_name" value="kavinlokeswaran.no" />
+        <!-- Honeypot mot spam: skjult for mennesker -->
+        <input type="checkbox" name="botcheck" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
         <div class="two">
           <label>
@@ -103,10 +139,21 @@
           <span>{$t("contact_message")}</span>
           <textarea name="Melding" rows="6" placeholder={$t("contact_message_placeholder")} required></textarea>
         </label>
-        <button class="btn btn-primary submit" type="submit">
-          {$t("contact_submit")}
-          <Icon name="arrow" />
+        <button class="btn btn-primary submit" type="submit" disabled={status === "sending"}>
+          {status === "sending" ? $t("contact_sending") : $t("contact_submit")}
+          {#if status !== "sending"}<Icon name="arrow" />{/if}
         </button>
+
+        <div aria-live="polite">
+          {#if status === "success"}
+            <p class="notice ok"><Icon name="check" size={18} /> <span>{$t("contact_success")}</span></p>
+          {:else if status === "error"}
+            <p class="notice err">
+              {$t("contact_error")}
+              <a href="mailto:{links.email}">{links.email}</a>
+            </p>
+          {/if}
+        </div>
       </form>
     </ScrollReveal>
   </div>
@@ -286,6 +333,35 @@
   .submit {
     justify-self: start;
     margin-top: 4px;
+  }
+  .submit:disabled {
+    opacity: 0.7;
+    cursor: progress;
+    transform: none;
+  }
+  .notice {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.93rem;
+  }
+  .notice.ok {
+    flex-wrap: nowrap;
+    color: #bbf7d0;
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+  }
+  .notice.err {
+    color: #fecaca;
+    background: rgba(248, 113, 113, 0.08);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+  }
+  .notice a {
+    color: inherit;
+    font-weight: 600;
   }
   @media (max-width: 900px) {
     .grid {

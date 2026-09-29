@@ -5,6 +5,7 @@ Bygget med **SvelteKit** (statisk), tospråklig (NO/EN) og publisert via GitHub 
 
 ## Funksjoner
 
+- **Kontaktskjema via Web3Forms** (sendes i bakgrunnen med takk-/feilmelding; nøkkel i `src/lib/data/profile.js`).
 - **Rekrutterer-vennlig oppsett:** tydelig hero med hvem/hva/tilgjengelighet, ferdigheter med nivå, 3–4 utvalgte prosjekter med teknologi, kode- og live-lenker, om meg, utdanning og kontakt.
 - **Automatiske GitHub-prosjekter:** alle offentlige repoer på [github.com/KavanKake](https://github.com/KavanKake) hentes automatisk
   - live i nettleseren via GitHub API (nye repoer vises med en gang)
