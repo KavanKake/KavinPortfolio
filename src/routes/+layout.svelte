@@ -2,6 +2,7 @@
   import "../app.css";
   import { onMount } from "svelte";
   import { page } from "$app/stores";
+  import { afterNavigate } from "$app/navigation";
   import { locale, t, initLocale } from "$lib/i18n";
   import Icon from "$lib/Components/Icon.svelte";
   import Footer from "$lib/Components/Footer.svelte";
@@ -23,6 +24,13 @@
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  });
+
+  // GoatCounter teller første sidevisning selv. Sidebytter i SvelteKit skjer uten
+  // full omlasting, så de telles her.
+  afterNavigate(({ type }) => {
+    if (type === "enter") return;
+    window.goatcounter?.count?.({ path: location.pathname + location.search });
   });
 
   // Lukk mobilmenyen ved navigasjon
