@@ -135,7 +135,7 @@
   }
   .nav.scrolled,
   .nav.open {
-    background: rgba(3, 0, 39, 0.78);
+    background: var(--nav-bg);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom-color: var(--border);

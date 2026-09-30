@@ -30,6 +30,7 @@
         <li><a href="/projects">{$t("nav_projects")}</a></li>
         <li><a href="/aboutme">{$t("nav_about")}</a></li>
         <li><a href="/contactme">{$t("nav_contact")}</a></li>
+        <li><a href="/privacy">{$t("nav_privacy")}</a></li>
       </ul>
     </div>
 
@@ -61,7 +62,7 @@
   .footer {
     margin-top: 40px;
     border-top: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(3, 0, 39, 0), rgba(2, 77, 152, 0.12));
+    background: linear-gradient(180deg, transparent, var(--footer-glow));
     padding: 64px 0 28px;
     font-size: 0.95rem;
   }

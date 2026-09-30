@@ -6,8 +6,7 @@ export const links = {
   email: "contact@kavinlokeswaran.no",
   github: `https://github.com/${GITHUB_USER}`,
   instagram: "https://instagram.com/kavinlokeswaran",
-  // Legg inn riktig LinkedIn-URL her, så dukker ikonet opp automatisk:
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/kavin-lokeswaran/",
   site: "https://kavinlokeswaran.no"
 };
 

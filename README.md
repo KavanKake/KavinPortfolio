@@ -11,6 +11,11 @@ Bygget med **SvelteKit** (statisk), tospråklig (NO/EN) og publisert via GitHub 
 - **Automatiske GitHub-prosjekter:** alle offentlige repoer på [github.com/KavanKake](https://github.com/KavanKake) hentes automatisk
   - live i nettleseren via GitHub API (nye repoer vises med en gang)
   - pluss et øyeblikksbilde (`static/data/repos.json`) som lages ved hver build og oppdateres hver natt av GitHub Actions
+- **GitHub-aktivitetsgraf** på forsiden: bidragskalenderen for siste år hentes ved build (`scripts/fetch-contributions.mjs` → `src/lib/data/contributions.json`), så besøkende ikke kontakter GitHub for den.
+- **Personvernside** (`/privacy`) som forklarer kontaktskjema, GoatCounter, GitHub Pages og lokal lagring. Oppdater den hvis du legger til nye tjenester.
+- **Fonter på egen server** (Inter, Space Grotesk og Righteous via Fontsource), ingen kall til Google Fonts eller Adobe.
+- **Lys og mørk modus** som følger innstillingen til den besøkende (fargetokener i `src/app.css`).
+- **Egen 404-side** (`src/routes/+error.svelte`, publisert som `404.html`).
 - Raske, optimaliserte bilder (WebP), ingen kunstig lasteskjerm, mobilvennlig og tilgjengelig (tastatur, skip-lenke, redusert bevegelse).
 
 ## Endre innhold

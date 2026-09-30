@@ -1,5 +1,13 @@
-/* ---------- Designtokens ---------- */
+/* ---------- Fonter (ligger på egen server – ingen kall til Google/Adobe) ---------- */
+@import "@fontsource-variable/inter/wght.css";
+@import "@fontsource-variable/space-grotesk/wght.css";
+@import "@fontsource/righteous/400.css";
+
+/* ---------- Designtokens ----------
+   Mørk modus er standard. Lys modus følger innstillingen på maskinen til den besøkende
+   (prefers-color-scheme) – se blokken under. */
 :root {
+	color-scheme: dark;
 	--bg: #030027;
 	--bg-2: #07093a;
 	--surface: rgba(111, 163, 255, 0.06);
@@ -15,18 +23,106 @@
 	--brand-2: #024d98;
 	--accent: #6fa3ff;
 	--success: #4ade80;
+	--on-success: #bbf7d0;
+	--success-bg: rgba(74, 222, 128, 0.08);
+	--success-border: rgba(74, 222, 128, 0.3);
+	--danger: #fecaca;
+	--danger-bg: rgba(248, 113, 113, 0.08);
+	--danger-border: rgba(248, 113, 113, 0.3);
+
+	--nav-bg: rgba(3, 0, 39, 0.78);
+	--input-bg: rgba(3, 0, 39, 0.6);
+	--alt-bg: rgba(7, 9, 58, 0.7);
+	--media-bg: #0b0f45;
+	--glow-1: rgba(48, 102, 190, 0.28);
+	--glow-2: rgba(2, 77, 152, 0.22);
+	--footer-glow: rgba(2, 77, 152, 0.12);
+	--tag-accent-text: #cfe0ff;
+	--tag-accent-bg: rgba(48, 102, 190, 0.25);
+	--tag-accent-border: rgba(111, 163, 255, 0.4);
+	--track: rgba(111, 163, 255, 0.15);
+	--name-from: #ffffff;
+	--logo-opacity: 0.55;
+
+	/* GitHub-aktivitet: én farge, svak → sterk */
+	--heat-0: rgba(111, 163, 255, 0.08);
+	--heat-1: #1e3f7a;
+	--heat-2: #2c5fb8;
+	--heat-3: #4f8af0;
+	--heat-4: #9cc2ff;
 
 	--radius: 18px;
 	--radius-sm: 10px;
 	--shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
 
-	--font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-	--font-head: "Space Grotesk", "Inter", system-ui, sans-serif;
-	--font-brand: "alphabet-soup-pro", "Space Grotesk", sans-serif;
+	--font-body: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+	--font-head: "Space Grotesk Variable", "Inter Variable", system-ui, sans-serif;
+	--font-brand: "Righteous", "Space Grotesk Variable", sans-serif;
 
 	--nav-h: 72px;
 	--maxw: 1160px;
 	--gutter: clamp(16px, 4vw, 40px);
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color-scheme: light;
+		--bg: #f6f8fd;
+		--bg-2: #eaf0fb;
+		--surface: rgba(48, 102, 190, 0.05);
+		--surface-2: rgba(48, 102, 190, 0.09);
+		--border: rgba(3, 0, 39, 0.1);
+		--border-strong: rgba(48, 102, 190, 0.4);
+
+		--text: #0b1033;
+		--text-muted: #3f4a6e;
+		--text-faint: #5d6890;
+
+		--brand: #3066be;
+		--brand-2: #024d98;
+		--accent: #2456a8;
+		--success: #16a34a;
+		--on-success: #14532d;
+		--success-bg: rgba(22, 163, 74, 0.08);
+		--success-border: rgba(22, 163, 74, 0.35);
+		--danger: #991b1b;
+		--danger-bg: rgba(220, 38, 38, 0.06);
+		--danger-border: rgba(220, 38, 38, 0.3);
+
+		--shadow: 0 20px 50px -24px rgba(3, 0, 39, 0.25);
+		--nav-bg: rgba(246, 248, 253, 0.85);
+		--input-bg: #ffffff;
+		--alt-bg: rgba(48, 102, 190, 0.06);
+		--media-bg: #dde6f7;
+		--glow-1: rgba(48, 102, 190, 0.14);
+		--glow-2: rgba(2, 77, 152, 0.08);
+		--footer-glow: rgba(48, 102, 190, 0.07);
+		--tag-accent-text: #1d4a94;
+		--tag-accent-bg: rgba(48, 102, 190, 0.1);
+		--tag-accent-border: rgba(48, 102, 190, 0.3);
+		--track: rgba(48, 102, 190, 0.15);
+		--name-from: #030027;
+		--logo-opacity: 0.22;
+
+		--heat-0: rgba(3, 0, 39, 0.06);
+		--heat-1: #b9cff3;
+		--heat-2: #7ea6e6;
+		--heat-3: #3a6fc9;
+		--heat-4: #173f85;
+	}
+}
+
+/* Elementer som alltid er mørke (kodevinduet og CTA-båndet) beholder mørke tokens i begge moduser */
+.always-dark {
+	--text: #e8eeff;
+	--text-muted: #9aa9d4;
+	--text-faint: #6b7aa8;
+	--accent: #6fa3ff;
+	--surface: rgba(111, 163, 255, 0.06);
+	--surface-2: rgba(111, 163, 255, 0.1);
+	--border: rgba(111, 163, 255, 0.16);
+	--border-strong: rgba(111, 163, 255, 0.35);
+	color: var(--text);
 }
 
 *,
@@ -44,8 +140,8 @@ html {
 body {
 	margin: 0;
 	background:
-		radial-gradient(1200px 600px at 85% -10%, rgba(48, 102, 190, 0.28), transparent 60%),
-		radial-gradient(900px 500px at -10% 20%, rgba(2, 77, 152, 0.22), transparent 60%),
+		radial-gradient(1200px 600px at 85% -10%, var(--glow-1), transparent 60%),
+		radial-gradient(900px 500px at -10% 20%, var(--glow-2), transparent 60%),
 		var(--bg);
 	background-attachment: fixed;
 	color: var(--text);
@@ -209,15 +305,15 @@ img {
 	font-size: 0.78rem;
 	font-weight: 500;
 	color: var(--text-muted);
-	background: rgba(111, 163, 255, 0.08);
+	background: var(--surface-2);
 	border: 1px solid var(--border);
 	white-space: nowrap;
 }
 
 .tag-accent {
-	color: #cfe0ff;
-	background: rgba(48, 102, 190, 0.25);
-	border-color: rgba(111, 163, 255, 0.4);
+	color: var(--tag-accent-text);
+	background: var(--tag-accent-bg);
+	border-color: var(--tag-accent-border);
 }
 
 .tags {
