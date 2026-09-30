@@ -69,7 +69,7 @@
   .media {
     position: relative;
     aspect-ratio: 16 / 9;
-    background: #0b0f45;
+    background: var(--media-bg);
     overflow: hidden;
     border-bottom: 1px solid var(--border);
   }
@@ -86,7 +86,7 @@
   .media.logo {
     display: grid;
     place-items: center;
-    background: radial-gradient(circle at 50% 40%, rgba(48, 102, 190, 0.35), #0b0f45 70%);
+    background: radial-gradient(circle at 50% 40%, rgba(48, 102, 190, 0.35), var(--media-bg) 70%);
   }
   .media.logo img {
     width: 60%;

@@ -177,7 +177,31 @@ const translations = {
     footer_social: "Finn meg",
     footer_back_to_top: "Til toppen",
     footer_built: "Bygget med SvelteKit",
-    footer_copyright: "Kavin Lokeswaran"
+    footer_copyright: "Kavin Lokeswaran",
+
+    activity_title: "GitHub-aktivitet siste år",
+    activity_lead: "Commits, pull requests og issues per dag – hentet fra GitHub-profilen min.",
+    activity_total: "bidrag",
+    activity_active_days: "aktive dager",
+    activity_streak: "dager på rad (rekord)",
+    activity_best: "Travleste dag",
+    activity_none: "Ingen bidrag",
+    activity_one: "bidrag",
+    activity_many: "bidrag",
+    activity_less: "Mindre",
+    activity_more: "Mer",
+    activity_table: "GitHub-bidrag per måned",
+    activity_month: "Måned",
+
+    nav_privacy: "Personvern",
+    contact_privacy: "Meldingen sendes via Web3Forms til e-posten min.",
+    contact_privacy_link: "Les om personvern",
+
+    nf_eyebrow: "Feil 404",
+    nf_title: "Denne siden finnes ikke",
+    nf_lead: "Lenken kan være feil, eller siden er flyttet. Her er noen steder du kan gå i stedet:",
+    nf_home: "Til forsiden",
+    nf_error_title: "Noe gikk galt"
   },
   en: {
     skip: "Skip to content",
@@ -325,7 +349,31 @@ const translations = {
     footer_social: "Find me",
     footer_back_to_top: "Back to top",
     footer_built: "Built with SvelteKit",
-    footer_copyright: "Kavin Lokeswaran"
+    footer_copyright: "Kavin Lokeswaran",
+
+    activity_title: "GitHub activity in the last year",
+    activity_lead: "Commits, pull requests and issues per day – taken from my GitHub profile.",
+    activity_total: "contributions",
+    activity_active_days: "active days",
+    activity_streak: "day streak (record)",
+    activity_best: "Busiest day",
+    activity_none: "No contributions",
+    activity_one: "contribution",
+    activity_many: "contributions",
+    activity_less: "Less",
+    activity_more: "More",
+    activity_table: "GitHub contributions per month",
+    activity_month: "Month",
+
+    nav_privacy: "Privacy",
+    contact_privacy: "Your message is sent to my email via Web3Forms.",
+    contact_privacy_link: "Read about privacy",
+
+    nf_eyebrow: "Error 404",
+    nf_title: "This page doesn't exist",
+    nf_lead: "The link may be wrong, or the page has moved. Here are some places you can go instead:",
+    nf_home: "Go to the homepage",
+    nf_error_title: "Something went wrong"
   }
 };
 

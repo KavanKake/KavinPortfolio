@@ -32,6 +32,9 @@
         <div class="cta">
           <a class="btn btn-primary" href="/contactme">{$t("hero_cta_contact")} <Icon name="arrow" /></a>
           <a class="btn btn-ghost" href={links.github} target="_blank" rel="noopener noreferrer"><Icon name="github" /> GitHub</a>
+          {#if links.linkedin}
+            <a class="btn btn-ghost" href={links.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" /> LinkedIn</a>
+          {/if}
         </div>
       </div>
     </ScrollReveal>

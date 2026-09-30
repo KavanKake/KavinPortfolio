@@ -144,6 +144,11 @@
           {#if status !== "sending"}<Icon name="arrow" />{/if}
         </button>
 
+        <p class="privacy">
+          <Icon name="check" size={14} />
+          <span>{$t("contact_privacy")} <a href="/privacy">{$t("contact_privacy_link")}</a></span>
+        </p>
+
         <div aria-live="polite">
           {#if status === "success"}
             <p class="notice ok"><Icon name="check" size={18} /> <span>{$t("contact_success")}</span></p>
@@ -304,7 +309,7 @@
     font: inherit;
     font-size: 0.97rem;
     color: var(--text);
-    background: rgba(3, 0, 39, 0.6);
+    background: var(--input-bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 12px 14px;
@@ -334,6 +339,16 @@
     justify-self: start;
     margin-top: 4px;
   }
+  .privacy {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    color: var(--text-faint);
+    font-size: 0.84rem;
+  }
+  .privacy a {
+    color: var(--accent);
+  }
   .submit:disabled {
     opacity: 0.7;
     cursor: progress;
@@ -350,14 +365,14 @@
   }
   .notice.ok {
     flex-wrap: nowrap;
-    color: #bbf7d0;
-    background: rgba(74, 222, 128, 0.08);
-    border: 1px solid rgba(74, 222, 128, 0.3);
+    color: var(--on-success);
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
   }
   .notice.err {
-    color: #fecaca;
-    background: rgba(248, 113, 113, 0.08);
-    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: var(--danger);
+    background: var(--danger-bg);
+    border: 1px solid var(--danger-border);
   }
   .notice a {
     color: inherit;

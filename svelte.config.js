@@ -10,7 +10,8 @@ const config = {
 	  adapter: adapter(	{
 		pages: 'build',
 		assets: 'build',
-		fallback: null
+		// GitHub Pages viser 404.html for ukjente adresser – den laster appen og viser src/routes/+error.svelte
+		fallback: '404.html'
 	  }),
       paths: {
         base: dev ? '' : process.env.BASE_PATHS,

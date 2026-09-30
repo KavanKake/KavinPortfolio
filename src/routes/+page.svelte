@@ -8,6 +8,7 @@
   import ProjectCard from "$lib/Components/ProjectCard.svelte";
   import RepoCard from "$lib/Components/RepoCard.svelte";
   import Icon from "$lib/Components/Icon.svelte";
+  import ActivityGraph from "$lib/Components/ActivityGraph.svelte";
 
   const featured = curatedProjects.filter((p) => p.featured);
   const latest = $derived($github.repos.slice(0, 6));
@@ -58,7 +59,7 @@
     <div class="hero-visual" aria-hidden="true">
       <div class="glow"></div>
       <img class="logo-bg" src="/assets/Kavin_logo.svg" alt="" />
-      <div class="code card">
+      <div class="code card always-dark">
         <div class="code-bar">
           <span class="dotc r"></span><span class="dotc y"></span><span class="dotc g"></span>
           <span class="file">kavin.js</span>
@@ -184,6 +185,10 @@
       </div>
     </ScrollReveal>
 
+    <ScrollReveal>
+      <ActivityGraph />
+    </ScrollReveal>
+
     {#if $github.status === "ready" && latest.length}
       <div class="repo-grid">
         {#each latest as repo (repo.name)}
@@ -262,7 +267,7 @@
 <section class="section">
   <div class="container">
     <ScrollReveal>
-      <div class="cta-band">
+      <div class="cta-band always-dark">
         <img src="/assets/Kavin_logo.svg" alt="" aria-hidden="true" class="cta-logo" />
         <h2>{$t("cta_title")}</h2>
         <p>{$t("cta_lead")}</p>
@@ -295,9 +300,9 @@
     gap: 10px;
     padding: 6px 14px 6px 10px;
     border-radius: 999px;
-    background: rgba(74, 222, 128, 0.08);
-    border: 1px solid rgba(74, 222, 128, 0.3);
-    color: #bbf7d0;
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+    color: var(--on-success);
     font-size: 0.85rem;
     font-weight: 500;
     margin-bottom: 22px;
@@ -341,7 +346,7 @@
     font-size: clamp(2.6rem, 7vw, 5rem);
     line-height: 1;
     letter-spacing: 0.01em;
-    background: linear-gradient(120deg, #ffffff 10%, var(--accent) 55%, var(--brand) 100%);
+    background: linear-gradient(120deg, var(--name-from) 10%, var(--accent) 55%, var(--brand) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -399,7 +404,7 @@
     top: 2%;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.55;
+    opacity: var(--logo-opacity);
     filter: drop-shadow(0 0 60px rgba(48, 102, 190, 0.5));
   }
   .glow {
@@ -507,7 +512,7 @@
 
   /* ---------- Seksjoner ---------- */
   .alt {
-    background: linear-gradient(180deg, transparent, rgba(7, 9, 58, 0.7) 12%, rgba(7, 9, 58, 0.7) 88%, transparent);
+    background: linear-gradient(180deg, transparent, var(--alt-bg) 12%, var(--alt-bg) 88%, transparent);
   }
 
   /* ---------- Ferdigheter ---------- */
@@ -530,7 +535,7 @@
     width: 22px;
     height: 6px;
     border-radius: 3px;
-    background: linear-gradient(90deg, var(--accent) var(--w), rgba(111, 163, 255, 0.15) var(--w));
+    background: linear-gradient(90deg, var(--accent) var(--w), var(--track) var(--w));
   }
   .l3 {
     --w: 100%;
@@ -577,7 +582,7 @@
     width: 14px;
     height: 6px;
     border-radius: 3px;
-    background: rgba(111, 163, 255, 0.15);
+    background: var(--track);
   }
   .seg.on {
     background: var(--accent);
