@@ -2,6 +2,7 @@
   import { page } from "$app/stores";
   import { t } from "$lib/i18n";
   import Icon from "$lib/Components/Icon.svelte";
+  import Seo from "$lib/Components/Seo.svelte";
 
   const is404 = $derived($page.status === 404);
 
@@ -12,10 +13,7 @@
   ];
 </script>
 
-<svelte:head>
-  <title>{is404 ? $t("nf_title") : $t("nf_error_title")} – Kavin Lokeswaran</title>
-  <meta name="robots" content="noindex" />
-</svelte:head>
+<Seo title={is404 ? $t("nf_title") : $t("nf_error_title")} description={$t("seo_404_desc")} path={$page.url.pathname} noindex />
 
 <section class="page">
   <div class="container inner">

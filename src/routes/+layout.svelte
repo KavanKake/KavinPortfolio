@@ -42,19 +42,6 @@
   const isActive = (href) => $page.url.pathname.startsWith(href);
 </script>
 
-<svelte:head>
-  <title>Kavin Lokeswaran – student & utvikler</title>
-  <meta
-    name="description"
-    content="Portefølje for Kavin Lokeswaran – bachelorstudent i programmering og systemarkitektur og webutvikler fra Oslo. Prosjekter i SvelteKit, JavaScript, Node/Express og Python."
-  />
-  <meta property="og:title" content="Kavin Lokeswaran – student & utvikler" />
-  <meta property="og:description" content="Prosjekter, ferdigheter og kontaktinfo." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kavinlokeswaran.no" />
-  <meta property="og:image" content="https://kavinlokeswaran.no/img/og.jpg" />
-</svelte:head>
-
 <a class="skip" href="#main">{$t("skip")}</a>
 
 <header class="nav" class:scrolled class:open>

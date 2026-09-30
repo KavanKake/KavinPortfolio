@@ -9,6 +9,7 @@
   import RepoCard from "$lib/Components/RepoCard.svelte";
   import Icon from "$lib/Components/Icon.svelte";
   import ActivityGraph from "$lib/Components/ActivityGraph.svelte";
+  import Seo from "$lib/Components/Seo.svelte";
 
   const featured = curatedProjects.filter((p) => p.featured);
   const latest = $derived($github.repos.slice(0, 6));
@@ -16,12 +17,52 @@
 
   onMount(loadRepos);
 
+  // Strukturert data (schema.org) så søkemotorer forstår hvem siden handler om
+  const allSkills = skills.flatMap((g) => g.items.map((i) => i.name));
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": `${links.site}/#person`,
+        name: "Kavin Lokeswaran",
+        url: `${links.site}/`,
+        image: `${links.site}/img/kavin-about.webp`,
+        email: `mailto:${links.email}`,
+        jobTitle: "Student og webutvikler",
+        description:
+          "Bachelorstudent i programmering og systemarkitektur og webutvikler fra Oslo.",
+        address: { "@type": "PostalAddress", addressLocality: "Oslo", addressCountry: "NO" },
+        alumniOf: { "@type": "EducationalOrganization", name: "Elvebakken videregående skole" },
+        knowsAbout: allSkills,
+        knowsLanguage: ["nb", "en"],
+        sameAs: [links.github, links.linkedin, links.instagram].filter(Boolean)
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${links.site}/#website`,
+        name: "Kavin Lokeswaran",
+        url: `${links.site}/`,
+        inLanguage: ["nb-NO", "en"],
+        author: { "@id": `${links.site}/#person` },
+        publisher: { "@id": `${links.site}/#person` }
+      }
+    ]
+  };
+  // "<" escapes, så teksten aldri kan avslutte <script>-taggen
+  const jsonLd = `<script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, "\\u003c")}</` + "script>";
+
   const values = [
     { icon: "zap", t: "value_1_t", d: "value_1_d" },
     { icon: "target", t: "value_2_t", d: "value_2_d" },
     { icon: "users", t: "value_3_t", d: "value_3_d" }
   ];
 </script>
+
+<Seo title={$t("seo_home_title")} description={$t("seo_home_desc")} path="/" />
+<svelte:head>
+  {@html jsonLd}
+</svelte:head>
 
 <!-- ============ HERO ============ -->
 <section class="hero">

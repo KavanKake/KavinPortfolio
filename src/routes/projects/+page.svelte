@@ -8,6 +8,7 @@
   import ProjectCard from "$lib/Components/ProjectCard.svelte";
   import RepoCard from "$lib/Components/RepoCard.svelte";
   import Icon from "$lib/Components/Icon.svelte";
+  import Seo from "$lib/Components/Seo.svelte";
 
   onMount(loadRepos);
 
@@ -39,9 +40,7 @@
   );
 </script>
 
-<svelte:head>
-  <title>{$t("projects_title")} – Kavin Lokeswaran</title>
-</svelte:head>
+<Seo title={$t("projects_title")} description={$t("seo_projects_desc")} path="/projects" />
 
 <section class="page-hero">
   <div class="container">

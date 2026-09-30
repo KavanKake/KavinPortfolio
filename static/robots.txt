@@ -1,0 +1,6 @@
+# Alle søkemotorer er velkomne
+User-agent: *
+Allow: /
+Disallow: /My_projects/
+
+Sitemap: https://kavinlokeswaran.no/sitemap.xml
