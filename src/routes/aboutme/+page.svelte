@@ -3,14 +3,13 @@
   import { education, skills, links } from "$lib/data/profile.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
   import Icon from "$lib/Components/Icon.svelte";
+  import Seo from "$lib/Components/Seo.svelte";
 
   const interests = ["interest_1", "interest_2", "interest_3", "interest_4", "interest_5"];
   const allSkills = skills.flatMap((g) => g.items.map((i) => i.name));
 </script>
 
-<svelte:head>
-  <title>{$t("about_title")} – Kavin Lokeswaran</title>
-</svelte:head>
+<Seo title={$t("nav_about")} description={$t("seo_about_desc")} path="/aboutme" />
 
 <section class="page-hero">
   <div class="container grid">

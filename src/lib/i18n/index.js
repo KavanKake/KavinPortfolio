@@ -201,7 +201,20 @@ const translations = {
     nf_title: "Denne siden finnes ikke",
     nf_lead: "Lenken kan være feil, eller siden er flyttet. Her er noen steder du kan gå i stedet:",
     nf_home: "Til forsiden",
-    nf_error_title: "Noe gikk galt"
+    nf_error_title: "Noe gikk galt",
+
+    seo_home_title: "student og utvikler i Oslo",
+    seo_home_desc:
+      "Portefølje for Kavin Lokeswaran – bachelorstudent i programmering og systemarkitektur og webutvikler fra Oslo. Prosjekter i SvelteKit, JavaScript, Node/Express og Python.",
+    seo_projects_desc:
+      "Prosjekter av Kavin Lokeswaran: nettsider, webapper og spill bygget med SvelteKit, JavaScript, Node/Express og Python – med kode på GitHub.",
+    seo_about_desc:
+      "Om Kavin Lokeswaran: bachelorstudent i programmering og systemarkitektur (2026–2029) fra Oslo, med utdanning, ferdigheter og interesser.",
+    seo_contact_desc:
+      "Ta kontakt med Kavin Lokeswaran om deltidsjobb, sommerjobb, praksis eller prosjekter. Send en melding eller e-post til contact@kavinlokeswaran.no.",
+    seo_privacy_desc:
+      "Hvordan kavinlokeswaran.no behandler personopplysninger: kontaktskjema, besøksstatistikk uten cookies, GitHub og dine rettigheter.",
+    seo_404_desc: "Siden du leter etter finnes ikke på kavinlokeswaran.no."
   },
   en: {
     skip: "Skip to content",
@@ -373,7 +386,20 @@ const translations = {
     nf_title: "This page doesn't exist",
     nf_lead: "The link may be wrong, or the page has moved. Here are some places you can go instead:",
     nf_home: "Go to the homepage",
-    nf_error_title: "Something went wrong"
+    nf_error_title: "Something went wrong",
+
+    seo_home_title: "student and developer in Oslo",
+    seo_home_desc:
+      "Portfolio of Kavin Lokeswaran – bachelor student in Programming and Systems Architecture and web developer from Oslo. Projects in SvelteKit, JavaScript, Node/Express and Python.",
+    seo_projects_desc:
+      "Projects by Kavin Lokeswaran: websites, web apps and games built with SvelteKit, JavaScript, Node/Express and Python – with the code on GitHub.",
+    seo_about_desc:
+      "About Kavin Lokeswaran: bachelor student in Programming and Systems Architecture (2026–2029) from Oslo – education, skills and interests.",
+    seo_contact_desc:
+      "Get in touch with Kavin Lokeswaran about part-time or summer jobs, internships or projects. Send a message or email contact@kavinlokeswaran.no.",
+    seo_privacy_desc:
+      "How kavinlokeswaran.no handles personal data: the contact form, cookie-free visitor statistics, GitHub and your rights.",
+    seo_404_desc: "The page you are looking for doesn't exist on kavinlokeswaran.no."
   }
 };
 

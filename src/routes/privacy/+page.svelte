@@ -3,6 +3,7 @@
   import { links } from "$lib/data/profile.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
   import Icon from "$lib/Components/Icon.svelte";
+  import Seo from "$lib/Components/Seo.svelte";
 
   // Husk å oppdatere datoen når innholdet endres
   const UPDATED = "2026-09-30";
@@ -130,9 +131,7 @@
   );
 </script>
 
-<svelte:head>
-  <title>{$t("nav_privacy")} – Kavin Lokeswaran</title>
-</svelte:head>
+<Seo title={$t("nav_privacy")} description={$t("seo_privacy_desc")} path="/privacy" />
 
 <section class="page">
   <div class="container narrow">

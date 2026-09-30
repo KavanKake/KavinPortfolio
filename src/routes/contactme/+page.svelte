@@ -3,6 +3,7 @@
   import { links, WEB3FORMS_KEY } from "$lib/data/profile.js";
   import ScrollReveal from "$lib/Components/ScrollReveal.svelte";
   import Icon from "$lib/Components/Icon.svelte";
+  import Seo from "$lib/Components/Seo.svelte";
 
   let copied = $state(false);
 
@@ -57,9 +58,7 @@
   ].filter((s) => s.href);
 </script>
 
-<svelte:head>
-  <title>{$t("nav_contact")} – Kavin Lokeswaran</title>
-</svelte:head>
+<Seo title={$t("nav_contact")} description={$t("seo_contact_desc")} path="/contactme" />
 
 <section class="page">
   <div class="container grid">
